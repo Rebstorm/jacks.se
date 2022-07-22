@@ -1,11 +1,17 @@
 /** @jsx h */
 import { h } from "preact";
+import { tw } from "@twind";
 
 export interface Content {
-    content: string
+  content: string;
 }
+
+const container = `
+flex flex-row justify-center
+p-0.5 m-0.5`;
+
 export const Content = (props: Content) => {
-    return <div> {props.content} </div>
-}
+  return <div class={tw`${container}`}> {props.content} </div>;
+};
 
 export default Content;

@@ -11,7 +11,6 @@ export default function Home() {
     <div class={tw``}>
       <Header />
       <div class={tw`p-4 mx-auto max-w-screen-lg`}>
-        <Menu />
         <Content content={"I am content"}></Content>
       </div>
       <Footer />
