@@ -7,7 +7,11 @@ flex flex-row justify-center
 p-12`;
 
 export const Footer = () => {
-  return <div class={tw`${container}`}>I am footer</div>;
+  const date = new Date();
+
+  return (
+    <div class={tw`${container}`}>&copy; {date.getFullYear()} Paul Jacks</div>
+  );
 };
 
 export default Footer;

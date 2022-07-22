@@ -6,10 +6,13 @@ import { tw } from "@twind";
 const container = `
 p-12`;
 
-export const Header = () => {
+export interface HeaderProps {
+  route: string;
+}
+export const Header = (props: HeaderProps) => {
   return (
     <div class={tw`${container}`}>
-      <Menu />
+      <Menu route={props.route} />
     </div>
   );
 };

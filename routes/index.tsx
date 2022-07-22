@@ -1,17 +1,25 @@
 /** @jsx h */
 import { h } from "preact";
 import { tw } from "@twind";
-import { Menu } from "../islands/Menu.tsx";
 import Content from "../islands/Content.tsx";
 import Footer from "../islands/Footer.tsx";
 import Header from "../islands/Header.tsx";
+import { PageProps } from "$fresh/server.ts";
 
-export default function Home() {
+const homeContent: string[] = Array.of(
+  "Welcome.",
+  "I am Paul.",
+  "I like the web."
+);
+
+export default function Home(props: PageProps) {
   return (
     <div class={tw``}>
-      <Header />
+      <Header route={props.route} />
       <div class={tw`p-4 mx-auto max-w-screen-lg`}>
-        <Content content={"I am content"}></Content>
+        {homeContent.map((item) => (
+          <Content content={item}></Content>
+        ))}
       </div>
       <Footer />
     </div>

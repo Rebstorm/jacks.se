@@ -11,8 +11,18 @@ export const config: Configuration = {
       fontFamily: {
         sans: "'Patrick Hand SC', sans-serif",
       },
+      keyframes: {
+        wiggle: {
+          "0%, 100%": { transform: "rotate(-3deg)" },
+          "50%": { transform: "rotate(3deg)" },
+        },
+      },
+      animation: {
+        wiggle: "wiggle 1s ease-in-out infinite",
+      },
     },
   },
+  /* This messes with the SSR - TODO: Fix.
   preflight: {
     // Import external stylesheet
     "@import": `url('https://fonts.googleapis.com/css2?family=Patrick+Hand+SC&display=swap'')`,
@@ -25,5 +35,6 @@ export const config: Configuration = {
       },
     ],
   },
+   */
 };
 if (IS_BROWSER) setup(config);

@@ -7,6 +7,7 @@ export interface Content {
 }
 
 const container = `
+text-3xl 
 flex flex-row justify-center
 p-0.5 m-0.5`;
 
