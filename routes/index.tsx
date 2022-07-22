@@ -10,7 +10,7 @@ export default function Home() {
   return (
     <div class={tw``}>
       <Header />
-      <div class={tw`p-4 mx-auto max-w-screen-md`}>
+      <div class={tw`p-4 mx-auto max-w-screen-lg`}>
         <Menu />
         <Content content={"I am content"}></Content>
       </div>
