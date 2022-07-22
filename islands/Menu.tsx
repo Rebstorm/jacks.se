@@ -4,7 +4,6 @@ import { tw } from "@twind";
 
 const container = `
 flex flex-row justify-center
-text-3xl 
 p-0.5 m-0.5`;
 
 const item = `
@@ -26,22 +25,42 @@ export const Menu = (props: MenuProps) => {
       <div class={tw`${item}`}>
         {!navigatedToInfo ? (
           <a href={"info"}>
-            <img src={"info.png"} alt={"Info"}></img>
+            <img
+              src={"info.png"}
+              height={64}
+              width={64}
+              alt={"Information"}
+            ></img>
           </a>
         ) : (
           <a href={".."}>
-            <img src={"left-arrow.png"} alt={"Go back"}></img>
+            <img
+              src={"left-arrow.png"}
+              height={64}
+              width={64}
+              alt={"Go back"}
+            ></img>
           </a>
         )}
       </div>
       <div class={tw`${item}`}>
         <a target={"_blank"} href={"https://github.com/Rebstorm"}>
-          <img src={"github.png"} alt={"Github Logo"}></img>
+          <img
+            src={"github.png"}
+            height={64}
+            width={64}
+            alt={"Github Logo"}
+          ></img>
         </a>
       </div>
       <div className={tw`${item}`}>
         <a target={"_blank"} href={"https://twitter.com/rebstorm"}>
-          <img src={"twitter.png"} alt={"Github Logo"}></img>
+          <img
+            src={"twitter.png"}
+            height={64}
+            width={64}
+            alt={"Twitter Logo"}
+          ></img>
         </a>
       </div>
     </div>
