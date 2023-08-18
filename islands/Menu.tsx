@@ -23,6 +23,9 @@ export const Menu = (props: MenuProps) => {
       <a target={"_blank"} href={"https://github.com/Rebstorm"}>
         github
       </a>
+      <a target={"_blank"} href={"https://fosstodon.org/@sendcookies"}>
+        mastodon
+      </a>
       <a target={"_blank"} href={"https://twitter.com/rebstorm"}>
         tweets
       </a>
