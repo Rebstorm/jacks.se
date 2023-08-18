@@ -24,10 +24,10 @@ export const Menu = (props: MenuProps) => {
         github
       </a>
       <a target={"_blank"} href={"https://fosstodon.org/@sendcookies"}>
-        mastodon
+        🦣
       </a>
       <a target={"_blank"} href={"https://twitter.com/rebstorm"}>
-        tweets
+        🐦
       </a>
     </nav>
   );
