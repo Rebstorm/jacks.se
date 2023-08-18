@@ -27,6 +27,7 @@ body, html {
     box-shadow: none;
     transition: all 500ms ease-in;
     padding: 0.5rem;
+    overflow-x: hidden;
 }
 
 a {
