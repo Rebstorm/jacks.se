@@ -33,6 +33,11 @@ body, html {
     overflow-x: hidden;
 }
 
+.active {
+    font-weight: 700;
+    background: var(--primary-color);
+}
+
 a {
     text-decoration: none;
     color: var(--secondary-text)
@@ -40,7 +45,7 @@ a {
 
 
 .blog-title {
-    text-decoration: underline;
+    text-decoration: none;
     color: var(--secondary-text);
     font-weight: 700 ;
     font-size: 1.5rem;

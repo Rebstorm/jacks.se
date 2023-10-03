@@ -1,4 +1,4 @@
-import Menu from "./Menu.tsx";
+import Menu from "./Menu/Menu.tsx";
 
 const container = `
 p-12`;
