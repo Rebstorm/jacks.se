@@ -10,7 +10,9 @@ export default function BlogEntry(props: PageProps & { data: Post }) {
       </Head>
       <div
         class={"md"}
-        dangerouslySetInnerHTML={{ __html: render(props.data.content) }}
+        dangerouslySetInnerHTML={{
+          __html: render(props.data.content, {}),
+        }}
       />
     </>
   );
