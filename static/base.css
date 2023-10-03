@@ -19,6 +19,9 @@ body, html {
     font-family: 'Nunito', sans-serif;
     display: flex;
     flex-direction: column;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+
 }
 
 .nav {
@@ -33,6 +36,18 @@ body, html {
 a {
     text-decoration: none;
     color: var(--secondary-text)
+}
+
+
+.blog-title {
+    text-decoration: underline;
+    color: var(--secondary-text);
+    font-weight: 700 ;
+    font-size: 1.5rem;
+}
+
+.blog-title:hover{
+    color: var(--primary-color)
 }
 
 b {
@@ -64,6 +79,8 @@ b {
 
 .md {
   display: block;
+  width: inherit;
+  padding: 1rem;
 }
 
 
@@ -72,10 +89,40 @@ b {
     justify-content: center;
 }
 
+pre {
+    background: var(--secondary-color);
+    border-radius: 2rem;
+    padding: 1rem;
+}
+
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+
+
+
 @media screen and (max-width: 799px) {
     .container {
         max-width: unset;
         width: 95vw;
+    }
+
+    .md {
+        padding: 0.1rem;
+    }
+
+    .pre {
+        padding: 0.1rem;
+        white-space: pre-wrap;
+        overflow-wrap: break-word;
+    }
+
+    code {
+        white-space: pre-wrap;
+        overflow-wrap: break-word;
     }
 }
 @media (prefers-color-scheme: dark) {
@@ -93,4 +140,5 @@ b {
     .nav {
         box-shadow: none
     }
+
 }

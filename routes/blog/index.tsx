@@ -9,7 +9,9 @@ export default function BlogList(props: PageProps & { data: Array<Post> }) {
 
       {props.data.map((availablePosts) => (
         <div>
-          📄 <a href={`blog/${availablePosts.slug}`}>{availablePosts.title}</a>
+          <a className={"blog-title"} href={`blog/${availablePosts.slug}`}>
+            📄 {availablePosts.title}
+          </a>
           <p>{availablePosts.snippet.toString()}</p>
           <i>Written on: {availablePosts.publishedAt.toDateString()}</i>
         </div>
