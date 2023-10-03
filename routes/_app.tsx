@@ -19,18 +19,34 @@ export default function App({ Component, route, ...rest }: AppProps) {
   const pathPrefix = getCSSPathPrefix(route);
 
   return (
-    <html>
+    <html lang={"en"}>
       <head>
         <meta charSet="utf-8" />
+        <meta name="Pauls Dev Page. Add salt for saltiness." />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="stylesheet" href={`${pathPrefix}base.css`} />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+        <link
+          rel="preload"
+          href="https://fonts.gstatic.com/s/nunito/v16/XRXV3I6Li01BKofINeaB.woff2"
+          as="font"
+          type="font/woff2"
+          crossorigin
+        />
+        <link
+          rel="preload"
+          href="https://fonts.gstatic.com/s/nunito/v16/XRXW3I6Li01BKofA-seUb-vI.woff2"
+          as="font"
+          type="font/woff2"
+          crossorigin
+        />
+
         <link
           href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;700&display=swap"
           rel="stylesheet"
         />
-        <title>jacks.se</title>
+
+        <title>🫠</title>
       </head>
       <body>
         <Header route={route} />
