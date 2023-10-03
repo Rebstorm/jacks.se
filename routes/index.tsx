@@ -1,8 +1,7 @@
 import { PageProps } from "$fresh/server.ts";
 import { Paragraph } from "../components/paragraph.tsx";
 import { H1 } from "../components/h1.tsx";
-import React from "react";
-import {H2} from "../components/h2.tsx";
+import { H2 } from "../components/h2.tsx";
 
 export default function Home(props: PageProps) {
   return (
@@ -12,7 +11,7 @@ export default function Home(props: PageProps) {
         Yes, you read that right. But not just anything - I craft digital
         marvels using TypeScript and Rust, because, you know, who doesn't enjoy
         a bit of type safety and performance efficiency in their life?
-
+      </Paragraph>
 
       <H2>Deep Dive</H2>
       <Paragraph>
