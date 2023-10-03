@@ -1,6 +1,8 @@
 import { PageProps } from "$fresh/server.ts";
 import { Paragraph } from "../components/paragraph.tsx";
 import { H1 } from "../components/h1.tsx";
+import React from "react";
+import {H2} from "../components/h2.tsx";
 
 export default function Home(props: PageProps) {
   return (
@@ -8,9 +10,11 @@ export default function Home(props: PageProps) {
       <H1>Hello, I'm Paul. I code things.</H1>
       <Paragraph>
         Yes, you read that right. But not just anything - I craft digital
-        marvels using TypeScript and Rust, because, you know, who does'’t enjoy
+        marvels using TypeScript and Rust, because, you know, who doesn't enjoy
         a bit of type safety and performance efficiency in their life?
-      </Paragraph>
+
+
+      <H2>Deep Dive</H2>
       <Paragraph>
         When I’m not not bashing my head against the keyboard (also known as my
         coding environment), you might find me on my bike, or possibly,
