@@ -29,6 +29,21 @@ export default function App({ Component, route, ...rest }: AppProps) {
         <link rel="preload" href={`${pathPrefix}base.css`} as="style" />
 
         <link
+          rel="preload"
+          href="https://fonts.gstatic.com/s/nunito/v16/XRXV3I6Li01BKofINeaB.woff2"
+          as="font"
+          type="font/woff2"
+          crossorigin
+        />
+        <link
+          rel="preload"
+          href="https://fonts.gstatic.com/s/nunito/v16/XRXW3I6Li01BKofA-seUb-vI.woff2"
+          as="font"
+          type="font/woff2"
+          crossorigin
+        />
+
+        <link
           href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;700&display=swap"
           rel="stylesheet"
         />
