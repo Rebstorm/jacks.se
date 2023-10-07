@@ -1,12 +1,17 @@
 /* Light Theme */
 :root {
     --background-color: #f6f8fa;
+    --background-contrast: #18202c;
     --primary-color: #0366d6;
     --secondary-color: #e1e4e8;
     --accent-color: #4073fa;
     --primary-text: #1c1f23;
     --secondary-text: #0366d6;
     --tertiary-text: #959da5;
+    --flavor-1:#f06;
+    --flavor-2:#9f6;
+    --flavor-3: #f0a;
+    --norm: 1rem;
 }
 
 
@@ -16,12 +21,12 @@ body, html {
     color: var(--primary-text);
     font-size: 16px;
     font-weight: 300;
+    overflow-x: hidden;
     font-family: 'Nunito', monospace, sans-serif;
     display: flex;
     flex-direction: column;
     word-wrap: break-word;
     overflow-wrap: break-word;
-
 }
 
 .nav {
@@ -31,6 +36,7 @@ body, html {
     transition: all 500ms ease-in;
     padding: 0.5rem;
     overflow-x: hidden;
+    z-index: 2;
 }
 
 .active {
@@ -64,12 +70,17 @@ b {
 }
 
 .nav > a {
-    padding: 1rem;
+    padding: var(--norm);
     text-decoration: none;
-    color: var(--primary-text)
+    color: var(--secondary-text);
+    fill            : none;
+    stroke          : black;
+    stroke-width    : .5px;
+    stroke-linejoin : round;
 }
 
 .nav > a:hover {
+    padding: var(--norm);
     background: var(--accent-color);
 }
 
@@ -79,6 +90,7 @@ b {
     padding: 0.2rem;
     max-width: 800px;
     width: 100vw;
+    z-index: 2;
 }
 
 
@@ -111,7 +123,34 @@ img {
 }
 
 
+.gradient-text {
+    font-weight: bold;
+    position: relative;
+    overflow: hidden;
+    background-image: linear-gradient(45deg, var(--flavor-1), var(--flavor-2), var(--flavor-3));
+    background-size: 200% 100%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: gradientAnimation 10s infinite linear;
+}
 
+.wave {
+    position: absolute;
+    width: 200%;
+    overflow: hidden;
+    animation: wave 10s linear infinite;
+    transform: rotate(0deg);
+}
+
+@keyframes wave {
+    0% {
+        transform: translateX(0) rotate(180deg);
+    }
+    100% {
+        transform: translateX(-50%) rotate(180deg);
+    }
+}
 
 
 
@@ -136,10 +175,13 @@ img {
         overflow-wrap: break-word;
     }
 }
+
+
 @media (prefers-color-scheme: dark) {
 
     :root {
         --background-color: #18202c;
+        --background-contrast: #f6f8fa;
         --primary-color: #2188ff;
         --secondary-color: #444d56;
         --accent-color: #1f6feb;

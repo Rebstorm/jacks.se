@@ -6,7 +6,7 @@ import { H2 } from "../components/h2.tsx";
 export default function Home(props: PageProps) {
   return (
     <div class={"innerContainer"}>
-      <H1>Hello, I'm Paul. I code things.</H1>
+      <H1 shouldAnimate>Hello, I'm Paul. I code things.</H1>
       <Paragraph>
         Yes, you read that right. But not just anything - I craft digital
         marvels using TypeScript and Rust, because, you know, who doesn't enjoy

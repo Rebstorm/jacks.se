@@ -22,9 +22,11 @@ export default function App({ Component, route, ...rest }: AppProps) {
     <html lang={"en"}>
       <head>
         <meta charSet="utf-8" />
+        <title>🫠</title>
         <meta name="Pauls Dev Page. Add salt for saltiness." />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="stylesheet" href={`${pathPrefix}base.css`} />
+
+        <link rel="preload" href={`${pathPrefix}base.css`} as="style" />
 
         <link
           rel="preload"
@@ -42,13 +44,23 @@ export default function App({ Component, route, ...rest }: AppProps) {
         />
 
         <link
-          href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;700&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;700&display=auto"
           rel="stylesheet"
         />
 
-        <title>🫠</title>
+        <link rel="stylesheet" href={`${pathPrefix}base.css`} />
       </head>
       <body>
+        <svg
+          class="wave"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 -50 2000 130"
+        >
+          <path
+            fill="var(--background-contrast)"
+            d="M0,50 C500,-50 500,150 1000,50 C1500,-50 1500,150 2000,50 V100 H0 Z"
+          ></path>
+        </svg>
         <Header route={route} />
         <div class={"container"}>
           <Component />
