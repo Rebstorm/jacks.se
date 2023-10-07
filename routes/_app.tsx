@@ -44,7 +44,7 @@ export default function App({ Component, route, ...rest }: AppProps) {
         />
 
         <link
-          href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;700&display=auto"
+          href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;700&display=swap"
           rel="stylesheet"
         />
 
