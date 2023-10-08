@@ -14,6 +14,21 @@
     --norm: 1rem;
 }
 
+@font-face {
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 400;
+    src: url(https://fonts.gstatic.com/s/nunito/v16/XRXV3I6Li01BKofINeaB.woff2) format('woff2');
+}
+
+@font-face {
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 700;
+    src: url(https://fonts.gstatic.com/s/nunito/v16/XRXV3I6Li01BKofIO-aB.woff2) format('woff2');
+}
+
+
 
 body, html {
     margin: 0;
@@ -22,7 +37,7 @@ body, html {
     font-size: 16px;
     font-weight: 300;
     overflow-x: hidden;
-    font-family: "Noto Sans", monospace;
+    font-family: 'Nunito', sans-serif;
     display: flex;
     flex-direction: column;
     word-wrap: break-word;
@@ -41,7 +56,7 @@ body, html {
 
 .active {
     font-weight: 700;
-    background: var(--primary-color);
+    background: var(--secondary-color);
 }
 
 a {

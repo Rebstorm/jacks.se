@@ -26,6 +26,20 @@ export default function App({ Component, route, ...rest }: AppProps) {
         <meta name="Pauls Dev Page. Add salt for saltiness." />
         <meta name="viewport" content="width=device-width, minimum-scale=1.0" />
 
+        <link
+          rel="preload"
+          href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap"
+          as="style"
+          onLoad="this.rel='stylesheet'"
+        />
+
+        <noscript>
+          <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap"
+          />
+        </noscript>
+
         <link rel="preload" href={`${pathPrefix}base.css`} as="style" />
 
         <link rel="stylesheet" href={`${pathPrefix}base.css`} />

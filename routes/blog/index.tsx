@@ -5,7 +5,7 @@ import { H1 } from "../../components/h1.tsx";
 export default function BlogList(props: PageProps & { data: Array<Post> }) {
   return (
     <div class={"innerContainer"}>
-      <H1>Blog entries</H1>
+      <H1 shouldAnimate>Blog entries</H1>
 
       {props.data.map((availablePosts) => (
         <div>
