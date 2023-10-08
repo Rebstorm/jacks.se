@@ -113,10 +113,15 @@ b {
   margin: 2rem 0 2rem 0;
 }
 
+.blog-desc-container{
+    margin-bottom: calc(var(--norm) * 3);
+}
+
 .md {
   display: block;
   width: inherit;
   padding: 1rem;
+  max-width: inherit;
 }
 
 
