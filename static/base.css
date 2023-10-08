@@ -18,14 +18,14 @@
     font-family: 'Nunito';
     font-style: normal;
     font-weight: 400;
-    src: url(https://fonts.gstatic.com/s/nunito/v16/XRXV3I6Li01BKofINeaB.woff2) format('woff2');
+    src: url('./design/fonts/nun-400.woff2') format('woff2');
 }
 
 @font-face {
     font-family: 'Nunito';
     font-style: normal;
     font-weight: 700;
-    src: url(https://fonts.gstatic.com/s/nunito/v16/XRXV3I6Li01BKofIO-aB.woff2) format('woff2');
+    src: url(./design/fonts/nun-700.woff2) format('woff2');
 }
 
 
