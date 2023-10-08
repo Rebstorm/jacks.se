@@ -135,6 +135,11 @@ img {
     animation: gradientAnimation 10s infinite linear;
 }
 
+
+.overflow-hidden{
+    overflow-x: hidden;
+}
+
 .wave {
     position: absolute;
     width: 200%;
