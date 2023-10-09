@@ -1,6 +1,6 @@
 ---
 title: Gall's law - We Devs Are the Issue.
-published_at: 2023-10-23T17:57:00.000Z
+published_at: 2023-10-08T17:57:00.000Z
 snippet: "Building systems? Keeping it simple might just be your best bet. Let’s dive into why predictability is key."
 ---
 
