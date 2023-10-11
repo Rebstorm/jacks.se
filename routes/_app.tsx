@@ -1,6 +1,7 @@
 import { AppProps } from "$fresh/server.ts";
 import { Partial } from "$fresh/runtime.ts";
 import Header from "../islands/Header.tsx";
+import Wave from "../components/wave.tsx";
 import Footer from "../islands/Footer.tsx";
 
 function getCSSPathPrefix(route: string) {
@@ -46,19 +47,7 @@ export default function App({ Component, route, ...rest }: AppProps) {
         <link rel="stylesheet" href={`${pathPrefix}base.css`} />
       </head>
       <body>
-        <div className={"overflow-hidden"}>
-          <svg
-            class="wave"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 -50 2000 130"
-          >
-            <path
-              fill="var(--background-contrast)"
-              d="M0,50 C500,-50 500,150 1000,50 C1500,-50 1500,150 2000,50 V100 H0 Z"
-            ></path>
-          </svg>
-        </div>
-
+        <Wave />
         <div f-client-nav className={"portal"}>
           <Header route={route} />
           <div class={"container"}>

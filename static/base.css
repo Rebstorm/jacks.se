@@ -44,6 +44,19 @@ body, html {
     overflow-wrap: break-word;
 }
 
+
+pre {
+    background: var(--secondary-color);
+    border-radius: 2rem;
+    padding: 1rem;
+}
+
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
 .portal {
     z-index: 100;
     display: flex;
@@ -139,7 +152,6 @@ b {
     background-clip: text;
     -webkit-background-clip: text;
     color: transparent;
-    animation: gradientAnimation 10s infinite linear;
 }
 
 
@@ -147,19 +159,6 @@ b {
     display: flex;
     justify-content: center;
 }
-
-pre {
-    background: var(--secondary-color);
-    border-radius: 2rem;
-    padding: 1rem;
-}
-
-
-img {
-    max-width: 100%;
-    height: auto;
-}
-
 
 .gradient-text {
     font-weight: bold;
@@ -170,7 +169,6 @@ img {
     background-clip: text;
     -webkit-background-clip: text;
     color: transparent;
-    animation: gradientAnimation 10s infinite linear;
 }
 
 
@@ -194,7 +192,6 @@ img {
         transform: translateX(-50%) rotate(180deg);
     }
 }
-
 
 
 @media screen and (max-width: 799px) {
