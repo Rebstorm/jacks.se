@@ -44,6 +44,12 @@ body, html {
     overflow-wrap: break-word;
 }
 
+.portal {
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+}
+
 .nav {
     display: flex;
     justify-content: center;
@@ -122,6 +128,18 @@ b {
   width: inherit;
   padding: 1rem;
   max-width: inherit;
+}
+
+.md > h1 {
+    font-weight: bold;
+    position: relative;
+    overflow: hidden;
+    background-image: linear-gradient(45deg, var(--flavor-1), var(--flavor-2), var(--flavor-3));
+    background-size: 200% 100%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: gradientAnimation 10s infinite linear;
 }
 
 

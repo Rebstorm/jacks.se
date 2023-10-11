@@ -58,11 +58,14 @@ export default function App({ Component, route, ...rest }: AppProps) {
             ></path>
           </svg>
         </div>
-        <Header route={route} />
-        <div class={"container"} f-client-nav>
-          <Partial name="main">
-            <Component />
-          </Partial>
+
+        <div f-client-nav className={"portal"}>
+          <Header route={route} />
+          <div class={"container"}>
+            <Partial name="main">
+              <Component />
+            </Partial>
+          </div>
         </div>
         <Footer />
       </body>

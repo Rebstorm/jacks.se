@@ -21,8 +21,8 @@ export const Menu = (props: MenuProps) => {
           <a
             key={index}
             href={link.path}
-            f-partial={`/partials${link.path}`}
-            className={props.route === link.path ? "active" : ""}
+            f-partial={`${link.path}`}
+            /* className={props.route === link.path ? "active" : ""} */
           >
             {link.label}
           </a>
