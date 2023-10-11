@@ -1,4 +1,5 @@
-# jacks.se main page
+# Jacks.se
+My own personal blog and complain-o-sphere.
 
 ### Usage
 
