@@ -19,7 +19,7 @@ export const generateObstacles = (
 
     // Random height for the "gap" in the obstacles
     const randomGapHeight =
-      Math.random() * IS_SMALL_SCREEN ? 200 + 50 : 500 + 50;
+      Math.random() * IS_SMALL_SCREEN ? 200 + 50 : Math.random() * 500 + 50;
 
     setObstacles((prev: Obstacle) => [
       ...prev,

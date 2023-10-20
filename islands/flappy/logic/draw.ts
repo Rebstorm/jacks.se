@@ -5,20 +5,6 @@ import { PLAYER_HEIGHT, PLAYER_WIDTH } from "./constants.ts";
 export type GameOverCallback = () => void;
 export type ScoreCallback = () => void;
 
-const totalFrames = 5;
-const spriteSheetWidth = 1005; // total width of your sprite sheet
-const spriteHeight = 252; // the height of your sprite sheet (and each individual frame)
-
-const spriteWidth = spriteSheetWidth / totalFrames; // the width of each frame
-
-const sX = 0; // because we're drawing the first frame
-const sY = 0;
-
-const dX = 200; // x-coordinate on the canvas
-const dY = 200; // y-coordinate on the canvas
-const dWidth = 20; // width of the drawn image in canvas
-const dHeight = 20; // height of the drawn image in canvas
-
 export const drawBird = (
   canvas: HTMLCanvasElement,
   context: CanvasRenderingContext2D,
@@ -65,18 +51,16 @@ export const drawBird = (
   setBirdY((prevY: number) => prevY + birdVelocity);
 };
 
-export const drawObstacles = (
-  canvas: HTMLCanvasElement,
-  context: CanvasRenderingContext2D,
-  obstacles: Obstacle[]
-): void => {
-  const obstacleWidth = PLAYER_WIDTH;
-  const obstacleGap = 200;
+let currentGradient: CanvasGradient | string = "";
+let gradientChangeFrame = 0;
+const framesPerGradientChange = 100;
 
+// This function creates a new gradient and assigns it to currentGradient
+function updateGradient(context, canvas) {
   const gradientStartX = 0;
   const gradientStartY = 0;
   const gradientEndX = 0;
-  const gradientEndY = canvas.height; // Vertical gradient
+  const gradientEndY = canvas.height;
 
   const gradient = context.createLinearGradient(
     gradientStartX,
@@ -88,7 +72,26 @@ export const drawObstacles = (
   gradient.addColorStop(0, getRandomColor());
   gradient.addColorStop(1, getRandomColor());
 
-  context.fillStyle = gradient;
+  // Update the current gradient
+  currentGradient = gradient;
+}
+export const drawObstacles = (
+  canvas: HTMLCanvasElement,
+  context: CanvasRenderingContext2D,
+  obstacles: Obstacle[]
+): void => {
+  const obstacleWidth = PLAYER_WIDTH;
+  const obstacleGap = 200;
+
+  gradientChangeFrame++; // Increment the frame counter
+
+  // If it's time to change the gradient, update it
+  if (gradientChangeFrame % framesPerGradientChange === 0) {
+    updateGradient(context, canvas);
+  }
+
+  // Use the current gradient to draw
+  context.fillStyle = currentGradient;
 
   obstacles.forEach((obstacle) => {
     context.fillRect(obstacle.x, 0, obstacleWidth, obstacle.gapHeight);
