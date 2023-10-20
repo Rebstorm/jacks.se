@@ -1,9 +1,10 @@
 import { AppProps } from "$fresh/server.ts";
-import { Partial } from "$fresh/runtime.ts";
+import { Partial, Head } from "$fresh/runtime.ts";
 import Header from "../islands/Header.tsx";
 import Wave from "../components/wave.tsx";
 import Footer from "../islands/Footer.tsx";
-import FontLink from "../components/fontLink.tsx";
+import FontLink from "../components/font-link.tsx";
+import { META_SITE, META_TITLE, META_TYPE } from "../constants/meta.ts";
 
 function getCSSPathPrefix(route: string) {
   // Split the path string by "/"
@@ -23,11 +24,17 @@ export default function App({ Component, route, ...rest }: AppProps) {
 
   return (
     <html lang={"en"}>
-      <head>
+      <Head>
         <meta charSet="utf-8" />
         <title>🫠</title>
-        <meta name="Pauls Dev Page. Add salt for saltiness." />
         <meta name="viewport" content="width=device-width, minimum-scale=1.0" />
+        <meta property="og:type" content="website" key={META_TYPE} />
+        <meta property="og:locale" content="en_US" />
+        <meta
+          property="og:site_name"
+          content="Pauls Dev Page. Add salt for saltiness."
+          key={META_SITE}
+        />
 
         <FontLink />
 
@@ -39,9 +46,8 @@ export default function App({ Component, route, ...rest }: AppProps) {
         </noscript>
 
         <link rel="preload" href={`${pathPrefix}base.css`} as="style" />
-
         <link rel="stylesheet" href={`${pathPrefix}base.css`} />
-      </head>
+      </Head>
       <body>
         <Wave />
         <div f-client-nav className={"portal"}>
