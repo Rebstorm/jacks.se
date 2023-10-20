@@ -6,7 +6,7 @@ import {
   IS_SMALL_SCREEN,
 } from "./logic/constants.ts";
 import { generateObstacles } from "./logic/obstacles.ts";
-import { drawBird, drawObstacles } from "./logic/draw.ts";
+import { drawPlayer, drawObstacles } from "./logic/draw.ts";
 import { checkCollisionAndUpdate } from "./logic/collision.ts";
 import { H2 } from "../../components/h2.tsx";
 
@@ -82,7 +82,7 @@ const GameWindow: FunctionalComponent = () => {
 
     // The main draw function
     const draw = () => {
-      drawBird(
+      drawPlayer(
         canvas,
         context,
         birdY,

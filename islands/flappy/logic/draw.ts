@@ -5,7 +5,7 @@ import { PLAYER_HEIGHT, PLAYER_WIDTH } from "./constants.ts";
 export type GameOverCallback = () => void;
 export type ScoreCallback = () => void;
 
-export const drawBird = (
+export const drawPlayer = (
   canvas: HTMLCanvasElement,
   context: CanvasRenderingContext2D,
   birdY: number,
@@ -22,25 +22,23 @@ export const drawBird = (
     const rotation = Math.atan(birdVelocity / 10); // adjust sensitivity as needed
 
     // The desired width and height
-    const birdWidth = PLAYER_WIDTH;
-    const birdHeight = PLAYER_HEIGHT;
+    const playerWidth = PLAYER_WIDTH;
+    const playerHeight = PLAYER_HEIGHT;
 
     // Save the current context state
     context.save();
 
-    // Translate and rotate the context to draw the bird with rotation
-    context.translate(100 + birdWidth / 2, birdY + birdHeight / 2); // move to the center of the bird
+    context.translate(100 + playerWidth / 2, birdY + playerHeight / 2); // move to the center of the bird
     context.rotate(rotation);
 
-    // Draw bird, specifying the width and height
-    // We draw the bird around its center point
+    // We draw the player around its center point
     context.drawImage(
       birdImage,
-      -birdWidth / 2,
-      -birdHeight / 2,
-      birdWidth,
-      birdHeight
-    ); // Bird's position and size
+      -playerWidth / 2,
+      -playerHeight / 2,
+      playerWidth,
+      playerHeight
+    );
 
     // Restore the context's state - this is important, as it prevents future drawings from being affected
     context.restore();
@@ -51,12 +49,16 @@ export const drawBird = (
   setBirdY((prevY: number) => prevY + birdVelocity);
 };
 
+// TODO: Maybe use it again later.
 let currentGradient: CanvasGradient | string = "";
 let gradientChangeFrame = 0;
 const framesPerGradientChange = 100;
 
 // This function creates a new gradient and assigns it to currentGradient
-function updateGradient(context, canvas) {
+function updateGradient(
+  context: CanvasRenderingContext2D,
+  canvas: HTMLCanvasElement
+) {
   const gradientStartX = 0;
   const gradientStartY = 0;
   const gradientEndX = 0;
@@ -70,11 +72,14 @@ function updateGradient(context, canvas) {
   );
 
   gradient.addColorStop(0, getRandomColor());
-  gradient.addColorStop(1, getRandomColor());
 
   // Update the current gradient
   currentGradient = gradient;
 }
+let currentColor = getRandomColor(); // getRandomColor is your function that generates a random color.
+let frameCount = 0;
+const framesPerColorChange = 200; // for example, change color every 200 frames.
+
 export const drawObstacles = (
   canvas: HTMLCanvasElement,
   context: CanvasRenderingContext2D,
@@ -83,15 +88,15 @@ export const drawObstacles = (
   const obstacleWidth = PLAYER_WIDTH;
   const obstacleGap = 200;
 
-  gradientChangeFrame++; // Increment the frame counter
+  frameCount++; // Increment the frame counter
 
-  // If it's time to change the gradient, update it
-  if (gradientChangeFrame % framesPerGradientChange === 0) {
-    updateGradient(context, canvas);
+  // If it's time to change the color, update it
+  if (frameCount % framesPerColorChange === 0) {
+    currentColor = getRandomColor();
   }
 
-  // Use the current gradient to draw
-  context.fillStyle = currentGradient;
+  // Use the current color to draw
+  context.fillStyle = currentColor;
 
   obstacles.forEach((obstacle) => {
     context.fillRect(obstacle.x, 0, obstacleWidth, obstacle.gapHeight);
