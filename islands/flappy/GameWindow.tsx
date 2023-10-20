@@ -8,6 +8,7 @@ import {
 import { generateObstacles } from "./logic/obstacles.ts";
 import { drawBird, drawObstacles } from "./logic/draw.ts";
 import { checkCollisionAndUpdate } from "./logic/collision.ts";
+import { H2 } from "../../components/h2.tsx";
 
 const GameWindow: FunctionalComponent = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -30,7 +31,7 @@ const GameWindow: FunctionalComponent = () => {
 
   const handleCanvasClick = () => {
     // This will simulate the "flap" by giving the bird some upward velocity
-    setBirdVelocity(IS_SMALL_SCREEN ? -2 : -1);
+    setBirdVelocity(IS_SMALL_SCREEN ? -1.5 : -1);
   };
 
   useEffect(() => {
@@ -109,19 +110,18 @@ const GameWindow: FunctionalComponent = () => {
   }, [birdY, birdVelocity, obstacles, isGameOver]);
 
   return (
-    <div>
+    <div className={"game-window-center"}>
       {isGameOver && (
-        <>
-          <div>Game Over! Score: {score}</div>
-          <div onClick={() => restartGame()}> Restart </div>
-        </>
+        <div>
+          <H2 gradientColor>Game Over!</H2>
+          <H2 gradientColor> Score: {score}</H2>
+          <div className={"funButton"} onClick={() => restartGame()}>
+            Restart
+          </div>
+        </div>
       )}
       {!isGameOver && (
-        <canvas
-          ref={canvasRef}
-          style={{ border: "1px solid black" }}
-          onClick={handleCanvasClick}
-        ></canvas>
+        <canvas ref={canvasRef} onClick={handleCanvasClick}></canvas>
       )}
     </div>
   );

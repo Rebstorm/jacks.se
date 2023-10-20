@@ -1,0 +1,40 @@
+
+/* Game button */
+.funButton {
+    display: inline-block;
+    padding: var(--norm) calc(var(--norm) * 2);
+    margin:  calc(var(--norm) * 2);
+    text-align: center;
+    text-decoration: none;
+    color: var(--primary-text);
+
+    background-color: var(--flavor-1);
+    border: none;
+    border-radius:  calc(var(--norm) * 0.5);
+
+    /* Fun effects */
+    box-shadow: 0 8px 6px -6px black; /* Simple shadow */
+    transition: all 0.3s ease-in-out; /* Smooth transitions on hover effects */
+
+    cursor: pointer;
+    user-select: none;
+}
+
+.funButton:hover {
+    background-color: var(--flavor-2);
+    box-shadow: 0 12px 10px -8px #333;
+    transform: scale(1.1);
+}
+
+.funButton:active {
+    background-color: var(--flavor-3);
+    box-shadow: 0 4px 3px -2px #333;
+    transform: scale(1.05);
+}
+
+.game-window-center {
+    display: flex;
+    width: inherit;
+    text-align: center;
+    justify-content: center;
+}

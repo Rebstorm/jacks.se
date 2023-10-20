@@ -71,7 +71,23 @@ export const drawObstacles = (
 ): void => {
   const obstacleWidth = 50;
   const obstacleGap = 200;
-  context.fillStyle = "blue";
+
+  const gradientStartX = 0;
+  const gradientStartY = 0;
+  const gradientEndX = 0;
+  const gradientEndY = canvas.height; // Vertical gradient
+
+  const gradient = context.createLinearGradient(
+    gradientStartX,
+    gradientStartY,
+    gradientEndX,
+    gradientEndY
+  );
+
+  gradient.addColorStop(0, getRandomColor());
+  gradient.addColorStop(1, getRandomColor());
+
+  context.fillStyle = gradient;
 
   obstacles.forEach((obstacle) => {
     context.fillRect(obstacle.x, 0, obstacleWidth, obstacle.gapHeight);
@@ -83,3 +99,10 @@ export const drawObstacles = (
     );
   });
 };
+
+function getRandomColor() {
+  const red = Math.floor(Math.random() * 256);
+  const green = Math.floor(Math.random() * 256);
+  const blue = Math.floor(Math.random() * 256);
+  return `rgb(${red},${green},${blue})`; // returns a random color in rgb format
+}
