@@ -1,6 +1,6 @@
 import { Obstacle } from "./obstacles.ts";
 import { GameOverCallback, ScoreCallback } from "./draw.ts";
-import { IS_SMALL_SCREEN } from "./constants.ts";
+import { IS_SMALL_SCREEN, PLAYER_WIDTH } from "./constants.ts";
 
 export const checkCollisionAndUpdate = (
   obstacles: Obstacle[],
@@ -15,7 +15,7 @@ export const checkCollisionAndUpdate = (
   obstacles.forEach((obstacle, index) => {
     // Collision detection logic
     const hasCollision =
-      birdX < obstacle.x + 50 && // Assuming obstacle width is 50
+      birdX < obstacle.x + PLAYER_WIDTH &&
       birdX + birdWidth > obstacle.x &&
       (birdY < obstacle.gapHeight ||
         birdY + birdWidth > obstacle.gapHeight + 200); // Assuming obstacle gap is 200
@@ -26,14 +26,14 @@ export const checkCollisionAndUpdate = (
     }
 
     // Scoring logic: if the bird has passed the obstacle
-    const passedObstacle = obstacle.x + 50 < birdX;
+    const passedObstacle = obstacle.x + PLAYER_WIDTH < birdX;
     if (!isGameOver && passedObstacle && index === obstacles.length - 1) {
       scoreCallback();
     }
 
     // Obstacle movement
     if (!isGameOver) {
-      obstacle.x -= IS_SMALL_SCREEN ? 1 : 2;
+      obstacle.x -= IS_SMALL_SCREEN ? 1.2 : 2;
     }
   });
 };

@@ -1,5 +1,6 @@
 import { StateUpdater } from "preact/hooks";
 import { Obstacle } from "./obstacles.ts";
+import { PLAYER_HEIGHT, PLAYER_WIDTH } from "./constants.ts";
 
 export type GameOverCallback = () => void;
 export type ScoreCallback = () => void;
@@ -35,8 +36,8 @@ export const drawBird = (
     const rotation = Math.atan(birdVelocity / 10); // adjust sensitivity as needed
 
     // The desired width and height
-    const birdWidth = 70;
-    const birdHeight = 70;
+    const birdWidth = PLAYER_WIDTH;
+    const birdHeight = PLAYER_HEIGHT;
 
     // Save the current context state
     context.save();
@@ -69,7 +70,7 @@ export const drawObstacles = (
   context: CanvasRenderingContext2D,
   obstacles: Obstacle[]
 ): void => {
-  const obstacleWidth = 50;
+  const obstacleWidth = PLAYER_WIDTH;
   const obstacleGap = 200;
 
   const gradientStartX = 0;

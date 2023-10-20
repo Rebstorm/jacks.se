@@ -34,6 +34,13 @@ const GameWindow: FunctionalComponent = () => {
     setBirdVelocity(IS_SMALL_SCREEN ? -1.5 : -1);
   };
 
+  function handleSpaceListener() {
+    return (e: KeyboardEvent) => {
+      console.log(e);
+      e.key === " " ? handleCanvasClick() : null;
+    };
+  }
+
   useEffect(() => {
     // Load the image when the component mounts
     const img = new Image();
@@ -45,8 +52,11 @@ const GameWindow: FunctionalComponent = () => {
     // Here, we're just calling the function and it will return the cleanup function directly
     const cleanup = generateObstacles(obstacles, setObstacles);
 
+    addEventListener("keydown", handleSpaceListener());
+
     return () => {
-      cleanup(); // Call the cleanup function on component unmount
+      cleanup();
+      handleSpaceListener(); // Call the cleanup function on component unmount
     };
   }, []);
 

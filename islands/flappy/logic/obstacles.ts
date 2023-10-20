@@ -1,4 +1,4 @@
-import { GAME_WINDOW_WIDTH } from "./constants.ts";
+import { GAME_WINDOW_WIDTH, IS_SMALL_SCREEN } from "./constants.ts";
 import { StateUpdater } from "preact/hooks";
 
 export interface Obstacle {
@@ -18,7 +18,8 @@ export const generateObstacles = (
     }
 
     // Random height for the "gap" in the obstacles
-    const randomGapHeight = Math.random() * 200 + 50;
+    const randomGapHeight =
+      Math.random() * IS_SMALL_SCREEN ? 200 + 50 : 500 + 50;
 
     setObstacles((prev: Obstacle) => [
       ...prev,
