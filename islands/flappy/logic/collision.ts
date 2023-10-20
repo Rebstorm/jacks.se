@@ -1,5 +1,6 @@
 import { Obstacle } from "./obstacles.ts";
 import { GameOverCallback, ScoreCallback } from "./draw.ts";
+import { IS_SMALL_SCREEN } from "./constants.ts";
 
 export const checkCollisionAndUpdate = (
   obstacles: Obstacle[],
@@ -32,7 +33,7 @@ export const checkCollisionAndUpdate = (
 
     // Move the obstacle leftward, simulating the bird's forward movement
     if (!isGameOver) {
-      obstacle.x -= 2;
+      obstacle.x -= IS_SMALL_SCREEN ? 1 : 2;
     }
   });
 };
