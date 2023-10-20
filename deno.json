@@ -17,6 +17,10 @@
     "@preact/signals-core": "https://esm.sh/*@preact/signals-core@1.5.0"
   },
   "lint": { "rules": { "tags": ["fresh", "recommended"] } },
-  "compilerOptions": { "jsx": "react-jsx", "jsxImportSource": "preact" },
+  "compilerOptions": {
+    "jsx": "react-jsx",
+    "jsxImportSource": "preact",
+    "jsxFragmentFactory": "React.Fragment"
+  },
   "exclude": ["**/_fresh/*"]
 }

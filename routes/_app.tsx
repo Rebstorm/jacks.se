@@ -5,21 +5,12 @@ import Wave from "../components/wave.tsx";
 import Footer from "../islands/Footer.tsx";
 import FontLink from "../components/font-link.tsx";
 import { META_SITE, META_TITLE, META_TYPE } from "../constants/meta.ts";
-
-function getCSSPathPrefix(route: string) {
-  // Split the path string by "/"
-  const segments = route.split("/");
-  // Filter out empty segments and segments that are parameterized (like ":slug")
-  const actualSegments = segments.filter(
-    (segment) => segment && !segment.startsWith(":")
-  );
-  // The number of '../' needed is the same as the number of actual segments for nested paths
-  return actualSegments.length ? "../".repeat(actualSegments.length) : "./";
-}
+import { getCSSPathPrefix } from "../utils/css/pathPrefix.ts";
 
 export default function App({ Component, route, ...rest }: AppProps) {
   // I dont know if Fresh supports plain css right now. But this ensures we get the base css no matter where in the app
   // we are.
+
   const pathPrefix = getCSSPathPrefix(route);
 
   return (
@@ -45,8 +36,8 @@ export default function App({ Component, route, ...rest }: AppProps) {
           />
         </noscript>
 
-        <link rel="preload" href={`${pathPrefix}base.css`} as="style" />
-        <link rel="stylesheet" href={`${pathPrefix}base.css`} />
+        <link rel="preload" href={`${pathPrefix}css/base.css`} as="style" />
+        <link rel="stylesheet" href={`${pathPrefix}css/base.css`} />
       </Head>
       <body>
         <Wave />

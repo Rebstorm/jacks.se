@@ -6,7 +6,7 @@ import { H2 } from "../components/h2.tsx";
 export default function Info(props: PageProps) {
   return (
     <div class={"innerContainer"}>
-      <H1 shouldAnimate>What I do</H1>
+      <H1 gradientColor>What I do</H1>
       <Paragraph>
         I love the web. Anything even closely related to it captures my
         interest.

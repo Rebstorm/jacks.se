@@ -2,27 +2,33 @@
 // This file SHOULD be checked into source version control.
 // This file is automatically updated during development when running `dev.ts`.
 
-import * as $0 from "./routes/_app.tsx";
-import * as $1 from "./routes/blog/[slug]/index.tsx";
-import * as $2 from "./routes/blog/index.tsx";
-import * as $3 from "./routes/index.tsx";
-import * as $4 from "./routes/info.tsx";
-import * as $$0 from "./islands/Footer.tsx";
-import * as $$1 from "./islands/Header.tsx";
-import * as $$2 from "./islands/Menu/Menu.tsx";
+import * as $0 from "./routes/_404.tsx";
+import * as $1 from "./routes/_app.tsx";
+import * as $2 from "./routes/blog/[slug]/index.tsx";
+import * as $3 from "./routes/blog/index.tsx";
+import * as $4 from "./routes/experiments/flappy.tsx";
+import * as $5 from "./routes/index.tsx";
+import * as $6 from "./routes/info.tsx";
+import * as $$0 from "./islands/Flappy/FlappyBird.tsx";
+import * as $$1 from "./islands/Footer.tsx";
+import * as $$2 from "./islands/Header.tsx";
+import * as $$3 from "./islands/Menu/Menu.tsx";
 
 const manifest = {
   routes: {
-    "./routes/_app.tsx": $0,
-    "./routes/blog/[slug]/index.tsx": $1,
-    "./routes/blog/index.tsx": $2,
-    "./routes/index.tsx": $3,
-    "./routes/info.tsx": $4,
+    "./routes/_404.tsx": $0,
+    "./routes/_app.tsx": $1,
+    "./routes/blog/[slug]/index.tsx": $2,
+    "./routes/blog/index.tsx": $3,
+    "./routes/experiments/flappy.tsx": $4,
+    "./routes/index.tsx": $5,
+    "./routes/info.tsx": $6,
   },
   islands: {
-    "./islands/Footer.tsx": $$0,
-    "./islands/Header.tsx": $$1,
-    "./islands/Menu/Menu.tsx": $$2,
+    "./islands/Flappy/FlappyBird.tsx": $$0,
+    "./islands/Footer.tsx": $$1,
+    "./islands/Header.tsx": $$2,
+    "./islands/Menu/Menu.tsx": $$3,
   },
   baseUrl: import.meta.url,
 };

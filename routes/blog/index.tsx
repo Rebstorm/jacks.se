@@ -5,7 +5,7 @@ import { H1 } from "../../components/h1.tsx";
 export default function BlogList(props: PageProps<Post[]>) {
   return (
     <div class={"innerContainer"}>
-      <H1 shouldAnimate>Blog entries</H1>
+      <H1 gradientColor>Blog entries</H1>
 
       {props.data.map((availablePosts: Post) => (
         <div className={"blog-desc-container"}>

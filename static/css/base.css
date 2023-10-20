@@ -107,9 +107,9 @@ b {
     padding: var(--norm);
     text-decoration: none;
     color: var(--secondary-text);
-    fill            : none;
-    stroke          : black;
-    stroke-width    : .5px;
+    fill: none;
+    stroke: black;
+    stroke-width: 0.1rem;
     stroke-linejoin : round;
 }
 
