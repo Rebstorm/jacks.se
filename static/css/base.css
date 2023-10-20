@@ -122,7 +122,7 @@ b {
     display: flex;
     align-self: center;
     padding: 0.2rem;
-    max-width: 800px;
+    max-width: calc(var(--norm) * 70);
     width: 100vw;
     z-index: 2;
 }
@@ -194,7 +194,7 @@ b {
 }
 
 
-@media screen and (max-width: 799px) {
+@media screen and (max-width: 810px) {
     .container {
         max-width: unset;
         width: 95vw;

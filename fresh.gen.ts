@@ -9,10 +9,14 @@ import * as $3 from "./routes/blog/index.tsx";
 import * as $4 from "./routes/experiments/flappy.tsx";
 import * as $5 from "./routes/index.tsx";
 import * as $6 from "./routes/info.tsx";
-import * as $$0 from "./islands/Flappy/FlappyBird.tsx";
-import * as $$1 from "./islands/Footer.tsx";
-import * as $$2 from "./islands/Header.tsx";
-import * as $$3 from "./islands/Menu/Menu.tsx";
+import * as $$0 from "./islands/Footer.tsx";
+import * as $$1 from "./islands/Header.tsx";
+import * as $$2 from "./islands/Menu/Menu.tsx";
+import * as $$3 from "./islands/flappy/GameWindow.tsx";
+import * as $$4 from "./islands/flappy/logic/collision.ts";
+import * as $$5 from "./islands/flappy/logic/constants.ts";
+import * as $$6 from "./islands/flappy/logic/draw.ts";
+import * as $$7 from "./islands/flappy/logic/obstacles.ts";
 
 const manifest = {
   routes: {
@@ -25,10 +29,14 @@ const manifest = {
     "./routes/info.tsx": $6,
   },
   islands: {
-    "./islands/Flappy/FlappyBird.tsx": $$0,
-    "./islands/Footer.tsx": $$1,
-    "./islands/Header.tsx": $$2,
-    "./islands/Menu/Menu.tsx": $$3,
+    "./islands/Footer.tsx": $$0,
+    "./islands/Header.tsx": $$1,
+    "./islands/Menu/Menu.tsx": $$2,
+    "./islands/flappy/GameWindow.tsx": $$3,
+    "./islands/flappy/logic/collision.ts": $$4,
+    "./islands/flappy/logic/constants.ts": $$5,
+    "./islands/flappy/logic/draw.ts": $$6,
+    "./islands/flappy/logic/obstacles.ts": $$7,
   },
   baseUrl: import.meta.url,
 };
