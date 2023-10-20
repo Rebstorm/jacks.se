@@ -3,6 +3,7 @@ import { Partial } from "$fresh/runtime.ts";
 import Header from "../islands/Header.tsx";
 import Wave from "../components/wave.tsx";
 import Footer from "../islands/Footer.tsx";
+import FontLink from "../components/fontLink.tsx";
 
 function getCSSPathPrefix(route: string) {
   // Split the path string by "/"
@@ -28,12 +29,7 @@ export default function App({ Component, route, ...rest }: AppProps) {
         <meta name="Pauls Dev Page. Add salt for saltiness." />
         <meta name="viewport" content="width=device-width, minimum-scale=1.0" />
 
-        <link
-          rel="preload"
-          href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap"
-          as="style"
-          onLoad="this.rel='stylesheet'"
-        />
+        <FontLink />
 
         <noscript>
           <link

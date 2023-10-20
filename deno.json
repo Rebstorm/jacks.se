@@ -7,7 +7,7 @@
     "reload:aot": "deno cache --reload --lock-write dev.ts"
   },
   "imports": {
-    "$fresh/": "https://deno.land/x/fresh@1.5.0/",
+    "$fresh/": "https://deno.land/x/fresh@1.5.2/",
     "preact": "https://esm.sh/preact@10.18.1",
     "preact/": "https://esm.sh/preact@10.18.1/",
     "$std/": "https://deno.land/std@0.198.0/",

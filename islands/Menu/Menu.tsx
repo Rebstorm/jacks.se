@@ -1,4 +1,4 @@
-import { linksAvailable } from "./linksAvailable.ts";
+import { linksAvailable } from "../../interfaces/linksAvailable.ts";
 
 export interface MenuProps {
   route: string;
