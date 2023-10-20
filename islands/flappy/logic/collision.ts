@@ -31,7 +31,7 @@ export const checkCollisionAndUpdate = (
       scoreCallback();
     }
 
-    // Move the obstacle leftward, simulating the bird's forward movement
+    // Obstacle movement
     if (!isGameOver) {
       obstacle.x -= IS_SMALL_SCREEN ? 1 : 2;
     }

@@ -1,12 +1,17 @@
 import { FunctionalComponent } from "preact";
 import { useEffect, useRef, useState } from "preact/hooks";
-import { GAME_WINDOW_HEIGHT, GAME_WINDOW_WIDTH } from "./logic/constants.ts";
+import {
+  GAME_WINDOW_HEIGHT,
+  GAME_WINDOW_WIDTH,
+  IS_SMALL_SCREEN,
+} from "./logic/constants.ts";
 import { generateObstacles } from "./logic/obstacles.ts";
 import { drawBird, drawObstacles } from "./logic/draw.ts";
 import { checkCollisionAndUpdate } from "./logic/collision.ts";
 
 const GameWindow: FunctionalComponent = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const [birdImage, setBirdImage] = useState(null);
   const [birdY, setBirdY] = useState(300);
   const [birdVelocity, setBirdVelocity] = useState(0);
   const [obstacles, setObstacles] = useState([]); // This will contain each obstacle's x position and height.
@@ -25,8 +30,15 @@ const GameWindow: FunctionalComponent = () => {
 
   const handleCanvasClick = () => {
     // This will simulate the "flap" by giving the bird some upward velocity
-    setBirdVelocity(-1);
+    setBirdVelocity(IS_SMALL_SCREEN ? -2 : -1);
   };
+
+  useEffect(() => {
+    // Load the image when the component mounts
+    const img = new Image();
+    img.onload = () => setBirdImage(img);
+    img.src = "../experiments/flappy/drone.png"; // Put the actual path of your image here
+  }, []);
 
   useEffect(() => {
     // Here, we're just calling the function and it will return the cleanup function directly
@@ -59,7 +71,15 @@ const GameWindow: FunctionalComponent = () => {
 
     // The main draw function
     const draw = () => {
-      drawBird(canvas, context, birdY, birdVelocity, setBirdY, setBirdVelocity);
+      drawBird(
+        canvas,
+        context,
+        birdY,
+        birdVelocity,
+        setBirdY,
+        setBirdVelocity,
+        birdImage
+      );
       drawObstacles(canvas, context, obstacles);
 
       checkCollisionAndUpdate(
