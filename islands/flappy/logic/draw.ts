@@ -49,33 +49,6 @@ export const drawPlayer = (
   setBirdY((prevY: number) => prevY + birdVelocity);
 };
 
-// TODO: Maybe use it again later.
-let currentGradient: CanvasGradient | string = "";
-let gradientChangeFrame = 0;
-const framesPerGradientChange = 100;
-
-// This function creates a new gradient and assigns it to currentGradient
-function updateGradient(
-  context: CanvasRenderingContext2D,
-  canvas: HTMLCanvasElement
-) {
-  const gradientStartX = 0;
-  const gradientStartY = 0;
-  const gradientEndX = 0;
-  const gradientEndY = canvas.height;
-
-  const gradient = context.createLinearGradient(
-    gradientStartX,
-    gradientStartY,
-    gradientEndX,
-    gradientEndY
-  );
-
-  gradient.addColorStop(0, getRandomColor());
-
-  // Update the current gradient
-  currentGradient = gradient;
-}
 let currentColor = getRandomColor(); // getRandomColor is your function that generates a random color.
 let frameCount = 0;
 const framesPerColorChange = 200; // for example, change color every 200 frames.

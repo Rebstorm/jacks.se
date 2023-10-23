@@ -38,3 +38,19 @@
     text-align: center;
     justify-content: center;
 }
+
+.no-margin {
+    margin: 0;
+}
+
+.game-high-scores {
+    display: flex;
+    flex-direction: column;
+    background: var(--secondary-color);
+    padding: calc(var(--norm) * 2);
+    gap:var(--norm)
+}
+
+.player-headline {
+    font-weight: bold;
+}

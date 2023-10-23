@@ -12,7 +12,7 @@ import * as $6 from "./routes/info.tsx";
 import * as $$0 from "./islands/Footer.tsx";
 import * as $$1 from "./islands/Header.tsx";
 import * as $$2 from "./islands/Menu/Menu.tsx";
-import * as $$3 from "./islands/flappy/GameWindow.tsx";
+import * as $$3 from "./islands/flappy/GameWindowProps.tsx";
 import * as $$4 from "./islands/flappy/logic/collision.ts";
 import * as $$5 from "./islands/flappy/logic/constants.ts";
 import * as $$6 from "./islands/flappy/logic/draw.ts";
@@ -32,7 +32,7 @@ const manifest = {
     "./islands/Footer.tsx": $$0,
     "./islands/Header.tsx": $$1,
     "./islands/Menu/Menu.tsx": $$2,
-    "./islands/flappy/GameWindow.tsx": $$3,
+    "./islands/flappy/GameWindowProps.tsx": $$3,
     "./islands/flappy/logic/collision.ts": $$4,
     "./islands/flappy/logic/constants.ts": $$5,
     "./islands/flappy/logic/draw.ts": $$6,

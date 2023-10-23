@@ -9,8 +9,22 @@ import { generateObstacles } from "./logic/obstacles.ts";
 import { drawPlayer, drawObstacles } from "./logic/draw.ts";
 import { checkCollisionAndUpdate } from "./logic/collision.ts";
 import { H2 } from "../../components/h2.tsx";
+import { HighscoreUser } from "../../server/highscore/highscore.ts";
+import { H3 } from "../../components/h3.tsx";
 
-const GameWindow: FunctionalComponent = () => {
+interface GameWindowProps {
+  highscores: HighscoreUser[];
+}
+
+const shouldSubmitNewScore = (
+  score: number,
+  highscoreUsers: HighscoreUser[]
+) => {
+  const lowestScore = highscoreUsers[highscoreUsers.length - 1];
+  return score > lowestScore.score;
+};
+
+const GameWindow: FunctionalComponent = (props: GameWindowProps) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [birdImage, setBirdImage] = useState(null);
   const [birdY, setBirdY] = useState(300);
@@ -36,7 +50,6 @@ const GameWindow: FunctionalComponent = () => {
 
   function handleSpaceListener() {
     return (e: KeyboardEvent) => {
-      console.log(e);
       e.key === " " ? handleCanvasClick() : null;
     };
   }
@@ -123,8 +136,21 @@ const GameWindow: FunctionalComponent = () => {
     <div className={"game-window-center"}>
       {isGameOver && (
         <div>
-          <H2 gradientColor>Game Over!</H2>
-          <H2 gradientColor> Score: {score}</H2>
+          <H2 gradientColor> Your Score: {score}</H2>
+          <div className={"game-high-scores"}>
+            <H2 noMargin gradientColor>
+              Highscores
+            </H2>
+            {props.highscores.map((highScore) => (
+              <div>
+                <H3 className={"player-headline"}>{highScore.username}</H3>
+                <div>{highScore.score}</div>
+              </div>
+            ))}
+          </div>
+
+          {shouldSubmitNewScore && <> Should submit highscore!</>}
+
           <div className={"funButton"} onClick={() => restartGame()}>
             Restart
           </div>
