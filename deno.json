@@ -1,7 +1,7 @@
 {
   "tasks": {
     "start": "deno run -A --watch=static/,routes/ --unstable dev.ts",
-    "build": "deno run -A dev.ts build",
+    "build": "deno run -A dev.ts build --unstable",
     "preview": "deno run -A main.ts",
     "upgrade": "deno run -A -r https://fresh.deno.dev/update .",
     "reload:aot": "deno cache --reload --lock-write dev.ts"
