@@ -7,3 +7,5 @@ export const GAME_WINDOW_HEIGHT = window.innerHeight / 1.2;
 
 export const PLAYER_WIDTH = 70;
 export const PLAYER_HEIGHT = 70;
+
+export const COLUMN_WIDTH = 50;
