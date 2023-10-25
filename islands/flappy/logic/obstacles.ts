@@ -1,7 +1,6 @@
 import {
   GAME_WINDOW_HEIGHT,
   GAME_WINDOW_WIDTH,
-  IS_SMALL_SCREEN,
   PLAYER_WIDTH,
 } from "./constants.ts";
 import { StateUpdater } from "preact/hooks";

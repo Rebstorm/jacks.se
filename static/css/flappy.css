@@ -32,6 +32,57 @@
     transform: scale(1.05);
 }
 
+
+.funInput {
+    display: inline-block;
+    padding: var(--norm) calc(var(--norm) * 2);
+    margin: calc(var(--norm) * 2);
+    color: var(--primary-text);
+    background-color: var(--flavor-1);
+    border: none;
+
+    /* Reusing the funButton's shadow, transitions, and text styles */
+    box-shadow: 0 8px 6px -6px black;
+    transition: all 0.3s ease-in-out;
+    text-align: center;
+
+    /* Specifics for input element */
+    outline: none; /* Remove default outline */
+    font-size: inherit; /* Make font consistent with the environment */
+    line-height: 1.15; /* Normal line-height */
+
+    /* Ensuring text doesn't overflow */
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.funInput:focus {
+    box-shadow: 0 12px 10px -8px #333;
+}
+
+.funInput::placeholder {
+    color: #9E9E9E;
+    opacity: 1;
+}
+
+.funInput:hover {
+    background-color: var(--flavor-2);
+}
+
+
+.funInput:active,
+.funInput:focus {
+    background-color: var(--flavor-3);
+    box-shadow: 0 4px 3px -2px #333;
+}
+
+
+.highscore-window {
+    background: var(--tertiary-text);
+}
+
 .game-window-center {
     display: flex;
     width: inherit;

@@ -1,6 +1,11 @@
 import { StateUpdater } from "preact/hooks";
 import { Obstacle } from "./obstacles.ts";
-import { COLUMN_WIDTH, PLAYER_HEIGHT, PLAYER_WIDTH } from "./constants.ts";
+import {
+  COLUMN_WIDTH,
+  PLAYER_HEIGHT,
+  PLAYER_WIDTH,
+  OBSTACLE_GAP,
+} from "./constants.ts";
 
 export type GameOverCallback = () => void;
 export type ScoreCallback = () => void;
@@ -59,7 +64,7 @@ export const drawObstacles = (
   obstacles: Obstacle[]
 ): void => {
   const obstacleWidth = COLUMN_WIDTH;
-  const obstacleGap = 200;
+  const obstacleGap = OBSTACLE_GAP;
 
   frameCount++; // Increment the frame counter
 

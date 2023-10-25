@@ -9,3 +9,5 @@ export const PLAYER_WIDTH = 70;
 export const PLAYER_HEIGHT = 70;
 
 export const COLUMN_WIDTH = 50;
+
+export const OBSTACLE_GAP = IS_SMALL_SCREEN ? 200 : 300;

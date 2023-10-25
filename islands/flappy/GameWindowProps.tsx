@@ -11,6 +11,7 @@ import { checkCollisionAndUpdate } from "./logic/collision.ts";
 import { H2 } from "../../components/h2.tsx";
 import { HighscoreUser } from "../../server/highscore/highscore.ts";
 import { H3 } from "../../components/h3.tsx";
+import { SubmitHighscore } from "./components/submit-highscore.tsx";
 
 interface GameWindowProps {
   highscores: HighscoreUser[];
@@ -147,9 +148,8 @@ const GameWindow: FunctionalComponent = (props: GameWindowProps) => {
                 <div>{highScore.score}</div>
               </div>
             ))}
+            {shouldSubmitNewScore && <SubmitHighscore score={score} />}
           </div>
-
-          {shouldSubmitNewScore && <> Should submit highscore!</>}
 
           <div className={"funButton"} onClick={() => restartGame()}>
             Restart

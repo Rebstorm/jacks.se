@@ -13,10 +13,12 @@ import * as $$0 from "./islands/Footer.tsx";
 import * as $$1 from "./islands/Header.tsx";
 import * as $$2 from "./islands/Menu/Menu.tsx";
 import * as $$3 from "./islands/flappy/GameWindowProps.tsx";
-import * as $$4 from "./islands/flappy/logic/collision.ts";
-import * as $$5 from "./islands/flappy/logic/constants.ts";
-import * as $$6 from "./islands/flappy/logic/draw.ts";
-import * as $$7 from "./islands/flappy/logic/obstacles.ts";
+import * as $$4 from "./islands/flappy/components/fun-input.tsx";
+import * as $$5 from "./islands/flappy/components/submit-highscore.tsx";
+import * as $$6 from "./islands/flappy/logic/collision.ts";
+import * as $$7 from "./islands/flappy/logic/constants.ts";
+import * as $$8 from "./islands/flappy/logic/draw.ts";
+import * as $$9 from "./islands/flappy/logic/obstacles.ts";
 
 const manifest = {
   routes: {
@@ -33,10 +35,12 @@ const manifest = {
     "./islands/Header.tsx": $$1,
     "./islands/Menu/Menu.tsx": $$2,
     "./islands/flappy/GameWindowProps.tsx": $$3,
-    "./islands/flappy/logic/collision.ts": $$4,
-    "./islands/flappy/logic/constants.ts": $$5,
-    "./islands/flappy/logic/draw.ts": $$6,
-    "./islands/flappy/logic/obstacles.ts": $$7,
+    "./islands/flappy/components/fun-input.tsx": $$4,
+    "./islands/flappy/components/submit-highscore.tsx": $$5,
+    "./islands/flappy/logic/collision.ts": $$6,
+    "./islands/flappy/logic/constants.ts": $$7,
+    "./islands/flappy/logic/draw.ts": $$8,
+    "./islands/flappy/logic/obstacles.ts": $$9,
   },
   baseUrl: import.meta.url,
 };
