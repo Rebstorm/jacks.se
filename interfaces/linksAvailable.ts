@@ -7,9 +7,9 @@ interface Link {
 
 export const linksAvailable = () =>
   Array.of<Link>(
-    { path: "/", label: "home" },
-    { path: "/info", label: "info" },
-    { path: "/blog", label: "blog" },
+    { path: "/", label: "🏡" },
+    { path: "/experiments", label: "🧪" },
+    { path: "/blog", label: "📒" },
     { href: "https://github.com/Rebstorm", label: "github", isExternal: true },
     {
       href: "https://fosstodon.org/@sendcookies",

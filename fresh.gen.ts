@@ -7,8 +7,9 @@ import * as $1 from "./routes/_app.tsx";
 import * as $2 from "./routes/blog/[slug]/index.tsx";
 import * as $3 from "./routes/blog/index.tsx";
 import * as $4 from "./routes/experiments/flappy.tsx";
-import * as $5 from "./routes/index.tsx";
-import * as $6 from "./routes/info.tsx";
+import * as $5 from "./routes/experiments/index.tsx";
+import * as $6 from "./routes/index.tsx";
+import * as $7 from "./routes/info.tsx";
 import * as $$0 from "./islands/Footer.tsx";
 import * as $$1 from "./islands/Header.tsx";
 import * as $$2 from "./islands/Menu/Menu.tsx";
@@ -27,8 +28,9 @@ const manifest = {
     "./routes/blog/[slug]/index.tsx": $2,
     "./routes/blog/index.tsx": $3,
     "./routes/experiments/flappy.tsx": $4,
-    "./routes/index.tsx": $5,
-    "./routes/info.tsx": $6,
+    "./routes/experiments/index.tsx": $5,
+    "./routes/index.tsx": $6,
+    "./routes/info.tsx": $7,
   },
   islands: {
     "./islands/Footer.tsx": $$0,

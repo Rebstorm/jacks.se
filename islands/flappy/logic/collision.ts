@@ -38,7 +38,7 @@ export const checkCollisionAndUpdate = (
 
     // Obstacle movement
     if (!isGameOver) {
-      obstacle.x -= IS_SMALL_SCREEN ? 0.8 : 2;
+      obstacle.x -= IS_SMALL_SCREEN ? 0.8 : 1;
     }
   });
 };
