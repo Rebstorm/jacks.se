@@ -8,30 +8,33 @@ import { StateUpdater } from "preact/hooks";
 export interface Obstacle {
   x: number;
   gapHeight: number;
+  hasBeenPassed: boolean;
 }
 export const generateObstacles = (
   obstacles: Obstacle[],
   setObstacles: StateUpdater<Obstacle[]>
 ) => {
+  const MINIMUM_OBSTACLE_SPACING = 300; // This can be adjusted based on your game's difficulty and speed.
   const obstacleInterval = setInterval(() => {
+    // We're now determining the position of the new obstacle based on the screen width and existing obstacle positions.
     const lastObstacle = obstacles[obstacles.length - 1];
-    let newObstacleX = GAME_WINDOW_WIDTH;
 
-    if (lastObstacle) {
-      newObstacleX = lastObstacle.x + 300; // 300 pixels between obstacles
-    }
+    const newObstacleX = lastObstacle
+      ? Math.max(GAME_WINDOW_WIDTH, lastObstacle.x + MINIMUM_OBSTACLE_SPACING)
+      : GAME_WINDOW_WIDTH; // If it's the first obstacle, start at the edge of the game window.
 
-    // Random height for the "gap" in the obstacles
+    // Your existing logic for random gap height generation remains the same.
     const randomGapHeight =
       Math.random() * (GAME_WINDOW_HEIGHT * 0.7) + PLAYER_WIDTH;
 
-    setObstacles((prev: Obstacle) => [
-      ...prev,
-      { x: newObstacleX, gapHeight: randomGapHeight },
+    // Add the new obstacle to the state.
+    setObstacles((prevObstacles: Obstacle[]) => [
+      ...prevObstacles,
+      { x: newObstacleX, gapHeight: randomGapHeight, hasBeenPassed: false }, // Ensure you initialize 'hasBeenPassed' here if it's being used.
     ]);
   }, 2000); // New obstacle every 2 seconds
 
   return () => {
-    clearInterval(obstacleInterval);
+    clearInterval(obstacleInterval); // Clean up the interval when necessary.
   };
 };

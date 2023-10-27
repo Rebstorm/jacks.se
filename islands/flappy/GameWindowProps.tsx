@@ -70,7 +70,7 @@ const GameWindow: FunctionalComponent = (props: GameWindowProps) => {
 
     return () => {
       cleanup();
-      handleSpaceListener(); // Call the cleanup function on component unmount
+      handleSpaceListener();
     };
   }, []);
 
@@ -91,6 +91,7 @@ const GameWindow: FunctionalComponent = (props: GameWindowProps) => {
     };
 
     const scoreHandler = () => {
+      console.log("score callback woo!");
       setScore((prev: number) => prev + 1);
     };
 

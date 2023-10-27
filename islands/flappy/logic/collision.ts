@@ -32,8 +32,13 @@ export const checkCollisionAndUpdate = (
 
     // Scoring logic: if the bird has passed the obstacle
     const passedObstacle = obstacle.x + COLUMN_WIDTH < birdX;
-    if (!isGameOver && passedObstacle && index === obstacles.length - 1) {
-      scoreCallback();
+
+    if (!isGameOver && passedObstacle) {
+      if (!obstacle.hasBeenPassed) {
+        // Check if this obstacle has already been passed
+        obstacle.hasBeenPassed = true; // Mark this obstacle as passed
+        scoreCallback(); // Only increment the score the first time the bird passes an obstacle
+      }
     }
 
     // Obstacle movement
