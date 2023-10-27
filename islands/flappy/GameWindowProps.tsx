@@ -37,7 +37,7 @@ const GameWindow: FunctionalComponent = (props: GameWindowProps) => {
   const [score, setScore] = useState(0);
   const [isGameOver, setIsGameOver] = useState(false);
   const [highscoreList, setHighscoreList] = useState<HighscoreUser[]>(
-    props.highscores
+    props.highscores || []
   );
 
   // Resetting the game to its initial state
