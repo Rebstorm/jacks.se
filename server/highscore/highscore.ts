@@ -21,8 +21,8 @@ export async function maybeSetHighscore(
 ): Promise<HighscoreUser[]> {
   const currentHighScores = await getHighscore();
 
-  if (user.username.length > 10) {
-    user.username = user.username.substring(0, 7) + "...";
+  if (user.username.length > 20) {
+    user.username = user.username.substring(0, 17) + "...";
   }
 
   if (user.username === "") user.username = "Anonymous";
