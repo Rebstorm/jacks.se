@@ -1,7 +1,6 @@
-import { FunctionalComponent, h } from "preact";
+import { FunctionalComponent } from "preact";
 import { FunInput } from "./fun-input.tsx";
 import { useState } from "preact/hooks";
-import { H3 } from "../../../components/h3.tsx";
 import { HighscoreUser } from "../../../server/highscore/highscore.ts";
 import { H2 } from "../../../components/h2.tsx";
 
@@ -25,7 +24,6 @@ export const SubmitHighscore: FunctionalComponent = (
     const { isNewhighscore = [] as HighscoreUser[] } = await response.json();
 
     if (Array.isArray(isNewhighscore) && isNewhighscore.length > 1) {
-      console.log("should update the highscore list.");
       props.onClosed(isNewhighscore);
     }
   };

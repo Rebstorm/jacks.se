@@ -19,10 +19,13 @@ interface GameWindowProps {
 
 const shouldSubmitNewScore = (
   score: number,
-  highscoreUsers: HighscoreUser[]
+  highscoreUsers?: HighscoreUser[]
 ) => {
-  const lowestScore = highscoreUsers[highscoreUsers.length - 1];
-  return score > lowestScore.score;
+  const lowestScore = highscoreUsers?.[highscoreUsers.length - 1] || {
+    score: 0,
+    username: "",
+  };
+  return score > lowestScore?.score;
 };
 
 const GameWindow: FunctionalComponent = (props: GameWindowProps) => {
