@@ -25,6 +25,8 @@ export async function maybeSetHighscore(
     user.username = user.username.substring(0, 7) + "...";
   }
 
+  if (user.username === "") user.username = "Anonymous";
+
   // If there are less than 10 scores, or if the user's score is higher than the lowest score in the list
   if (
     currentHighScores.length < 10 ||
