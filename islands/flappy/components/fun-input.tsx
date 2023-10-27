@@ -2,6 +2,7 @@ import { FunctionalComponent, h } from "preact";
 
 export interface FunInputProps {
   onValueChange: (value: string) => void;
+  label?: string;
 }
 export const FunInput: FunctionalComponent<FunInputProps> = (
   props: FunInputProps
@@ -13,6 +14,7 @@ export const FunInput: FunctionalComponent<FunInputProps> = (
 
   return (
     <div>
+      <label>{props.label}</label>
       <input type="text" onKeyUp={handleChange} className="funInput" />
     </div>
   );

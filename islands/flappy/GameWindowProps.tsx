@@ -33,6 +33,9 @@ const GameWindow: FunctionalComponent = (props: GameWindowProps) => {
   const [obstacles, setObstacles] = useState([]); // This will contain each obstacle's x position and height.
   const [score, setScore] = useState(0);
   const [isGameOver, setIsGameOver] = useState(false);
+  const [highscoreList, setHighscoreList] = useState<HighscoreUser[]>(
+    props.highscores
+  );
 
   // Resetting the game to its initial state
   const restartGame = () => {
@@ -91,7 +94,6 @@ const GameWindow: FunctionalComponent = (props: GameWindowProps) => {
     };
 
     const scoreHandler = () => {
-      console.log("score callback woo!");
       setScore((prev: number) => prev + 1);
     };
 
@@ -138,18 +140,25 @@ const GameWindow: FunctionalComponent = (props: GameWindowProps) => {
     <div className={"game-window-center"}>
       {isGameOver && (
         <div>
-          <H2 gradientColor> Your Score: {score}</H2>
+          <H2 gradientColor> Your Score: {score}⭐</H2>
+          {shouldSubmitNewScore(score, highscoreList) && (
+            <SubmitHighscore
+              score={score}
+              onClosed={(list: HighscoreUser[]) => {
+                setHighscoreList(list);
+              }}
+            />
+          )}
           <div className={"game-high-scores"}>
             <H2 noMargin gradientColor>
               Highscores
             </H2>
-            {props.highscores.map((highScore) => (
+            {highscoreList.map((highScore) => (
               <div>
-                <H3 className={"player-headline"}>{highScore.username}</H3>
-                <div>{highScore.score}</div>
+                <div className={"player-headline"}>{highScore.username}</div>
+                <div>{highScore.score}⭐</div>
               </div>
             ))}
-            {shouldSubmitNewScore && <SubmitHighscore score={score} />}
           </div>
 
           <div className={"funButton"} onClick={() => restartGame()}>

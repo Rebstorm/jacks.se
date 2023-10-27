@@ -1,6 +1,7 @@
 import {
   GAME_WINDOW_HEIGHT,
   GAME_WINDOW_WIDTH,
+  IS_SMALL_SCREEN,
   PLAYER_WIDTH,
 } from "./constants.ts";
 import { StateUpdater } from "preact/hooks";
@@ -23,9 +24,9 @@ export const generateObstacles = (
       ? Math.max(GAME_WINDOW_WIDTH, lastObstacle.x + MINIMUM_OBSTACLE_SPACING)
       : GAME_WINDOW_WIDTH; // If it's the first obstacle, start at the edge of the game window.
 
-    // Your existing logic for random gap height generation remains the same.
     const randomGapHeight =
-      Math.random() * (GAME_WINDOW_HEIGHT * 0.7) + PLAYER_WIDTH;
+      Math.random() * (GAME_WINDOW_HEIGHT * (IS_SMALL_SCREEN ? 0.4 : 0.7)) +
+      PLAYER_WIDTH;
 
     // Add the new obstacle to the state.
     setObstacles((prevObstacles: Obstacle[]) => [

@@ -24,7 +24,6 @@ export default function Home(props: PageProps<HighscoreUser[]>) {
 export const handler = {
   async GET(_req: Request, ctx: HandlerContext) {
     const highScore = await getHighscore();
-
     return ctx.render(highScore);
   },
 };

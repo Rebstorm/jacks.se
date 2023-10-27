@@ -80,7 +80,22 @@
 
 
 .highscore-window {
-    background: var(--tertiary-text);
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    margin-bottom: -3rem;
+    z-index: 2;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    width: 20rem;
+    padding: var(--norm);
+
 }
 
 .game-window-center {
@@ -95,13 +110,23 @@
 }
 
 .game-high-scores {
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
     display: flex;
     flex-direction: column;
-    background: var(--secondary-color);
+    border-radius: calc(var(--norm) / 2);
     padding: calc(var(--norm) * 2);
     gap:var(--norm)
 }
 
+.close {
+    display: none;
+}
+
 .player-headline {
+    margin: 0;
     font-weight: bold;
 }
