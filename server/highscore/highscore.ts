@@ -21,6 +21,10 @@ export async function maybeSetHighscore(
 ): Promise<HighscoreUser[]> {
   const currentHighScores = await getHighscore();
 
+  if (user.username.length > 10) {
+    user.username = user.username.substring(0, 7) + "...";
+  }
+
   // If there are less than 10 scores, or if the user's score is higher than the lowest score in the list
   if (
     currentHighScores.length < 10 ||
