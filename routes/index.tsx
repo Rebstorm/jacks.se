@@ -5,7 +5,7 @@ import { H2 } from "../components/h2.tsx";
 
 export default function Home(props: PageProps) {
   return (
-    <div class={"innerContainer"}>
+    <>
       <H1 gradientColor>Hello, I'm Paul. I code things.</H1>
       <Paragraph>
         Yes, you read that right. But not just anything - I craft digital
@@ -35,6 +35,6 @@ export default function Home(props: PageProps) {
         This service here was written in Deno 🦕 using Fresh 🍋. Running in Deno
         Deploy.
       </Paragraph>
-    </div>
+    </>
   );
 }
