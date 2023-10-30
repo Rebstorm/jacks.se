@@ -140,8 +140,6 @@ b {
 
 .md {
   display: block;
-  width: inherit;
-  padding: 1rem;
   max-width: inherit;
 }
 

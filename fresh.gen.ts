@@ -4,13 +4,16 @@
 
 import * as $0 from "./routes/_404.tsx";
 import * as $1 from "./routes/_app.tsx";
-import * as $2 from "./routes/api/highscore/index.ts";
-import * as $3 from "./routes/blog/[slug]/index.tsx";
-import * as $4 from "./routes/blog/index.tsx";
-import * as $5 from "./routes/experiments/flappy.tsx";
-import * as $6 from "./routes/experiments/index.tsx";
-import * as $7 from "./routes/index.tsx";
-import * as $8 from "./routes/info.tsx";
+import * as $2 from "./routes/_layout.tsx";
+import * as $3 from "./routes/api/highscore/index.ts";
+import * as $4 from "./routes/blog/[slug]/index.tsx";
+import * as $5 from "./routes/blog/_layout.tsx";
+import * as $6 from "./routes/blog/index.tsx";
+import * as $7 from "./routes/experiments/_layout.tsx";
+import * as $8 from "./routes/experiments/flappy.tsx";
+import * as $9 from "./routes/experiments/index.tsx";
+import * as $10 from "./routes/index.tsx";
+import * as $11 from "./routes/info.tsx";
 import * as $$0 from "./islands/Footer.tsx";
 import * as $$1 from "./islands/Header.tsx";
 import * as $$2 from "./islands/Menu/Menu.tsx";
@@ -26,13 +29,16 @@ const manifest = {
   routes: {
     "./routes/_404.tsx": $0,
     "./routes/_app.tsx": $1,
-    "./routes/api/highscore/index.ts": $2,
-    "./routes/blog/[slug]/index.tsx": $3,
-    "./routes/blog/index.tsx": $4,
-    "./routes/experiments/flappy.tsx": $5,
-    "./routes/experiments/index.tsx": $6,
-    "./routes/index.tsx": $7,
-    "./routes/info.tsx": $8,
+    "./routes/_layout.tsx": $2,
+    "./routes/api/highscore/index.ts": $3,
+    "./routes/blog/[slug]/index.tsx": $4,
+    "./routes/blog/_layout.tsx": $5,
+    "./routes/blog/index.tsx": $6,
+    "./routes/experiments/_layout.tsx": $7,
+    "./routes/experiments/flappy.tsx": $8,
+    "./routes/experiments/index.tsx": $9,
+    "./routes/index.tsx": $10,
+    "./routes/info.tsx": $11,
   },
   islands: {
     "./islands/Footer.tsx": $$0,

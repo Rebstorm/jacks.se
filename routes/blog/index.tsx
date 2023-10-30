@@ -4,7 +4,7 @@ import { H1 } from "../../components/h1.tsx";
 
 export default function BlogList(props: PageProps<Post[]>) {
   return (
-    <div class={"innerContainer"}>
+    <>
       <H1 gradientColor>Blog entries</H1>
 
       {props.data.map((availablePosts: Post) => (
@@ -16,7 +16,7 @@ export default function BlogList(props: PageProps<Post[]>) {
           <i>Written on: {availablePosts.publishedAt.toDateString()}</i>
         </div>
       ))}
-    </div>
+    </>
   );
 }
 

@@ -100,7 +100,6 @@
 
 .game-window-center {
     display: flex;
-    width: inherit;
     text-align: center;
     justify-content: center;
 }
