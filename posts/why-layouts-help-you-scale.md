@@ -36,13 +36,13 @@ Reinventing the wheel with every new page or component is neither efficient nor 
 
 Now, while the concept of layouts might seem universal, it's interesting to note how various frameworks implement it, each bringing its own flavor to the mix.
 
-**Astro**: This framework emphasizes delivering the least amount of JavaScript possible. With its component-based architecture, layouts in Astro ensure you're only sending what's essential, optimizing both performance and user experience.
+[**Astro**](https://docs.astro.build/en/core-concepts/layouts/): This framework emphasizes delivering the least amount of JavaScript possible. With its component-based architecture, layouts in Astro ensure you're only sending what's essential, optimizing both performance and user experience.
 
-**Next.js**: As one of the giants in the React ecosystem, Next.js utilizes layouts to seamlessly integrate server-side rendering with your components. Its layout system encourages developers to encapsulate and reuse code, ensuring consistency across pages.
+[**Next.js**](https://nextjs.org/docs/pages/building-your-application/routing/pages-and-layouts#layout-pattern): As one of the giants in the React ecosystem, Next.js utilizes layouts to seamlessly integrate server-side rendering with your components. Its layout system encourages developers to encapsulate and reuse code, ensuring consistency across pages.
 
-**Fresh**: While being relatively new to the scene, Fresh takes cues from other frameworks and offers its own spin on layouts. Its convention-over-configuration approach ensures developers spend less time on boilerplate and more on actual functionality.
+[**Fresh**](https://fresh.deno.dev/docs/concepts/layouts): While being relatively new to the scene, Fresh takes cues from other frameworks and offers its own spin on layouts. Its convention-over-configuration approach ensures developers spend less time on boilerplate and more on actual functionality.
 
-**Lit**: Ah, Lit! No, it’s not just the slang term your teenager uses every time they like something. It's also a lightweight web components library that apparently decided it needed to be part of the "layout" club. With Lit, we get all the promises of speed, simplicity, and a dash of "we're not like other frameworks." And in the context of layouts? Well, it offers a straightforward approach, making sure developers feel smart and ahead of the curve. Because who doesn't want their codebase to be as 'lit' as their Saturday night? (Editors note: Please kill me for making this joke. This is so dumb.)
+[**Lit**](https://lit.dev/docs/templates/overview/): Ah, Lit! No, it’s not just the slang term your teenager uses every time they like something. It's also a lightweight web components library that apparently decided it needed to be part of the "layout" club. With Lit, we get all the promises of speed, simplicity, and a dash of "we're not like other frameworks." And in the context of layouts? Well, it offers a straightforward approach, making sure developers feel smart and ahead of the curve. Because who doesn't want their codebase to be as 'lit' as their Saturday night? (Editors note: Please kill me for making this joke. This is so dumb.)
 
 Look. I'm not gonna list them all here, but what I am trying to get across is: It's widely used, and you should consider using them as well - If you already aren't.
 
