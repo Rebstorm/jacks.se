@@ -144,6 +144,11 @@ const GameWindow: FunctionalComponent = (props: GameWindowProps) => {
       {isGameOver && (
         <div>
           <H2 gradientColor> Your Score: {score}⭐</H2>
+
+          <div className={"funButton"} onClick={() => restartGame()}>
+            Restart
+          </div>
+
           {shouldSubmitNewScore(score, highscoreList) && (
             <SubmitHighscore
               score={score}
@@ -162,10 +167,6 @@ const GameWindow: FunctionalComponent = (props: GameWindowProps) => {
                 <div>{highScore.score}⭐</div>
               </div>
             ))}
-          </div>
-
-          <div className={"funButton"} onClick={() => restartGame()}>
-            Restart
           </div>
         </div>
       )}

@@ -12,6 +12,7 @@
     --flavor-2:#9f6;
     --flavor-3: #f0a;
     --norm: 1rem;
+    --border: 0.2rem;
 }
 
 @font-face {
@@ -130,6 +131,7 @@ b {
 
 .innerContainer {
   margin: 2rem 0 2rem 0;
+    width: inherit;
 }
 
 .blog-desc-container{

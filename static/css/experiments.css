@@ -1,0 +1,49 @@
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--norm);
+    justify-items: center;
+    align-items: center;
+    transition: ease-in 200ms;
+}
+
+.grid:hover {
+    cursor: pointer;
+    padding-left: calc(var(--norm) * 0.2);
+}
+
+.grid-item {
+    background-color: var(--background-contrast);
+    padding: var(--norm);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: var(--border);
+    font-size: calc(var(--norm) * 1.2);
+    animation: staggeredFadeInUp 0.6s ease-out forwards;
+    animation-delay: 0s;
+}
+
+
+@keyframes staggeredFadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+.grid-item:nth-child(1) { animation-delay: 0.1s; }
+.grid-item:nth-child(2) { animation-delay: 0.2s; }
+.grid-item:nth-child(3) { animation-delay: 0.3s; }
+.grid-item:nth-child(4) { animation-delay: 0.4s; }
+.grid-item:nth-child(5) { animation-delay: 0.5s; }
+.grid-item:nth-child(6) { animation-delay: 0.6s; }
+.grid-item:nth-child(7) { animation-delay: 0.7s; }
+.grid-item:nth-child(8) { animation-delay: 0.8s; }
+.grid-item:nth-child(9) { animation-delay: 0.9s; }
