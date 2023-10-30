@@ -17,7 +17,6 @@ export default function App({ Component, route, ...rest }: AppProps) {
     <html lang={"en"}>
       <Head>
         <meta charSet="utf-8" />
-        <title>🫠</title>
         <meta name="viewport" content="width=device-width, minimum-scale=1.0" />
         <meta property="og:type" content="website" key={META_TYPE} />
         <meta property="og:locale" content="en_US" />

@@ -6,6 +6,7 @@ import {
   getHighscore,
   HighscoreUser,
 } from "../../server/highscore/highscore.ts";
+import { TITLE } from "../../constants/meta.ts";
 
 export default function Home(props: PageProps<HighscoreUser[]>) {
   const pathPrefix = getCSSPathPrefix(props.url.pathname);
@@ -15,6 +16,8 @@ export default function Home(props: PageProps<HighscoreUser[]>) {
       <Head>
         <link rel="preload" href={`${pathPrefix}css/flappy.css`} as="style" />
         <link rel="stylesheet" href={`${pathPrefix}css/flappy.css`} />
+
+        <title>Flappy | {TITLE}</title>
       </Head>
       <GameWindow highscores={props.data} />
     </>

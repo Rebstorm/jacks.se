@@ -7,6 +7,7 @@ import {
   META_TITLE,
   META_TYPE,
   META_URL,
+  TITLE,
 } from "../../../constants/meta.ts";
 
 export default function BlogEntry(props: PageProps<Post>) {
@@ -14,8 +15,12 @@ export default function BlogEntry(props: PageProps<Post>) {
     <>
       {/* https://fresh.deno.dev/docs/examples/modifying-the-head */}
       <Head>
+        <title>
+          {props.data.title} | {TITLE}
+        </title>
         <style dangerouslySetInnerHTML={{ __html: CSS }} />
         <meta property="og:title" content={props.data.title} key={META_TITLE} />
+
         <meta
           property="og:description"
           content={props.data.snippet}

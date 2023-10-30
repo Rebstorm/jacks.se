@@ -5,8 +5,7 @@ import { H1 } from "../../components/h1.tsx";
 export default function BlogList(props: PageProps<Post[]>) {
   return (
     <>
-      <H1 gradientColor>Blog entries</H1>
-
+      <H1 gradientColor>Blog</H1>
       {props.data.map((availablePosts: Post) => (
         <div className={"blog-desc-container"}>
           <a className={"blog-title"} href={`blog/${availablePosts.slug}`}>

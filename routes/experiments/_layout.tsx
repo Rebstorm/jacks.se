@@ -1,6 +1,7 @@
 import { LayoutProps } from "$fresh/server.ts";
 import { Head } from "$fresh/runtime.ts";
 import { getCSSPathPrefix } from "../../utils/css/pathPrefix.ts";
+import { TITLE } from "../../constants/meta.ts";
 
 export default function Layout({ Component, state, ...rest }: LayoutProps) {
   const pathPrefix = getCSSPathPrefix(rest.url.pathname);
@@ -14,6 +15,7 @@ export default function Layout({ Component, state, ...rest }: LayoutProps) {
           as="style"
         />
         <link rel="stylesheet" href={`${pathPrefix}css/experiments.css`} />
+        <title> Experiments | {TITLE}</title>
       </Head>
       <Component />
     </>
