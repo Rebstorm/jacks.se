@@ -19,6 +19,10 @@ export default function App({ Component, route, ...rest }: AppProps) {
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, minimum-scale=1.0" />
         <meta property="og:type" content="website" key={META_TYPE} />
+        <meta
+          property="og:image"
+          content={rest.url.href + "meta/meta_me.jpeg"}
+        />
         <meta property="og:locale" content="en_US" />
         <meta
           property="og:site_name"
