@@ -25,7 +25,10 @@ export default function App({ Component, route, ...rest }: AppProps) {
         />
         <meta property="og:locale" content="en_US" />
 
-        <meta name="description" content="PJ's Webpage for Experiments and Blog rants.">
+        <meta
+          name="description"
+          content="PJ's Webpage for Experiments and Blog rants."
+        />
 
         <meta
           property="og:site_name"
