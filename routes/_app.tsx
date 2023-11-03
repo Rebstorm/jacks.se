@@ -24,6 +24,9 @@ export default function App({ Component, route, ...rest }: AppProps) {
           content={rest.url.href + "meta/meta_me.jpeg"}
         />
         <meta property="og:locale" content="en_US" />
+
+        <meta name="description" content="PJ's Webpage for Experiments and Blog rants.">
+
         <meta
           property="og:site_name"
           content="Pauls Dev Page. Add salt for saltiness."

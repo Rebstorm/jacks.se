@@ -3,7 +3,7 @@ import { getPost, Post } from "../../../server/post/post.ts";
 import { Head } from "$fresh/runtime.ts";
 import { CSS, render } from "$gfm";
 import {
-  META_DESCRIPTION,
+  OG_META_DESCRIPTION,
   META_TITLE,
   META_TYPE,
   META_URL,
@@ -24,7 +24,7 @@ export default function BlogEntry(props: PageProps<Post>) {
         <meta
           property="og:description"
           content={props.data.snippet}
-          key={META_DESCRIPTION}
+          key={OG_META_DESCRIPTION}
         />
         <meta property="og:url" content={props.url.href} key={META_URL} />
         <meta property="og:type" content="article" key={META_TYPE} />
