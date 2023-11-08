@@ -45,7 +45,6 @@ body, html {
     overflow-wrap: break-word;
 }
 
-
 pre {
     background: var(--secondary-color);
     border-radius: 2rem;
@@ -174,15 +173,20 @@ b {
 
 .overflow-hidden{
     overflow-x: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 10rem;
 }
 
 .wave {
     position: absolute;
     width: 200%;
-    overflow: hidden;
     animation: wave 10s linear infinite;
     transform: rotate(0deg);
 }
+
 
 @keyframes wave {
     0% {

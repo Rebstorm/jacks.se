@@ -8,7 +8,7 @@
     "db:run": "deno run -A --unstable server/cli/db.ts"
   },
   "imports": {
-    "$fresh/": "https://deno.land/x/fresh@1.5.2/",
+    "$fresh/": "https://deno.land/x/fresh@1.5.4/",
     "preact": "https://esm.sh/preact@10.18.1",
     "preact/": "https://esm.sh/preact@10.18.1/",
     "$std/": "https://deno.land/std@0.198.0/",
