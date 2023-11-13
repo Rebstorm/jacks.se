@@ -7,6 +7,7 @@ export interface Post {
   publishedAt: Date;
   content: string;
   snippet?: string;
+  image?: string;
 }
 
 // Because I am a lazy butt. Please type this.
@@ -24,6 +25,7 @@ export async function getPost(slug: string): Promise<Post | undefined> {
       publishedAt: new Date(attrs.published_at),
       content: body,
       snippet: attrs.snippet,
+      image: attrs.image,
     };
   } catch (e) {
     return undefined;

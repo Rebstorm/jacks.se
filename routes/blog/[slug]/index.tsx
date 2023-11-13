@@ -31,6 +31,12 @@ export default function BlogEntry(props: PageProps<Post>) {
         />
         <meta property="og:url" content={props.url.href} key={META_URL} />
         <meta property="og:type" content="article" key={META_TYPE} />
+        {props.data.image && (
+          <meta
+            property="og:image"
+            content={`${props.url.origin}/${props.data.image}`}
+          />
+        )}
       </Head>
       <div
         data-color-mode="auto"
