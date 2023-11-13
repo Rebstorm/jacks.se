@@ -169,6 +169,9 @@ b {
     -webkit-background-clip: text;
     color: transparent;
 }
+.movie-gradient {
+    animation: moveGradient 3s linear infinite;
+}
 
 
 .overflow-hidden{
@@ -194,6 +197,15 @@ b {
     }
     100% {
         transform: translateX(-50%) rotate(180deg);
+    }
+}
+
+@keyframes moveGradient {
+    0% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: -100% 50%;
     }
 }
 

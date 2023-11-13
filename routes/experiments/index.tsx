@@ -6,7 +6,9 @@ import { getCSSPathPrefix } from "../../utils/css/pathPrefix.ts";
 export default function Info(props: PageProps) {
   return (
     <>
-      <H1 gradientColor>Experiments</H1>
+      <H1 animate gradientColor>
+        Experiments
+      </H1>
       <Paragraph>
         <div className={"grid"}>
           <div className={"grid-item"}>
