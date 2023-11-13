@@ -4,6 +4,9 @@ published_at: 2023-11-13T14:08:00.000Z
 snippet: "Let's deep dive into something we all love to do - touching other peoples stale old code."
 ---
 
+
+![Code smell. Yuck.](../blog-images/smell.png)
+
 # Why Refactor?
 
 Refactoring is essential in software development for adapting to evolving requirements and enhancing application performance. Consider a typical software development example: initially, you might have a function with multiple responsibilities. 
@@ -11,7 +14,6 @@ Refactoring is essential in software development for adapting to evolving requir
 As the application grows, this approach becomes a bottleneck. By refactoring, you can split this function into smaller, more focused functions, enhancing readability and maintainability. This process doesn't change the software's behavior but makes the codebase more adaptable and efficient.
 
 ## Common signs it might be time to refactor
-
 Recognizing when to refactor is as crucial as knowing how to do it. One clear sign is escalating code complexity, where methods become overextended and classes take on too many responsibilities, making the codebase unwieldy and bug-prone. This complexity often manifests through 'code smells' such as duplicate code, indicating a need for consolidation, or long methods that can be broken down for clarity and efficiency. 
 
 Another red flag is the increasing difficulty in adding new features, a sign of rigid code that resists adaptation. Additionally, if certain areas of your codebase consistently harbor bugs or suffer performance issues, it's a strong indication that these sections need a closer look and possible refactoring
