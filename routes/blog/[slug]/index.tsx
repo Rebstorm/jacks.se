@@ -8,6 +8,7 @@ import {
   META_TYPE,
   META_URL,
   TITLE,
+  META_IMAGE,
 } from "../../../constants/meta.ts";
 
 // Give TS highlight support.
@@ -34,6 +35,7 @@ export default function BlogEntry(props: PageProps<Post>) {
         {props.data.image && (
           <meta
             property="og:image"
+            key={META_IMAGE}
             content={`${props.url.origin}/${props.data.image}`}
           />
         )}

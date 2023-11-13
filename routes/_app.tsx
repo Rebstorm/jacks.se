@@ -4,7 +4,12 @@ import Header from "../islands/Header.tsx";
 import Wave from "../components/wave.tsx";
 import Footer from "../islands/Footer.tsx";
 import FontLink from "../components/font-link.tsx";
-import { META_SITE, META_TITLE, META_TYPE } from "../constants/meta.ts";
+import {
+  META_IMAGE,
+  META_SITE,
+  META_TITLE,
+  META_TYPE,
+} from "../constants/meta.ts";
 import { getCSSPathPrefix } from "../utils/css/pathPrefix.ts";
 
 export default function App({ Component, route, ...rest }: AppProps) {
@@ -22,6 +27,7 @@ export default function App({ Component, route, ...rest }: AppProps) {
         <meta
           property="og:image"
           content={rest.url.href + "meta/meta_me.jpeg"}
+          key={META_IMAGE}
         />
         <meta property="og:locale" content="en_US" />
 
