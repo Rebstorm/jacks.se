@@ -10,6 +10,9 @@ import {
   TITLE,
 } from "../../../constants/meta.ts";
 
+// Give TS highlight support.
+import "https://esm.sh/prismjs@1.29.0/components/prism-typescript?no-check";
+
 export default function BlogEntry(props: PageProps<Post>) {
   return (
     <>
@@ -30,7 +33,10 @@ export default function BlogEntry(props: PageProps<Post>) {
         <meta property="og:type" content="article" key={META_TYPE} />
       </Head>
       <div
-        class={"md"}
+        data-color-mode="auto"
+        data-dark-theme="dark"
+        data-light-theme={"light"}
+        class={"markdown-body md"}
         dangerouslySetInnerHTML={{
           __html: render(props.data.content, {}),
         }}
@@ -41,7 +47,7 @@ export default function BlogEntry(props: PageProps<Post>) {
 
 export const handler = {
   async GET(req: Request, ctx: HandlerContext) {
-    const posts = await getPost(ctx.params.slug);
-    return ctx.render(posts);
+    const post = await getPost(ctx.params.slug);
+    return ctx.render(post);
   },
 };

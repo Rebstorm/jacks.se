@@ -139,7 +139,9 @@ b {
 
 .md {
   display: block;
+  padding: var(--norm);
   max-width: inherit;
+  background-color: unset !important;
 }
 
 .md > h1 {

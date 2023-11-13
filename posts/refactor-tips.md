@@ -1,5 +1,5 @@
 ---
-title: Refactoring - The only way forward is to touch old code.
+title: Refactoring - The only way forward is going back. 
 published_at: 2023-11-13T14:08:00.000Z
 snippet: "Let's deep dive into something we all love to do - touching other peoples stale old code."
 ---
