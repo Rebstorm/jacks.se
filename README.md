@@ -1,5 +1,7 @@
 # Jacks.se
 
+[![Made with Fresh](https://fresh.deno.dev/fresh-badge-dark.svg)](https://fresh.deno.dev)
+
 Welcome to my personal space on the web - Jacks.se! This is where I share my thoughts, experiences, and yes, occasionally, my rants (welcome to the complain-o-sphere). Whether it's pondering life's mysteries or venting about day-to-day encounters, you'll find it here.
 
 ## Overview
