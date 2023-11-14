@@ -21,6 +21,11 @@ Another red flag is the increasing difficulty in adding new features, a sign of 
 
 ## How to refactor: Some guidelines and best approaches
 
+![Code smell. Yuck.](../blog-images/worst_enemy.png)
+
+Image Courtesy of [Basti Tee.](https://engineering.leanix.net/authors/basti-tee/)
+
+
 So you think you have what it takes to get started on your refactoring, I want to offer you a piece of advice - You are probably not. Touching code that has been stale or is complex should not be done without understanding why and what you are doing. How do you gain that confidence? You write tests. Before you do any refactorings you write _tests_.
 
 It's not about doubting your skills; it's about respecting the complexity of code and acknowledging that no one, not even the best developer in the world, can predict every outcome of tweaking that code.
