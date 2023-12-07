@@ -2,57 +2,59 @@
 // This file SHOULD be checked into source version control.
 // This file is automatically updated during development when running `dev.ts`.
 
-import * as $0 from "./routes/_404.tsx";
-import * as $1 from "./routes/_app.tsx";
-import * as $2 from "./routes/_layout.tsx";
-import * as $3 from "./routes/api/highscore/index.ts";
-import * as $4 from "./routes/blog/[slug]/index.tsx";
-import * as $5 from "./routes/blog/_layout.tsx";
-import * as $6 from "./routes/blog/index.tsx";
-import * as $7 from "./routes/experiments/_layout.tsx";
-import * as $8 from "./routes/experiments/flappy.tsx";
-import * as $9 from "./routes/experiments/index.tsx";
-import * as $10 from "./routes/index.tsx";
-import * as $11 from "./routes/info.tsx";
-import * as $$0 from "./islands/Footer.tsx";
-import * as $$1 from "./islands/Header.tsx";
-import * as $$2 from "./islands/Menu/Menu.tsx";
-import * as $$3 from "./islands/flappy/GameWindowProps.tsx";
-import * as $$4 from "./islands/flappy/components/fun-input.tsx";
-import * as $$5 from "./islands/flappy/components/submit-highscore.tsx";
-import * as $$6 from "./islands/flappy/logic/collision.ts";
-import * as $$7 from "./islands/flappy/logic/constants.ts";
-import * as $$8 from "./islands/flappy/logic/draw.ts";
-import * as $$9 from "./islands/flappy/logic/obstacles.ts";
+import * as $_404 from "./routes/_404.tsx";
+import * as $_app from "./routes/_app.tsx";
+import * as $_layout from "./routes/_layout.tsx";
+import * as $api_highscore_index from "./routes/api/highscore/index.ts";
+import * as $blog_slug_index from "./routes/blog/[slug]/index.tsx";
+import * as $blog_layout from "./routes/blog/_layout.tsx";
+import * as $blog_index from "./routes/blog/index.tsx";
+import * as $experiments_layout from "./routes/experiments/_layout.tsx";
+import * as $experiments_flappy from "./routes/experiments/flappy.tsx";
+import * as $experiments_index from "./routes/experiments/index.tsx";
+import * as $index from "./routes/index.tsx";
+import * as $info from "./routes/info.tsx";
+import * as $Footer from "./islands/Footer.tsx";
+import * as $Header from "./islands/Header.tsx";
+import * as $Menu_Menu from "./islands/Menu/Menu.tsx";
+import * as $flappy_GameWindowProps from "./islands/flappy/GameWindowProps.tsx";
+import * as $flappy_components_fun_input from "./islands/flappy/components/fun-input.tsx";
+import * as $flappy_components_submit_highscore from "./islands/flappy/components/submit-highscore.tsx";
+import * as $flappy_logic_collision from "./islands/flappy/logic/collision.ts";
+import * as $flappy_logic_constants from "./islands/flappy/logic/constants.ts";
+import * as $flappy_logic_draw from "./islands/flappy/logic/draw.ts";
+import * as $flappy_logic_obstacles from "./islands/flappy/logic/obstacles.ts";
+import { type Manifest } from "$fresh/server.ts";
 
 const manifest = {
   routes: {
-    "./routes/_404.tsx": $0,
-    "./routes/_app.tsx": $1,
-    "./routes/_layout.tsx": $2,
-    "./routes/api/highscore/index.ts": $3,
-    "./routes/blog/[slug]/index.tsx": $4,
-    "./routes/blog/_layout.tsx": $5,
-    "./routes/blog/index.tsx": $6,
-    "./routes/experiments/_layout.tsx": $7,
-    "./routes/experiments/flappy.tsx": $8,
-    "./routes/experiments/index.tsx": $9,
-    "./routes/index.tsx": $10,
-    "./routes/info.tsx": $11,
+    "./routes/_404.tsx": $_404,
+    "./routes/_app.tsx": $_app,
+    "./routes/_layout.tsx": $_layout,
+    "./routes/api/highscore/index.ts": $api_highscore_index,
+    "./routes/blog/[slug]/index.tsx": $blog_slug_index,
+    "./routes/blog/_layout.tsx": $blog_layout,
+    "./routes/blog/index.tsx": $blog_index,
+    "./routes/experiments/_layout.tsx": $experiments_layout,
+    "./routes/experiments/flappy.tsx": $experiments_flappy,
+    "./routes/experiments/index.tsx": $experiments_index,
+    "./routes/index.tsx": $index,
+    "./routes/info.tsx": $info,
   },
   islands: {
-    "./islands/Footer.tsx": $$0,
-    "./islands/Header.tsx": $$1,
-    "./islands/Menu/Menu.tsx": $$2,
-    "./islands/flappy/GameWindowProps.tsx": $$3,
-    "./islands/flappy/components/fun-input.tsx": $$4,
-    "./islands/flappy/components/submit-highscore.tsx": $$5,
-    "./islands/flappy/logic/collision.ts": $$6,
-    "./islands/flappy/logic/constants.ts": $$7,
-    "./islands/flappy/logic/draw.ts": $$8,
-    "./islands/flappy/logic/obstacles.ts": $$9,
+    "./islands/Footer.tsx": $Footer,
+    "./islands/Header.tsx": $Header,
+    "./islands/Menu/Menu.tsx": $Menu_Menu,
+    "./islands/flappy/GameWindowProps.tsx": $flappy_GameWindowProps,
+    "./islands/flappy/components/fun-input.tsx": $flappy_components_fun_input,
+    "./islands/flappy/components/submit-highscore.tsx":
+      $flappy_components_submit_highscore,
+    "./islands/flappy/logic/collision.ts": $flappy_logic_collision,
+    "./islands/flappy/logic/constants.ts": $flappy_logic_constants,
+    "./islands/flappy/logic/draw.ts": $flappy_logic_draw,
+    "./islands/flappy/logic/obstacles.ts": $flappy_logic_obstacles,
   },
   baseUrl: import.meta.url,
-};
+} satisfies Manifest;
 
 export default manifest;
