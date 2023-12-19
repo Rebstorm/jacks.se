@@ -9,7 +9,7 @@
 
 .grid:hover {
     cursor: pointer;
-    padding-left: calc(var(--norm) * 0.2);
+    transform: scale(1,1.2)
 }
 
 .grid-item {
