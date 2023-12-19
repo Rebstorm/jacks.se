@@ -111,6 +111,7 @@ b {
     stroke: black;
     stroke-width: 0.1rem;
     stroke-linejoin : round;
+    font-size: 2rem;
 }
 
 .nav > a:hover {

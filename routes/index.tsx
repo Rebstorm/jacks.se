@@ -2,6 +2,7 @@ import { PageProps } from "$fresh/server.ts";
 import { Paragraph } from "../components/paragraph.tsx";
 import { H1 } from "../components/h1.tsx";
 import { H2 } from "../components/h2.tsx";
+import { GithubIcon } from "../components/github-icon.tsx";
 
 export default function Home(props: PageProps) {
   return (

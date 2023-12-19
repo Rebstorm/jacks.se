@@ -1,7 +1,9 @@
+import { GithubIcon } from "../components/github-icon.tsx";
+
 interface Link {
   path?: string;
   href?: string;
-  label: string;
+  label: string | Element;
   isExternal?: boolean;
 }
 
@@ -10,7 +12,11 @@ export const linksAvailable = () =>
     { path: "/", label: "🏡" },
     { path: "/experiments", label: "🧪" },
     { path: "/blog", label: "📒" },
-    { href: "https://github.com/Rebstorm", label: "github", isExternal: true },
+    {
+      href: "https://github.com/Rebstorm",
+      label: <GithubIcon />,
+      isExternal: true,
+    },
     {
       href: "https://fosstodon.org/@sendcookies",
       label: "🦣",

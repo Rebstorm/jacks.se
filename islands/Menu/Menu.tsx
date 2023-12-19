@@ -1,4 +1,5 @@
-import { linksAvailable } from "../../interfaces/linksAvailable.ts";
+import { linksAvailable } from "../../interfaces/linksAvailable.tsx";
+import { GithubIcon } from "../../components/github-icon.tsx";
 
 export interface MenuProps {
   route: string;
@@ -18,12 +19,7 @@ export const Menu = (props: MenuProps) => {
             {link.label}
           </a>
         ) : (
-          <a
-            key={index}
-            href={link.path}
-            f-partial={`${link.path}`}
-            /* className={props.route === link.path ? "active" : ""} */
-          >
+          <a key={index} href={link.path} f-partial={`${link.path}`}>
             {link.label}
           </a>
         )
