@@ -69,7 +69,7 @@ img {
     box-shadow: none;
     transition: all 500ms ease-in;
     padding: 0.5rem;
-    overflow-x: hidden;
+    overflow: hidden;
     z-index: 2;
 }
 
