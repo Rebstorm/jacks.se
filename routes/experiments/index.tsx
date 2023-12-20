@@ -9,16 +9,15 @@ export default function Info(props: PageProps) {
       <H1 animate gradientColor>
         Experiments
       </H1>
-      <Paragraph>
-        <div className={"grid"}>
-          <div className={"grid-item"}>
-            <a href={"./experiments/flappy"}>
-              <img width={128} src={"./experiments/flappy/drone.png"} />
-            </a>
-            <a href={"./experiments/flappy"}>Flappy</a>
-          </div>
+
+      <div className={"grid"}>
+        <div className={"grid-item"}>
+          <a href={"./experiments/flappy"}>
+            <img width={128} src={"./experiments/flappy/drone.png"} />
+          </a>
+          <a href={"./experiments/flappy"}>Flappy</a>
         </div>
-      </Paragraph>
+      </div>
     </>
   );
 }

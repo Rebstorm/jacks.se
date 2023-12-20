@@ -7,9 +7,9 @@
     transition: ease-in 200ms;
 }
 
-.grid:hover {
+.grid-item:hover {
     cursor: pointer;
-    transform: scale(1,1.2)
+    filter: grayscale(80%);
 }
 
 .grid-item {
@@ -23,17 +23,18 @@
     font-size: calc(var(--norm) * 1.2);
     animation: staggeredFadeInUp 0.6s ease-out forwards;
     animation-delay: 0s;
+    transition: 250ms ease-in all;
 }
 
 
 @keyframes staggeredFadeInUp {
     from {
         opacity: 1;
-        transform: translateY(20px);
+        transform: translateY(0px);
     }
     to {
         opacity: 1;
-        transform: translateY(0);
+        transform: translateY(20px);
     }
 }
 
