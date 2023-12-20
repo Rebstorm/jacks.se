@@ -69,7 +69,7 @@ img {
     box-shadow: none;
     transition: all 500ms ease-in;
     padding: 0.5rem;
-    overflow: hidden;
+    overflow-x: hidden;
     z-index: 2;
 }
 
@@ -178,7 +178,7 @@ b {
 
 
 .overflow-hidden{
-    overflow-x: hidden;
+    overflow: hidden;
     position: absolute;
     top: 0;
     left: 0;
