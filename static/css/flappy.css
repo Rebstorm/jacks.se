@@ -109,6 +109,8 @@
 }
 
 .instruction-window{
+    display: flex;
+    flex-direction: column;
     text-align: left;
 }
 
@@ -124,6 +126,10 @@
 .instruction {
     display: flex;
     align-items: center;
+}
+
+.instruction-headline {
+    text-align: center;
 }
 
 .game-high-scores {
@@ -146,4 +152,20 @@
 .player-headline {
     margin: 0;
     font-weight: bold;
+}
+
+.move {
+    display: flex;
+    align-self: center;
+    animation: rotateLeftRight 3s ease-in-out infinite alternate;
+}
+
+
+@keyframes rotateLeftRight {
+    0%, 100% {
+        transform: rotate(45deg);
+    }
+    50% {
+        transform: rotate(-45deg);
+    }
 }
