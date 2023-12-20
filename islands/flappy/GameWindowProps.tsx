@@ -6,12 +6,12 @@ import {
   IS_SMALL_SCREEN,
 } from "./logic/constants.ts";
 import { generateObstacles } from "./logic/obstacles.ts";
-import { drawPlayer, drawObstacles } from "./logic/draw.ts";
+import { drawObstacles, drawPlayer } from "./logic/draw.ts";
 import { checkCollisionAndUpdate } from "./logic/collision.ts";
 import { H2 } from "../../components/h2.tsx";
 import { HighscoreUser } from "../../server/highscore/highscore.ts";
-import { H3 } from "../../components/h3.tsx";
 import { SubmitHighscore } from "./components/submit-highscore.tsx";
+import { Instructions } from "./components/instructions.tsx";
 
 interface GameWindowProps {
   highscores: HighscoreUser[];
@@ -35,10 +35,11 @@ const GameWindow: FunctionalComponent = (props: GameWindowProps) => {
   const [birdVelocity, setBirdVelocity] = useState(0);
   const [obstacles, setObstacles] = useState([]); // This will contain each obstacle's x position and height.
   const [score, setScore] = useState(0);
-  const [isGameOver, setIsGameOver] = useState(false);
+  const [isGameOver, setIsGameOver] = useState(true);
   const [highscoreList, setHighscoreList] = useState<HighscoreUser[]>(
     props.highscores || []
   );
+  const [gameState, setGameState] = useState<"initial" | "running">("initial");
 
   // Resetting the game to its initial state
   const restartGame = () => {
@@ -47,6 +48,7 @@ const GameWindow: FunctionalComponent = (props: GameWindowProps) => {
     setObstacles([]); // Clear obstacles
     setScore(0); // Reset score
     setIsGameOver(false); // Game is now running again
+    setGameState("running");
     // If you have a game loop, you might want to restart it here.
   };
 
@@ -141,7 +143,15 @@ const GameWindow: FunctionalComponent = (props: GameWindowProps) => {
 
   return (
     <div className={"game-window-center"}>
-      {isGameOver && (
+      {gameState === "initial" && (
+        <div>
+          <Instructions />
+          <div className={"funButton"} onClick={() => restartGame()}>
+            Start!
+          </div>
+        </div>
+      )}
+      {isGameOver && gameState === "running" && (
         <div>
           <H2 gradientColor> Your Score: {score}⭐</H2>
 

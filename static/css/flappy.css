@@ -108,6 +108,24 @@
     margin: 0;
 }
 
+.instruction-window{
+    text-align: left;
+}
+
+.instruction-text {
+    padding-left: var(--norm);
+}
+
+.instructions {
+    display: flex;
+    flex-direction: column;
+}
+
+.instruction {
+    display: flex;
+    align-items: center;
+}
+
 .game-high-scores {
     background: rgba(255, 255, 255, 0.2);
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);

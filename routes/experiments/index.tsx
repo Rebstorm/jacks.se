@@ -1,7 +1,5 @@
 import { PageProps } from "$fresh/server.ts";
 import { H1 } from "../../components/h1.tsx";
-import { Paragraph } from "../../components/paragraph.tsx";
-import { getCSSPathPrefix } from "../../utils/css/pathPrefix.ts";
 
 export default function Info(props: PageProps) {
   return (

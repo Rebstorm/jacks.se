@@ -19,6 +19,9 @@ import * as $Header from "./islands/Header.tsx";
 import * as $Menu_Menu from "./islands/Menu/Menu.tsx";
 import * as $flappy_GameWindowProps from "./islands/flappy/GameWindowProps.tsx";
 import * as $flappy_components_fun_input from "./islands/flappy/components/fun-input.tsx";
+import * as $flappy_components_instructions from "./islands/flappy/components/instructions.tsx";
+import * as $flappy_components_mouse_click_icon from "./islands/flappy/components/mouse-click-icon.tsx";
+import * as $flappy_components_space_click_icon from "./islands/flappy/components/space-click-icon.tsx";
 import * as $flappy_components_submit_highscore from "./islands/flappy/components/submit-highscore.tsx";
 import * as $flappy_logic_collision from "./islands/flappy/logic/collision.ts";
 import * as $flappy_logic_constants from "./islands/flappy/logic/constants.ts";
@@ -47,6 +50,12 @@ const manifest = {
     "./islands/Menu/Menu.tsx": $Menu_Menu,
     "./islands/flappy/GameWindowProps.tsx": $flappy_GameWindowProps,
     "./islands/flappy/components/fun-input.tsx": $flappy_components_fun_input,
+    "./islands/flappy/components/instructions.tsx":
+      $flappy_components_instructions,
+    "./islands/flappy/components/mouse-click-icon.tsx":
+      $flappy_components_mouse_click_icon,
+    "./islands/flappy/components/space-click-icon.tsx":
+      $flappy_components_space_click_icon,
     "./islands/flappy/components/submit-highscore.tsx":
       $flappy_components_submit_highscore,
     "./islands/flappy/logic/collision.ts": $flappy_logic_collision,

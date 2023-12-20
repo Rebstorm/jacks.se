@@ -1,12 +1,7 @@
-export const GithubIcon = () => {
-  let mode: "light" | "dark" = "light";
+import { getTheme } from "../utils/css/theme.ts";
 
-  if (
-    window.matchMedia &&
-    window.matchMedia("(prefers-color-scheme: dark)").matches
-  ) {
-    mode = "dark";
-  }
+export const GithubIcon = () => {
+  const mode = getTheme();
 
   return (
     <svg
