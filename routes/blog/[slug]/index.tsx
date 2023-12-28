@@ -13,6 +13,7 @@ import {
 
 // Give TS highlight support.
 import "https://esm.sh/prismjs@1.29.0/components/prism-typescript?no-check";
+import "https://esm.sh/prismjs@1.29.0/components/prism-rust?no-check";
 
 export default function BlogEntry(props: PageProps<Post>) {
   return (

@@ -233,6 +233,10 @@ b {
         white-space: pre-wrap;
         overflow-wrap: break-word;
     }
+
+    .nav > a {
+        font-size: 1.5rem;
+    }
 }
 
 
