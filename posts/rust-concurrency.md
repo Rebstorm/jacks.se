@@ -7,10 +7,10 @@ snippet: "In a nutshell."
 ![Concurrency](../blog-images/concurrency.webp)
 
 # Concurrency And Parallelism in Rust 🦀
-
+Wow. You clicked it. You're in for a bit of fun, meanwhile I try to explain why Rust just kicks butt. But first some basics. 
 
 ## Concurrency != Parallelism
-Devs, let's be real. Understanding the distinction between concurrency and parallelism is crucial. 
+Devs, let's get real. Understanding the distinction between concurrency and parallelism is crucial. 
 
 **Concurrency** in Rust can be likened to a single chef who multitasks in the kitchen, efficiently juggling different cooking activities like chopping, boiling, and frying to manage multiple recipes simultaneously. 
 
