@@ -54,6 +54,8 @@ fn main() {
     println!("All threads have finished executing");
 }
  ```
+[Playground example](https://play.rust-lang.org/?version=stable&mode=debug&edition=2021&gist=20c3656cece53801732b6d3756a14c13)
+
 In this example, we spawn five threads to perform tasks simultaneously, and then wait for all of them to complete, showcasing Rust's safe and efficient thread management.
 ### Shared State
 Mutexes and atomic types in Rust help manage shared state between threads.
@@ -93,6 +95,7 @@ fn main() {
     println!("Result: {}", *counter.lock().unwrap());
 }
 ```
+[Playground example](https://play.rust-lang.org/?version=stable&mode=debug&edition=2021&gist=f1c4e03af72a302c2463e8a66deac66c)
 
 Alright. Bear with me, I don't want to scare you - but I need to tell you about [Mutex](https://doc.rust-lang.org/std/sync/struct.Mutex.html) and [Arc](https://doc.rust-lang.org/std/sync/struct.Arc.html).
 
@@ -124,8 +127,9 @@ fn main() {
     let received = rx.recv().unwrap();
     println!("Received message: {}", received);
 }
-
 ```
+[Playground example](https://play.rust-lang.org/?version=stable&mode=debug&edition=2021&gist=63476732a84ee6c9f96ceba666ce4fd7)
+
 Channels allow different parts of a program to send and receive messages, ensuring safe data transfer between threads. 
 
 A channel consists of two parts: a **transmitter** and a **receiver**. The transmitter (tx) is used to send messages, and the receiver (rx) is used to receive them. In practice, a thread can send a message through the channel using the transmitter, and this message can be received by another thread, typically the main thread, using the receiver. 
@@ -161,9 +165,8 @@ fn main() {
 
     println!("All numbers processed in parallel");
 }
-
 ```
-
+[Playground example](https://play.rust-lang.org/?version=stable&mode=debug&edition=2021&gist=49f2d3b2c90fecde23d94ab5e249fb90)
 ## Are you still here?
 Kudos for sticking with me through this deep dive into Rust's world of concurrency and parallelism (You get a gold star for your hard work today 🌟). 
 
@@ -173,3 +176,11 @@ Understanding and mastering these terms will bring you and your team further the
 
 ## Still hungry for more?
 The Rust Programming Language book will help you further along. I suggest looking over [Ownership](https://doc.rust-lang.org/book/ch04-01-what-is-ownership.html), [Arc](https://doc.rust-lang.org/std/sync/struct.Arc.html), [Mutex](https://doc.rust-lang.org/std/sync/struct.Mutex.html), [Channel](https://doc.rust-lang.org/std/sync/mpsc/fn.channel.html) & [Rayon](https://docs.rs/rayon/latest/rayon/) at your own pace.
+
+
+
+
+_____
+**Editors notes:** 
+
+Thanks Jimmy for the idea of adding the examples to the rust playground. 
