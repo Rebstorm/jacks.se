@@ -1,0 +1,38 @@
+
+.playground {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin: 0 auto;
+}
+
+.container-restrictive {
+    width: 600px;
+    border: 1px solid var(--primary-color);
+    padding: var(--norm);
+    border-radius: var(--norm);
+    transition: 250ms ease all;
+}
+
+.grid-container-expansive {
+    display: grid;
+    grid-gap: 1rem;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+}
+
+.grid-item-expansive {
+    border: 1px solid var(--secondary-color);
+    background: var(--background-contrast);
+    color: var(--background-color);
+    border-radius: calc(var(--norm) * 6);
+    padding: var(--norm);
+    text-align: center;
+    transition: 250ms ease all;
+}
+
+.grid-item-expansive:hover {
+    cursor: pointer;
+    background: var(--background-color);
+    color: var(--background-contrast);
+    transform: scale(1.1);
+}

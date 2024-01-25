@@ -11,6 +11,7 @@ import * as $blog_layout from "./routes/blog/_layout.tsx";
 import * as $blog_index from "./routes/blog/index.tsx";
 import * as $experiments_layout from "./routes/experiments/_layout.tsx";
 import * as $experiments_flappy from "./routes/experiments/flappy.tsx";
+import * as $experiments_grid from "./routes/experiments/grid.tsx";
 import * as $experiments_index from "./routes/experiments/index.tsx";
 import * as $index from "./routes/index.tsx";
 import * as $info from "./routes/info.tsx";
@@ -40,6 +41,7 @@ const manifest = {
     "./routes/blog/index.tsx": $blog_index,
     "./routes/experiments/_layout.tsx": $experiments_layout,
     "./routes/experiments/flappy.tsx": $experiments_flappy,
+    "./routes/experiments/grid.tsx": $experiments_grid,
     "./routes/experiments/index.tsx": $experiments_index,
     "./routes/index.tsx": $index,
     "./routes/info.tsx": $info,
