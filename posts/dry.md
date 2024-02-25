@@ -1,7 +1,7 @@
 ---
 title: Don't repeat yourself.
 published_at: 2024-02-25T16:00:00.000Z
-snippet: ""
+snippet: "Escape the copy-paste trap. Learn how to be DRY — because the only thing cornier than using 'DRY' as a pun is not using it in your code."
 ---
 
 ![That's me in the corner, losing my religion](../blog-images/dry.webp)
