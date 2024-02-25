@@ -32,17 +32,17 @@ Your current code might look something like this:
 ```typescript
 // In the Order Summary
 function calculateOrderTotal(pizzas: number, isStudent: boolean, extraCheese: boolean): number {
-    let basePrice = 10;
-    let discount = isStudent ? 0.9 : 1;
-    let cheesePrice = extraCheese ? 2 : 0;
+    const basePrice = 10;
+    const discount = isStudent ? 0.9 : 1;
+    const cheesePrice = extraCheese ? 2 : 0;
     return (pizzas * basePrice + cheesePrice) * discount;
 }
 
 // In the Checkout
 function calculateCheckoutTotal(pizzas: number, isStudent: boolean, glutenFreeCrust: boolean): number {
-    let basePrice = 10;
-    let discount = isStudent ? 0.9 : 1;
-    let crustPrice = glutenFreeCrust ? 3 : 0;
+    const basePrice = 10;
+    const discount = isStudent ? 0.9 : 1;
+    const crustPrice = glutenFreeCrust ? 3 : 0;
     return (pizzas * basePrice + crustPrice) * discount;
 }
  ```
@@ -59,10 +59,10 @@ interface PizzaCustomizations {
 }
 
 export function calculatePizzaPrice(pizzas: number, isStudent: boolean, options: PizzaCustomizations = {}): number {
-  let basePrice = 10; // Base price per pizza
-  let discount = isStudent ? 0.9 : 1; // 10% discount for students
-  let cheesePrice = options.extraCheese ? 2 * pizzas : 0; // Extra charge for cheese, per pizza
-  let crustPrice = options.glutenFreeCrust ? 3 * pizzas : 0; // Extra charge for gluten-free crust, per pizza
+  const basePrice = 10; // Base price per pizza
+  const discount = isStudent ? 0.9 : 1; // 10% discount for students
+  const cheesePrice = options.extraCheese ? 2 * pizzas : 0; // Extra charge for cheese, per pizza
+  const crustPrice = options.glutenFreeCrust ? 3 * pizzas : 0; // Extra charge for gluten-free crust, per pizza
   
   // Calculate total with possible customizations included
   return (pizzas * basePrice + cheesePrice + crustPrice) * discount;
