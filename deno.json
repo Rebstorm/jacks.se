@@ -1,11 +1,11 @@
 {
   "tasks": {
-    "start": "deno run -A --watch=static/,routes/ --unstable dev.ts",
-    "build": "deno run -A  --unstable dev.ts build",
+    "start": "deno run -A --watch=static/,routes/ --unstable-kv dev.ts",
+    "build": "deno run -A  --unstable-kv dev.ts build",
     "preview": "deno run -A main.ts",
     "upgrade": "deno run -A -r https://fresh.deno.dev/update .",
     "reload:aot": "deno cache --reload --lock-write dev.ts",
-    "db:run": "deno run -A --unstable server/cli/db.ts"
+    "db:run": "deno run -A --unstable-kv server/cli/db.ts"
   },
   "imports": {
     "$fresh/": "https://deno.land/x/fresh@1.6.5/",
