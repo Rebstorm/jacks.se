@@ -5,6 +5,7 @@ import { badwords } from "./censorship/badwords.ts";
 export interface HighscoreUser {
   username: string;
   score: number;
+  ip?: string;
 }
 
 const kv = await Deno.openKv();
@@ -43,6 +44,9 @@ export async function maybeSetHighscore(
     currentHighScores.length < 10 ||
     user.score > currentHighScores[currentHighScores.length - 1].score
   ) {
+    // set their remote addr
+    user.ip = `${ctx.remoteAddr.hostname}:${ctx.remoteAddr.port}`;
+
     // Insert the new user score sorted into the array by score descending
     currentHighScores.push(user);
     currentHighScores.sort((a, b) => b.score - a.score);
