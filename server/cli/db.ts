@@ -11,22 +11,19 @@ const kv = await Deno.openKv(
 
 // List highscore
 const list = await kv.list({ prefix: [HIGHSCORE_DB_NAME] });
-const users = [];
+const users: HighscoreUser[] = [];
 for await (const res of list) {
   users.push(res.value as HighscoreUser);
 }
 
-console.log("list", users);
-
 // Delete.
 /*
 users.map(async (user, index) => {
-  if (user.username === "") {
-    await kv.delete([HIGHSCORE_DB_NAME, index + 1]);
+  if (user.username.toLocaleLowerCase().indexOf("cap") > -1) {
+    //await kv.delete([HIGHSCORE_DB_NAME, index + 1]);
     console.log("deleted", user);
   }
 });
-*/
 
 /*
 // modify

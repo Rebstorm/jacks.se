@@ -1,4 +1,5 @@
 import { HIGHSCORE_DB_NAME } from "../../constants/kv.ts";
+import { badwords } from "./censorship/badwords.ts";
 
 export interface HighscoreUser {
   username: string;
@@ -26,6 +27,8 @@ export async function maybeSetHighscore(
   }
 
   if (user.username === "") user.username = "Anonymous";
+
+  if (badwords.includes(user.username)) return [];
 
   // If there are less than 10 scores, or if the user's score is higher than the lowest score in the list
   if (
