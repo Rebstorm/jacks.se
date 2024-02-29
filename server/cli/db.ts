@@ -34,3 +34,21 @@ user.map(async (user, index) => {
   await kv.set([HIGHSCORE_DB_NAME, index + 1], user);
 });
 */
+
+/*
+// RESET SCRIPTS.
+await kv.set([HIGHSCORE_DB_NAME, 3], {
+  username: "-",
+  score: 0,
+  ip: "modifed by master",
+} as HighscoreUser);
+
+// Reset the entire board.
+Array(10).map((value, index) => {
+  await kv.set([HIGHSCORE_DB_NAME, index], {
+    username: "-",
+    score: 0,
+    ip: "modifed by master",
+  } as HighscoreUser);
+})
+*/
