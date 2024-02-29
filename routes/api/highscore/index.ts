@@ -8,7 +8,7 @@ export const handler: Handlers = {
   async POST(req: Request, _ctx: HandlerContext) {
     const res: HighscoreUser = await req.json();
 
-    const isNewHighScore = await maybeSetHighscore(res);
-    return new Response(JSON.stringify({ isNewhighscore: isNewHighScore }));
+    const isNewHighScore = await maybeSetHighscore(res, _ctx);
+    return new Response(JSON.stringify({ isNewHighScore: isNewHighScore }));
   },
 };

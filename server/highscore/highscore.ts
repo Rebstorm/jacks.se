@@ -1,3 +1,4 @@
+import { HandlerContext } from "$fresh/server.ts";
 import { HIGHSCORE_DB_NAME } from "../../constants/kv.ts";
 import { badwords } from "./censorship/badwords.ts";
 
@@ -18,7 +19,8 @@ export async function getHighscore(): Promise<HighscoreUser[]> {
 }
 
 export async function maybeSetHighscore(
-  user: HighscoreUser
+  user: HighscoreUser,
+  ctx: HandlerContext
 ): Promise<HighscoreUser[]> {
   const currentHighScores = await getHighscore();
 
@@ -28,7 +30,13 @@ export async function maybeSetHighscore(
 
   if (user.username === "") user.username = "Anonymous";
 
-  if (badwords.includes(user.username)) return [];
+  if (checkForBadWords(user.username)) {
+    console.group("--- Bad user ---");
+    console.info("Some one tried to use a bad name:", user.username);
+    console.info(ctx);
+    console.groupEnd();
+    return [];
+  }
 
   // If there are less than 10 scores, or if the user's score is higher than the lowest score in the list
   if (
@@ -62,3 +70,17 @@ async function updateHighScores(
 
   return highScores;
 }
+
+const checkForBadWords = (maybeBadWord: string): boolean => {
+  // Normalize the input to lowercase
+  const normalizedInput = maybeBadWord.toLowerCase();
+
+  // Check if the input contains any of the bad words
+  for (const badWord of badwords) {
+    if (normalizedInput.includes(badWord.toLowerCase())) {
+      return true; // Bad word found
+    }
+  }
+
+  return false; // No bad words found
+};
