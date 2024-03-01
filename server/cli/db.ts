@@ -19,21 +19,23 @@ for await (const res of list) {
 // Delete.
 /*
 users.map(async (user, index) => {
-  if (user.username.toLocaleLowerCase().indexOf("cap") > -1) {
+  if (index === 0) {
     //await kv.delete([HIGHSCORE_DB_NAME, index + 1]);
     console.log("deleted", user);
   }
 });
+ */
 
-/*
 // modify
-user.map(async (user, index) => {
-  if (user.username.length > 10) {
-    user.username = user.username.substring(0, 7) + "...";
+/*
+users.map(async (user, index) => {
+  if (index === 1) {
+    user.username = "Bbbbbbbbbrrrrr";
+    user.score = 60;
   }
   await kv.set([HIGHSCORE_DB_NAME, index + 1], user);
 });
-*/
+ */
 
 /*
 // RESET SCRIPTS.

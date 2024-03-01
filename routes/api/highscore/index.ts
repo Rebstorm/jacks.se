@@ -9,6 +9,6 @@ export const handler: Handlers = {
     const res: HighscoreUser = await req.json();
 
     const isNewHighScore = await maybeSetHighscore(res, _ctx);
-    return new Response(JSON.stringify({ isNewHighScore: isNewHighScore }));
+    return new Response(JSON.stringify({ isNewHighscore: isNewHighScore }));
   },
 };
