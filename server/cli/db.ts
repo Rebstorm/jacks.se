@@ -44,13 +44,16 @@ await kv.set([HIGHSCORE_DB_NAME, 3], {
   score: 0,
   ip: "modifed by master",
 } as HighscoreUser);
+*/
 
 // Reset the entire board.
-Array(10).map((value, index) => {
-  await kv.set([HIGHSCORE_DB_NAME, index], {
+/*
+for (let i = 0; i < 9; i++) {
+  kv.set([HIGHSCORE_DB_NAME, i], {
     username: "-",
     score: 0,
     ip: "modifed by master",
-  } as HighscoreUser);
-})
+  } as HighscoreUser).then();
+}
 */
+
