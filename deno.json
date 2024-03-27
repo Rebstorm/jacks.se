@@ -5,6 +5,7 @@
     "preview": "deno run -A main.ts",
     "upgrade": "deno run -A -r https://fresh.deno.dev/update .",
     "reload:aot": "deno cache --reload --lock-write dev.ts",
+    "reload:lockfile": "deno cache --reload --lock=deno.lock dev.ts",
     "db:run": "deno run -A --unstable-kv server/cli/db.ts"
   },
   "imports": {
