@@ -1,6 +1,6 @@
 {
   "tasks": {
-    "start": "deno run -A --watch=static/,routes/ --unstable-kv dev.ts",
+    "start": "deno run -A --lock=deno.lock --cached-only --watch=static/,routes/ --unstable-kv dev.ts",
     "build": "deno run -A  --unstable-kv dev.ts build",
     "preview": "deno run -A main.ts",
     "upgrade": "deno run -A -r https://fresh.deno.dev/update .",
