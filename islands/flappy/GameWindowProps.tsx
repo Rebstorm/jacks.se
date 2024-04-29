@@ -159,9 +159,9 @@ const GameWindow: FunctionalComponent = (props: GameWindowProps) => {
             Restart
           </div>
 
-          {shouldSubmitNewScore(score + 10, highscoreList) && (
+          {shouldSubmitNewScore(score, highscoreList) && (
             <SubmitHighscore
-              score={score + 10}
+              score={score}
               onClosed={(list: HighscoreUser[]) => {
                 setHighscoreList(list);
               }}
