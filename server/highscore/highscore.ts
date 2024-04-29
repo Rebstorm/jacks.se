@@ -56,8 +56,10 @@ export async function maybeSetHighscore(
       currentHighScores.length = 10;
     }
 
+    const result = await updateHighScores(currentHighScores);
+
     // Update the high scores in the database
-    return await updateHighScores(currentHighScores);
+    return result;
   }
 
   return [];

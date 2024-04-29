@@ -21,10 +21,10 @@ export const SubmitHighscore: FunctionalComponent = (
       body: JSON.stringify(user),
     });
 
-    const { isNewhighscore = [] as HighscoreUser[] } = await response.json();
+    const { isNewHighscore = [] as HighscoreUser[] } = await response.json()
 
-    if (Array.isArray(isNewhighscore) && isNewhighscore.length > 1) {
-      props.onClosed(isNewhighscore);
+    if (Array.isArray(isNewHighscore) && isNewHighscore.length > 1) {
+      props.onClosed(isNewHighscore);
     }
   };
 
