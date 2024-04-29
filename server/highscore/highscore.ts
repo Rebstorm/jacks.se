@@ -71,7 +71,7 @@ async function updateHighScores(
   // Assuming you can set the entire list (this depends on how your database and kv variable are set up):
 
   highScores.map(async (highScore, index) => {
-    await kv.set([HIGHSCORE_DB_NAME, index + 1], highScore);
+    await kv.set([HIGHSCORE_DB_NAME, index], highScore);
   });
 
   return highScores;

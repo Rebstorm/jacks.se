@@ -16,6 +16,8 @@ for await (const res of list) {
   users.push(res.value as HighscoreUser);
 }
 
+console.log(users)
+
 // Delete.
 /*
 users.map(async (user, index) => {
@@ -24,18 +26,21 @@ users.map(async (user, index) => {
     console.log("deleted", user);
   }
 });
- */
+*/
 
-// modify
 /*
+// modify
 users.map(async (user, index) => {
-  if (index === 1) {
-    user.username = "Bbbbbbbbbrrrrr";
-    user.score = 60;
+  console.log("user", user, index)
+
+  if (index === 0) {
+    user.username = "Herpbert";
+    user.score = 73;
+    await kv.set([HIGHSCORE_DB_NAME, index ], user);
   }
-  await kv.set([HIGHSCORE_DB_NAME, index + 1], user);
 });
- */
+*/
+
 
 /*
 // RESET SCRIPTS.
