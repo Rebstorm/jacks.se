@@ -1,18 +1,13 @@
-import { AppProps } from "$fresh/server.ts";
-import { Partial, Head } from "$fresh/runtime.ts";
+import {PageProps} from "$fresh/server.ts";
+import {Head, Partial} from "$fresh/runtime.ts";
 import Header from "../islands/Header.tsx";
 import Wave from "../components/wave.tsx";
 import Footer from "../islands/Footer.tsx";
 import FontLink from "../components/font-link.tsx";
-import {
-  META_IMAGE,
-  META_SITE,
-  META_TITLE,
-  META_TYPE,
-} from "../constants/meta.ts";
-import { getCSSPathPrefix } from "../utils/css/pathPrefix.ts";
+import {META_IMAGE, META_SITE, META_TYPE,} from "../constants/meta.ts";
+import {getCSSPathPrefix} from "../utils/css/pathPrefix.ts";
 
-export default function App({ Component, route, ...rest }: AppProps) {
+export default function App({ Component, route, ...rest }: PageProps) {
   // I dont know if Fresh supports plain css right now. But this ensures we get the base css no matter where in the app
   // we are.
 
@@ -58,7 +53,7 @@ export default function App({ Component, route, ...rest }: AppProps) {
         <Wave />
         <div f-client-nav className={"portal"}>
           <Header route={route} />
-          <div class={"container"}>
+          <div className={"container"}>
             <Partial name="main">
               <Component />
             </Partial>

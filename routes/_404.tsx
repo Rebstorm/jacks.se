@@ -1,11 +1,11 @@
-import { UnknownPageProps } from "$fresh/server.ts";
+import { PageProps } from "$fresh/server.ts";
 import { Head } from "$fresh/runtime.ts";
 
 import { Paragraph } from "../components/paragraph.tsx";
 import { getCSSPathPrefix } from "../utils/css/pathPrefix.ts";
 import { H2 } from "../components/h2.tsx";
 
-export default function NotFoundPage({ url, ...rest }: UnknownPageProps) {
+export default function NotFoundPage({ url, ...rest }: PageProps) {
   const pathPrefix = getCSSPathPrefix(url.pathname);
 
   return (

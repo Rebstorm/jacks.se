@@ -1,8 +1,8 @@
-import { LayoutProps } from "$fresh/server.ts";
-import { Head } from "$fresh/runtime.ts";
-import { TITLE } from "../../constants/meta.ts";
+import {PageProps} from "$fresh/server.ts";
+import {Head} from "$fresh/runtime.ts";
+import {TITLE} from "../../constants/meta.ts";
 
-export default function Layout({ Component, state }: LayoutProps) {
+export default function Layout({ Component, state }: PageProps) {
   // do something with state here
   return (
     <>

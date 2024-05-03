@@ -1,4 +1,4 @@
-import { HandlerContext, PageProps } from "$fresh/server.ts";
+import { FreshContext, PageProps } from "$fresh/server.ts";
 import { getPosts, Post } from "../../server/post/post.ts";
 import { H1 } from "../../components/h1.tsx";
 
@@ -20,7 +20,7 @@ export default function BlogList(props: PageProps<Post[]>) {
 }
 
 export const handler = {
-  async GET(_req: Request, ctx: HandlerContext) {
+  async GET(_req: Request, ctx: FreshContext) {
     const posts = await getPosts();
     return ctx.render(posts);
   },

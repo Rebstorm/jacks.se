@@ -5,7 +5,7 @@ import {
   GAME_WINDOW_WIDTH,
   IS_SMALL_SCREEN,
 } from "./logic/constants.ts";
-import { generateObstacles } from "./logic/obstacles.ts";
+import {generateObstacles, Obstacle} from "./logic/obstacles.ts";
 import { drawObstacles, drawPlayer } from "./logic/draw.ts";
 import { checkCollisionAndUpdate } from "./logic/collision.ts";
 import { H2 } from "../../components/h2.tsx";
@@ -28,12 +28,12 @@ const shouldSubmitNewScore = (
   return score > lowestScore?.score;
 };
 
-const GameWindow: FunctionalComponent = (props: GameWindowProps) => {
+const GameWindow: FunctionalComponent<GameWindowProps> = (props: GameWindowProps) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const [birdImage, setBirdImage] = useState(null);
+  const [birdImage, setBirdImage] = useState<null | HTMLImageElement>(null);
   const [birdY, setBirdY] = useState(300);
   const [birdVelocity, setBirdVelocity] = useState(0);
-  const [obstacles, setObstacles] = useState([]); // This will contain each obstacle's x position and height.
+  const [obstacles, setObstacles] = useState<Obstacle[]>([]); // This will contain each obstacle's x position and height.
   const [score, setScore] = useState(0);
   const [isGameOver, setIsGameOver] = useState(true);
   const [highscoreList, setHighscoreList] = useState<HighscoreUser[]>(

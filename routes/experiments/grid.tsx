@@ -7,7 +7,6 @@ import { H2 } from "../../components/h2.tsx";
 export default function Home(props: PageProps) {
   const pathPrefix = getCSSPathPrefix(props.url.pathname);
 
-  let screenSize = "";
 
   return (
     <>
@@ -21,15 +20,10 @@ export default function Home(props: PageProps) {
       <div className={"playground"}>
         <H2 gradientColor>Grid</H2>
 
-        <div
-          onClick={() => {
-            console.log("licked");
-            screenSize = "big";
-          }}
-        >
+        <div>
           Expand 200px
         </div>
-        <div className={`container-restrictive ${screenSize}`}>
+        <div className={`container-restrictive big`}>
           <div className="grid-container-expansive">
             <div className="grid-item-expansive">Static Content (150px) #1</div>
             <div className="grid-item-expansive">Static Content (150px) #2</div>

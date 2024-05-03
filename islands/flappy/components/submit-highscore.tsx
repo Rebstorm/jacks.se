@@ -8,7 +8,7 @@ interface SubmitHighscoreProps {
   score: number;
   onClosed: (newHighScorelist: HighscoreUser[]) => void;
 }
-export const SubmitHighscore: FunctionalComponent = (
+export const SubmitHighscore: FunctionalComponent<SubmitHighscoreProps> = (
   props: SubmitHighscoreProps
 ) => {
   const [name, setName] = useState("");

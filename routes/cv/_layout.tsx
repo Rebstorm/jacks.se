@@ -1,9 +1,9 @@
-import { LayoutProps } from "$fresh/server.ts";
-import { Head } from "$fresh/runtime.ts";
-import { TITLE } from "../../constants/meta.ts";
+import {PageProps} from "$fresh/server.ts";
+import {Head} from "$fresh/runtime.ts";
+import {TITLE} from "../../constants/meta.ts";
 import {getCSSPathPrefix} from "../../utils/css/pathPrefix.ts";
 
-export default function Layout({ Component, state, ...rest }: LayoutProps) {
+export default function Layout({ Component, state, ...rest }: PageProps) {
     const pathPrefix = getCSSPathPrefix(rest.url.pathname);
   // do something with state here
   return (
