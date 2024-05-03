@@ -15,7 +15,7 @@ However, they're not a panacea for all development woes. Code reviews are just o
 In my experience, code reviews can sometimes devolve into a bulletin board for airing grievances. I've seen them used to generate an overwhelming list of follow-up tasks or even as a way to cherry-pick changes for a release branch—quite the misuse of their intent 😱. A code review should not be reduced to these functions.
 
 
-What Code Reviews Are (In Their Pure Essence)
+## What Code Reviews Are (In Their Pure Essence)
 
 At their core, code reviews are a straightforward list of changes made to the codebase. This simplicity is often overshadowed by other agendas, but it's essential to remember this foundational purpose.
 
