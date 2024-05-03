@@ -4,6 +4,7 @@ import { GithubIcon } from "../components/github-icon.tsx";
 interface Link {
   path?: string;
   href?: string;
+  title?: string;
   label: string | JSX.Element;
   isExternal?: boolean;
 }
@@ -16,6 +17,7 @@ export const linksAvailable = () =>
     {
       href: "https://github.com/Rebstorm",
       label: <GithubIcon />,
+      title: 'Github',
       isExternal: true,
     },
     {

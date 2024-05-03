@@ -11,6 +11,7 @@ export const Menu = (props: MenuProps) => {
       {linksAvailable().map((link, index) =>
         link.isExternal ? (
           <a
+            title={link.title}
             key={index}
             href={link.href}
             target="_blank"
