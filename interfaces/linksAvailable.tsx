@@ -1,9 +1,10 @@
+import { JSX } from "preact/jsx-runtime";
 import { GithubIcon } from "../components/github-icon.tsx";
 
 interface Link {
   path?: string;
   href?: string;
-  label: string | Element;
+  label: string | JSX.Element;
   isExternal?: boolean;
 }
 
