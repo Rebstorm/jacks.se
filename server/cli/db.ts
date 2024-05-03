@@ -34,12 +34,14 @@ users.map(async (user, index) => {
   console.log("user", user, index)
 
   if (index === 0) {
-    user.username = "Herpbert";
-    user.score = 73;
+    user.username = "Bomp";
+    user.score = 76;
     await kv.set([HIGHSCORE_DB_NAME, index ], user);
   }
 });
-*/
+
+ */
+
 
 
 /*

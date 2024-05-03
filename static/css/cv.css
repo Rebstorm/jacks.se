@@ -1,0 +1,13 @@
+section {
+    padding: var(--norm);
+    margin-bottom: var(--norm);
+    border-radius: var(--border);
+}
+
+li {
+    padding-bottom: var(--norm);
+}
+
+h3 {
+    text-decoration: underline;
+}

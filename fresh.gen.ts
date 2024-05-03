@@ -9,6 +9,8 @@ import * as $api_highscore_index from "./routes/api/highscore/index.ts";
 import * as $blog_slug_index from "./routes/blog/[slug]/index.tsx";
 import * as $blog_layout from "./routes/blog/_layout.tsx";
 import * as $blog_index from "./routes/blog/index.tsx";
+import * as $cv_layout from "./routes/cv/_layout.tsx";
+import * as $cv_g_index from "./routes/cv/g/index.tsx";
 import * as $experiments_layout from "./routes/experiments/_layout.tsx";
 import * as $experiments_flappy from "./routes/experiments/flappy.tsx";
 import * as $experiments_grid from "./routes/experiments/grid.tsx";
@@ -39,6 +41,8 @@ const manifest = {
     "./routes/blog/[slug]/index.tsx": $blog_slug_index,
     "./routes/blog/_layout.tsx": $blog_layout,
     "./routes/blog/index.tsx": $blog_index,
+    "./routes/cv/_layout.tsx": $cv_layout,
+    "./routes/cv/g/index.tsx": $cv_g_index,
     "./routes/experiments/_layout.tsx": $experiments_layout,
     "./routes/experiments/flappy.tsx": $experiments_flappy,
     "./routes/experiments/grid.tsx": $experiments_grid,

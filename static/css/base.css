@@ -213,7 +213,7 @@ b {
 }
 
 
-@media screen and (max-width: 810px) {
+@media screen and (max-width: 1280px) {
     .container {
         max-width: unset;
         width: 95vw;
