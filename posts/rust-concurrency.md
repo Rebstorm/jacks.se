@@ -16,7 +16,7 @@ Devs, let's get real. Understanding the distinction between concurrency and para
 
 **Parallelism**, in contrast, resembles having several chefs, each dedicated to preparing their own dish concurrently, thus significantly accelerating the overall meal preparation.
 
-For a deeper understanding of these concepts, I recommend reading [Iveta Vistorskyte's blog post](https://oxylabs.io/blog/concurrency-vs-parallelism) blog post on OxyLabs.
+For a deeper understanding of these concepts, I recommend reading [Iveta Vistorskyte's blog post](https://oxylabs.io/blog/concurrency-vs-parallelism) on OxyLabs.
 
 Why are these concepts important? Modern CPUs come with multiple cores, and by effectively utilizing these cores, we can significantly enhance the performance and speed of our applications. 
 

@@ -11,7 +11,7 @@ snippet: "Building systems? Keeping it simple might just be your best bet. Let�
 # Gall's Law - We Devs Are the Issue
 
 
-We developers, ever the architects of the abstract, often craft code that rivals a spider’s web in complexity and cunning. But, what if this inclination towards intricacy is our pitfall? Let’s explore why simplicity, encapsulated by Gall's Law, is crucial in developing effective systems.
+We developers, architects of the abstract (corny, sorry), often craft code that rivals a spider’s web in complexity and cunning. But, what if this inclination towards intricacy is our pitfall? Let’s explore why simplicity, encapsulated by Gall's Law, is crucial in developing effective systems.
 
 ## Understanding Gall’s Law
 
