@@ -183,7 +183,7 @@ b {
     top: 0;
     left: 0;
     width: 100vw;
-    height: 10rem;
+    height: 100vh;
 }
 
 .wave {
@@ -236,6 +236,10 @@ b {
 
     .nav > a {
         font-size: 1.5rem;
+    }
+
+    .overflow-hidden {
+        height: 10rem;
     }
 }
 
