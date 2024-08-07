@@ -6,10 +6,12 @@ import { getCSSPathPrefix } from "../utils/css/pathPrefix.ts";
 import { H2 } from "../components/h2.tsx";
 
 export default function NotFoundPage({ url, ...rest }: PageProps) {
+
+    console.log(url.pathname)
   const pathPrefix = getCSSPathPrefix(url.pathname);
 
   return (
-    <div className={"innerContainer center"}>
+    <div className={"center"}>
       <Head>
         <link rel="preload" href={`${pathPrefix}css/404.css`} as="style" />
         <link rel="stylesheet" href={`${pathPrefix}css/404.css`} />

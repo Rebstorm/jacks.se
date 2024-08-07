@@ -46,7 +46,7 @@ Avoid these common mistakes to ensure your code reviews are effective and not a 
 - **Inconsistency**: Apply the same standards to everyone, including senior team members. This consistency helps maintain fairness and credibility in the review process.
 
 
-If you can stick to those 6 simple rules. I can guarantee a better code and working environment. 
+If you can stick to those 7 points. I can guarantee a better code and working environment. 
 
 
 
