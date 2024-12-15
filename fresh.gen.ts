@@ -31,7 +31,7 @@ import * as $flappy_logic_collision from "./islands/flappy/logic/collision.ts";
 import * as $flappy_logic_constants from "./islands/flappy/logic/constants.ts";
 import * as $flappy_logic_draw from "./islands/flappy/logic/draw.ts";
 import * as $flappy_logic_obstacles from "./islands/flappy/logic/obstacles.ts";
-import { type Manifest } from "$fresh/server.ts";
+import type { Manifest } from "$fresh/server.ts";
 
 const manifest = {
   routes: {
