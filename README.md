@@ -56,6 +56,6 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 ## Contact
 
-Paul Jacks - [@rebstorm](https://twitter.com/rebstorm) - paul[at]jacks.se
+Paul Jacks - paul[at]jacks.se
 
 Project Link: [https://github.com/rebstorm/jacks.se](https://github.com/rebstorm/jacks.se)

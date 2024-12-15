@@ -25,5 +25,4 @@ export const linksAvailable = () =>
       label: "🦣",
       isExternal: true,
     },
-    { href: "https://twitter.com/rebstorm", label: "🐦", isExternal: true }
   );
