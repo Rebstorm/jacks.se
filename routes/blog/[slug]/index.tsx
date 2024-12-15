@@ -1,7 +1,7 @@
 import { HandlerContext, PageProps } from "$fresh/server.ts";
 import { getPost, Post } from "../../../server/post/post.ts";
 import { Head } from "$fresh/runtime.ts";
-import { CSS, render } from "$gfm";
+import { CSS, render } from "@deno/gfm";
 import {
   OG_META_DESCRIPTION,
   META_TITLE,
