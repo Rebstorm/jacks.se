@@ -13,24 +13,25 @@ import * as $cv_layout from "./routes/cv/_layout.tsx";
 import * as $cv_g_index from "./routes/cv/g/index.tsx";
 import * as $cv_p_index from "./routes/cv/p/index.tsx";
 import * as $experiments_layout from "./routes/experiments/_layout.tsx";
+import * as $experiments_battery_rush from "./routes/experiments/battery-rush.tsx";
 import * as $experiments_flappy from "./routes/experiments/flappy.tsx";
-import * as $experiments_grid from "./routes/experiments/grid.tsx";
 import * as $experiments_index from "./routes/experiments/index.tsx";
 import * as $index from "./routes/index.tsx";
 import * as $info from "./routes/info.tsx";
+import * as $BatteryRush_index from "./islands/BatteryRush/index.tsx";
+import * as $Flappy_GameWindowProps from "./islands/Flappy/GameWindowProps.tsx";
+import * as $Flappy_components_fun_input from "./islands/Flappy/components/fun-input.tsx";
+import * as $Flappy_components_instructions from "./islands/Flappy/components/instructions.tsx";
+import * as $Flappy_components_mouse_click_icon from "./islands/Flappy/components/mouse-click-icon.tsx";
+import * as $Flappy_components_space_click_icon from "./islands/Flappy/components/space-click-icon.tsx";
+import * as $Flappy_components_submit_highscore from "./islands/Flappy/components/submit-highscore.tsx";
+import * as $Flappy_logic_collision from "./islands/Flappy/logic/collision.ts";
+import * as $Flappy_logic_constants from "./islands/Flappy/logic/constants.ts";
+import * as $Flappy_logic_draw from "./islands/Flappy/logic/draw.ts";
+import * as $Flappy_logic_obstacles from "./islands/Flappy/logic/obstacles.ts";
 import * as $Footer from "./islands/Footer.tsx";
 import * as $Header from "./islands/Header.tsx";
 import * as $Menu_Menu from "./islands/Menu/Menu.tsx";
-import * as $flappy_GameWindowProps from "./islands/flappy/GameWindowProps.tsx";
-import * as $flappy_components_fun_input from "./islands/flappy/components/fun-input.tsx";
-import * as $flappy_components_instructions from "./islands/flappy/components/instructions.tsx";
-import * as $flappy_components_mouse_click_icon from "./islands/flappy/components/mouse-click-icon.tsx";
-import * as $flappy_components_space_click_icon from "./islands/flappy/components/space-click-icon.tsx";
-import * as $flappy_components_submit_highscore from "./islands/flappy/components/submit-highscore.tsx";
-import * as $flappy_logic_collision from "./islands/flappy/logic/collision.ts";
-import * as $flappy_logic_constants from "./islands/flappy/logic/constants.ts";
-import * as $flappy_logic_draw from "./islands/flappy/logic/draw.ts";
-import * as $flappy_logic_obstacles from "./islands/flappy/logic/obstacles.ts";
 import type { Manifest } from "$fresh/server.ts";
 
 const manifest = {
@@ -46,30 +47,31 @@ const manifest = {
     "./routes/cv/g/index.tsx": $cv_g_index,
     "./routes/cv/p/index.tsx": $cv_p_index,
     "./routes/experiments/_layout.tsx": $experiments_layout,
+    "./routes/experiments/battery-rush.tsx": $experiments_battery_rush,
     "./routes/experiments/flappy.tsx": $experiments_flappy,
-    "./routes/experiments/grid.tsx": $experiments_grid,
     "./routes/experiments/index.tsx": $experiments_index,
     "./routes/index.tsx": $index,
     "./routes/info.tsx": $info,
   },
   islands: {
+    "./islands/BatteryRush/index.tsx": $BatteryRush_index,
+    "./islands/Flappy/GameWindowProps.tsx": $Flappy_GameWindowProps,
+    "./islands/Flappy/components/fun-input.tsx": $Flappy_components_fun_input,
+    "./islands/Flappy/components/instructions.tsx":
+      $Flappy_components_instructions,
+    "./islands/Flappy/components/mouse-click-icon.tsx":
+      $Flappy_components_mouse_click_icon,
+    "./islands/Flappy/components/space-click-icon.tsx":
+      $Flappy_components_space_click_icon,
+    "./islands/Flappy/components/submit-highscore.tsx":
+      $Flappy_components_submit_highscore,
+    "./islands/Flappy/logic/collision.ts": $Flappy_logic_collision,
+    "./islands/Flappy/logic/constants.ts": $Flappy_logic_constants,
+    "./islands/Flappy/logic/draw.ts": $Flappy_logic_draw,
+    "./islands/Flappy/logic/obstacles.ts": $Flappy_logic_obstacles,
     "./islands/Footer.tsx": $Footer,
     "./islands/Header.tsx": $Header,
     "./islands/Menu/Menu.tsx": $Menu_Menu,
-    "./islands/flappy/GameWindowProps.tsx": $flappy_GameWindowProps,
-    "./islands/flappy/components/fun-input.tsx": $flappy_components_fun_input,
-    "./islands/flappy/components/instructions.tsx":
-      $flappy_components_instructions,
-    "./islands/flappy/components/mouse-click-icon.tsx":
-      $flappy_components_mouse_click_icon,
-    "./islands/flappy/components/space-click-icon.tsx":
-      $flappy_components_space_click_icon,
-    "./islands/flappy/components/submit-highscore.tsx":
-      $flappy_components_submit_highscore,
-    "./islands/flappy/logic/collision.ts": $flappy_logic_collision,
-    "./islands/flappy/logic/constants.ts": $flappy_logic_constants,
-    "./islands/flappy/logic/draw.ts": $flappy_logic_draw,
-    "./islands/flappy/logic/obstacles.ts": $flappy_logic_obstacles,
   },
   baseUrl: import.meta.url,
 } satisfies Manifest;

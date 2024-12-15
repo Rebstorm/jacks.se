@@ -1,5 +1,5 @@
 import {HandlerContext, PageProps} from "$fresh/server.ts";
-import GameWindow from "../../islands/Flappy/GameWindowProps.tsx";
+import BatteryRush from "../../islands/BatteryRush/index.tsx";
 import {Head} from "$fresh/runtime.ts";
 import {getCSSPathPrefix} from "../../utils/css/pathPrefix.ts";
 import {
@@ -17,9 +17,9 @@ export default function Home(props: PageProps<HighscoreUser[]>) {
                 <link rel="preload" href={`${pathPrefix}css/flappy.css`} as="style"/>
                 <link rel="stylesheet" href={`${pathPrefix}css/flappy.css`}/>
 
-                <title>Flappy | {TITLE}</title>
+                <title>Battery Rush | {TITLE}</title>
             </Head>
-            <GameWindow highscores={props.data}/>
+            <BatteryRush />
         </>
     );
 }
