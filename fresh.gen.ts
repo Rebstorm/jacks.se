@@ -18,6 +18,7 @@ import * as $experiments_flappy from "./routes/experiments/flappy.tsx";
 import * as $experiments_index from "./routes/experiments/index.tsx";
 import * as $index from "./routes/index.tsx";
 import * as $info from "./routes/info.tsx";
+import * as $BatteryRush_controls_useAccelerometer from "./islands/BatteryRush/controls/useAccelerometer.ts";
 import * as $BatteryRush_index from "./islands/BatteryRush/index.tsx";
 import * as $ConfettiParagraph_index from "./islands/ConfettiParagraph/index.tsx";
 import * as $Flappy_GameWindowProps from "./islands/Flappy/GameWindowProps.tsx";
@@ -55,6 +56,8 @@ const manifest = {
     "./routes/info.tsx": $info,
   },
   islands: {
+    "./islands/BatteryRush/controls/useAccelerometer.ts":
+      $BatteryRush_controls_useAccelerometer,
     "./islands/BatteryRush/index.tsx": $BatteryRush_index,
     "./islands/ConfettiParagraph/index.tsx": $ConfettiParagraph_index,
     "./islands/Flappy/GameWindowProps.tsx": $Flappy_GameWindowProps,
