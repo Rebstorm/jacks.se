@@ -21,7 +21,7 @@ export default function BlogList(props: PageProps<Post[]>) {
 
 export const handler = {
   async GET(_req: Request, ctx: FreshContext) {
-    const posts = await getPosts();
+    const posts = await getPosts({ onlyMetaData: true });
     return ctx.render(posts);
   },
 };

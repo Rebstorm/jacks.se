@@ -56,7 +56,7 @@ export default function BlogEntry(props: PageProps<Post>) {
 
 export const handler = {
   async GET(req: Request, ctx: HandlerContext) {
-    const post = await getPost(ctx.params.slug);
+    const post = await getPost(ctx.params.slug, { onlyMetaData: false });
     return ctx.render(post);
   },
 };

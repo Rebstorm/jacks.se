@@ -87,6 +87,10 @@ a {
     margin-right: 0.5rem;
 }
 
+.inline {
+    display: inline;
+}
+
 
 .blog-title {
     text-decoration: none;

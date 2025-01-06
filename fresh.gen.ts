@@ -32,6 +32,7 @@ import * as $Flappy_logic_obstacles from "./islands/Flappy/logic/obstacles.ts";
 import * as $Footer from "./islands/Footer.tsx";
 import * as $Header from "./islands/Header.tsx";
 import * as $Menu_Menu from "./islands/Menu/Menu.tsx";
+import * as $RustButton_index from "./islands/RustButton/index.tsx";
 import type { Manifest } from "$fresh/server.ts";
 
 const manifest = {
@@ -72,6 +73,7 @@ const manifest = {
     "./islands/Footer.tsx": $Footer,
     "./islands/Header.tsx": $Header,
     "./islands/Menu/Menu.tsx": $Menu_Menu,
+    "./islands/RustButton/index.tsx": $RustButton_index,
   },
   baseUrl: import.meta.url,
 } satisfies Manifest;
