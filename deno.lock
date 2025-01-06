@@ -211,7 +211,8 @@
   },
   "redirects": {
     "https://deno.land/x/gfm/mod.ts": "https://deno.land/x/gfm@0.6.0/mod.ts",
-    "https://esm.sh/v135/@types/babel__helper-validator-identifier@~7/index.d.ts": "https://esm.sh/v135/@types/babel__helper-validator-identifier@7.15.2/index.d.ts"
+    "https://esm.sh/v135/@types/babel__helper-validator-identifier@~7/index.d.ts": "https://esm.sh/v135/@types/babel__helper-validator-identifier@7.15.2/index.d.ts",
+    "https://esm.sh/v135/@types/canvas-confetti@~1/index.d.ts": "https://esm.sh/v135/@types/canvas-confetti@1.9.0/index.d.ts"
   },
   "remote": {
     "https://deno.land/std@0.198.0/_util/os.ts": "d932f56d41e4f6a6093d56044e29ce637f8dcc43c5a90af43504a889cf1775e3",
@@ -693,6 +694,7 @@
     "https://esm.sh/*preact-render-to-string@6.2.2": "a12b5944fb39390b1aa9bfe5d25fdf5b34d2af277bd5e39d4c625c5b1352684c",
     "https://esm.sh/*preact-render-to-string@6.3.1": "07807f027acf54b994b630bbb2a923f5a835f9544e01144f67ab292e90a431e4",
     "https://esm.sh/@babel/helper-validator-identifier@7.22.20": "daace34e028130297fddf97f3ef6deb4b05ec3eb46f5c5cacd6eaa43d6323b0a",
+    "https://esm.sh/canvas-confetti@1.5.1": "23f91c0b4054ecb126f62db2986ca7528af2d85c4118a1a9a9146ba888a4f70f",
     "https://esm.sh/github-slugger@2.0.0?pin=v135": "77bdab3e2528daadc9b63f7c9615e85d4630a3e174aa94f48d207f3fd71d02c9",
     "https://esm.sh/he@1.2.0?pin=v135": "388a449d0b163506f1a5ed1b9fe178c29433c9a3af5b2465c92ec4adb0f35792",
     "https://esm.sh/katex@0.16.9?pin=v135": "8f08d265028ee6f2fb3ddde2e9930cfb0b744825c6294a61cf0f574f7e49bc95",
@@ -727,6 +729,7 @@
     "https://esm.sh/v135/@preact/signals@1.2.2/X-ZS8q/denonext/signals.mjs": "f2cb7b0335f75be2827049bf6a1ce3c6bd35e74c7a922a1eeb338b0312d61556",
     "https://esm.sh/v135/base64-js@1.5.1/esnext/base64-js.mjs": "349361f227d34ff80b673a7741ea0b509dbb6c9c89d650b86a0b55705e25c8dc",
     "https://esm.sh/v135/buffer@6.0.3/esnext/buffer.mjs": "f6de86b04b58a64f82d591b05fff1626ed7c8f4a9c7726c274c96abef31326c3",
+    "https://esm.sh/v135/canvas-confetti@1.5.1/denonext/canvas-confetti.mjs": "98ff8c04c65968156985164ad83e61a66c4354abf46ad93e044f092e11707093",
     "https://esm.sh/v135/deepmerge@4.3.1/esnext/deepmerge.mjs": "426fb4ada3c99ddd720d7c28ce216d8fcb47543e3d64ead96d97b1103cc16487",
     "https://esm.sh/v135/dom-serializer@2.0.0/esnext/dom-serializer.mjs": "87460f6bde59cb3823912201b076223e5ab690c1075d071904567de591310bec",
     "https://esm.sh/v135/domelementtype@2.3.0/esnext/domelementtype.mjs": "1e4dd3222620668a50040012a6b0d1582e89e7a570826a079a11226a7929e20c",

@@ -3,7 +3,7 @@ import {Paragraph} from "../components/paragraph.tsx";
 import {H1} from "../components/h1.tsx";
 import {H2} from "../components/h2.tsx";
 import {getPosts, Post} from "../server/post/post.ts";
-import RustButton from "../islands/RustButton/index.tsx";
+import ConfettiParapgraph from "../islands/RustParagraph/index.tsx";
 
 export default function Home(props: PageProps<Array<Post>>) {
     return (
@@ -19,9 +19,13 @@ export default function Home(props: PageProps<Array<Post>>) {
                 browse through <a href={"https://primer.style/"}>Primer</a> 🎨 for design inspiration, or explore <a href={"https://fresh.deno.dev/"}>Fresh</a> 🍋 to build modern web apps in my free time.
             </Paragraph>
 
-            <p>
-                A proud Rustacean 🦀 at heart, I’ve spent the last few years leading developer teams and crafting elegant solutions to complex problems.
-            </p>
+            <ConfettiParapgraph>
+                I’ve spent the last few years leading developer teams and crafting solutions and refactoring complex problems to simple and maintainable standards.
+                <br />
+                <span>Oh. And teaching why Rust 🦀 is amazing. </span>
+            </ConfettiParapgraph>
+            <Paragraph>
+            </Paragraph>
 
             <H2> Latest Blog Articles </H2>
             {props.data.map((availablePosts: Post) => (

@@ -91,6 +91,14 @@ a {
     display: inline;
 }
 
+.interactable {
+    cursor: pointer;
+}
+
+.interactable:active {
+    color: var(--accent-color);
+}
+
 
 .blog-title {
     text-decoration: none;
@@ -122,6 +130,7 @@ b {
     padding: var(--norm);
     background: var(--accent-color);
 }
+
 
 .container {
     display: flex;
@@ -215,6 +224,8 @@ b {
         background-position: -100% 50%;
     }
 }
+
+
 
 
 @media screen and (max-width: 1280px) {
