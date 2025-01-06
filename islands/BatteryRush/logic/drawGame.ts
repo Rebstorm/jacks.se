@@ -1,5 +1,6 @@
 // logic/drawGame.ts
 import { Obstacle } from "../objects/obstacle.ts";
+import { drawGround } from "./drawGround.ts";
 
 export const drawGame = (
     ctx: CanvasRenderingContext2D,
@@ -10,6 +11,9 @@ export const drawGame = (
 ) => {
     // Clear the canvas
     ctx.clearRect(0, 0, canvasWidth, canvasHeight);
+
+    // Draw the ground (asphalt and lane marker)
+    drawGround(ctx, canvasWidth, canvasHeight);
 
     // Draw player dot
     ctx.beginPath();

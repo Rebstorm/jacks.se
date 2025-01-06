@@ -1,10 +1,10 @@
-import {FunctionalComponent} from "preact";
-import {useEffect, useRef, useState} from "preact/hooks";
-import {useDeviceMotion} from "./controls/useAccelerometer.ts";
-import {useKeyboardControls} from "./controls/useKeyboardControls.ts";
-import {Obstacle} from "./objects/obstacle.ts";
-import {drawGame} from "./logic/drawGame.ts";
-import {detectCollision} from "./logic/detectCollision.ts";
+import { FunctionalComponent, h } from "preact";
+import { useEffect, useRef, useState } from "preact/hooks";
+import { useDeviceMotion } from "./controls/useAccelerometer.ts";
+import { useKeyboardControls } from "./controls/useKeyboardControls.ts";
+import { Obstacle } from "./objects/obstacle.ts";
+import { drawGame } from "./logic/drawGame.ts";
+import { detectCollision } from "./logic/detectCollision.ts";
 import StartScreen from "./views/StartScreen.tsx";
 
 const BatteryRush: FunctionalComponent = () => {
@@ -26,7 +26,6 @@ const BatteryRush: FunctionalComponent = () => {
         typeof window !== "undefined" ? globalThis.innerWidth : 0
     );
 
-    // Merge both control inputs
     const playerX = useMotionControls ? playerXFromMotion : playerXFromKeyboard;
 
     // Obstacle reference
@@ -92,7 +91,7 @@ const BatteryRush: FunctionalComponent = () => {
         if (!ctx) return;
 
         const draw = () => {
-            drawGame(ctx, playerX, obstaclesRef.current, canvas.width, canvas.height);
+            drawGame(ctx, playerX, obstaclesRef.current, canvas.width, canvas.height );
 
             if (isGameRunning) {
                 requestAnimationFrame(draw);
@@ -109,7 +108,7 @@ const BatteryRush: FunctionalComponent = () => {
         <div>
             {!isGameRunning && (
                 <StartScreen
-                    onStart={ (useMotionControls: boolean) => {
+                    onStart={(useMotionControls) => {
                         setUseMotionControls(useMotionControls);
                         setIsGameRunning(true);
                     }}
@@ -118,7 +117,7 @@ const BatteryRush: FunctionalComponent = () => {
             <canvas
                 ref={canvasRef}
                 style={{
-                    border: "1px solid #000",
+                    borderRadius: 'var(--norm)',
                     width: "100%",
                     height: "70vh",
                     display: isGameRunning ? "block" : "none",

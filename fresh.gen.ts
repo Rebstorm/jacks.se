@@ -23,6 +23,7 @@ import * as $BatteryRush_controls_useKeyboardControls from "./islands/BatteryRus
 import * as $BatteryRush_index from "./islands/BatteryRush/index.tsx";
 import * as $BatteryRush_logic_detectCollision from "./islands/BatteryRush/logic/detectCollision.ts";
 import * as $BatteryRush_logic_drawGame from "./islands/BatteryRush/logic/drawGame.ts";
+import * as $BatteryRush_logic_drawGround from "./islands/BatteryRush/logic/drawGround.ts";
 import * as $BatteryRush_objects_obstacle from "./islands/BatteryRush/objects/obstacle.ts";
 import * as $BatteryRush_views_StartScreen from "./islands/BatteryRush/views/StartScreen.tsx";
 import * as $ConfettiParagraph_index from "./islands/ConfettiParagraph/index.tsx";
@@ -69,6 +70,7 @@ const manifest = {
     "./islands/BatteryRush/logic/detectCollision.ts":
       $BatteryRush_logic_detectCollision,
     "./islands/BatteryRush/logic/drawGame.ts": $BatteryRush_logic_drawGame,
+    "./islands/BatteryRush/logic/drawGround.ts": $BatteryRush_logic_drawGround,
     "./islands/BatteryRush/objects/obstacle.ts": $BatteryRush_objects_obstacle,
     "./islands/BatteryRush/views/StartScreen.tsx":
       $BatteryRush_views_StartScreen,
