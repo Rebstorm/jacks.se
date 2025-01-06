@@ -12,7 +12,6 @@ export default function App({ Component, route, ...rest }: PageProps) {
   // we are.
 
   const pathPrefix = getCSSPathPrefix(route);
-  -
   return (
     <html lang={"en"}>
       <Head>
