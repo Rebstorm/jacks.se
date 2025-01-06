@@ -12,7 +12,7 @@ export default function App({ Component, route, ...rest }: PageProps) {
   // we are.
 
   const pathPrefix = getCSSPathPrefix(route);
-
+  -
   return (
     <html lang={"en"}>
       <Head>
@@ -21,7 +21,7 @@ export default function App({ Component, route, ...rest }: PageProps) {
         <meta property="og:type" content="website" key={META_TYPE} />
         <meta
           property="og:image"
-          content={rest.url.href + "meta/meta_me.jpeg"}
+          content={rest.url.origin + "/meta/meta_me.jpeg"}
           key={META_IMAGE}
         />
         <meta property="og:locale" content="en_US" />
