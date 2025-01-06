@@ -32,7 +32,7 @@ import * as $Flappy_logic_obstacles from "./islands/Flappy/logic/obstacles.ts";
 import * as $Footer from "./islands/Footer.tsx";
 import * as $Header from "./islands/Header.tsx";
 import * as $Menu_Menu from "./islands/Menu/Menu.tsx";
-import * as $RustParagraph_index from "./islands/RustParagraph/index.tsx";
+import * as $RustParagraph_index from "./islands/ConfettiParagraph/index.tsx";
 import type { Manifest } from "$fresh/server.ts";
 
 const manifest = {

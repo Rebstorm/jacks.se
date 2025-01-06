@@ -3,7 +3,7 @@ import {Paragraph} from "../components/paragraph.tsx";
 import {H1} from "../components/h1.tsx";
 import {H2} from "../components/h2.tsx";
 import {getPosts, Post} from "../server/post/post.ts";
-import ConfettiParapgraph from "../islands/RustParagraph/index.tsx";
+import ConfettiParapgraph from "../islands/ConfettiParagraph/index.tsx";
 
 export default function Home(props: PageProps<Array<Post>>) {
     return (
