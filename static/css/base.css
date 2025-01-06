@@ -35,7 +35,7 @@ body, html {
     margin: 0;
     background-color: var(--background-color);
     color: var(--primary-text);
-    font-size: 16px;
+    font-size: 20px;
     font-weight: 300;
     overflow-x: hidden;
     font-family: 'Nunito', sans-serif;
