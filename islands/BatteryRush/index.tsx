@@ -8,9 +8,15 @@ import { detectCollision } from "./logic/detectCollision.ts";
 const BatteryRush: FunctionalComponent = () => {
     const canvasRef = useRef<HTMLCanvasElement>(null);
 
+    // Game state
+    const [isGameRunning, setIsGameRunning] = useState(false);
+    const [motionPermissionGranted, setMotionPermissionGranted] = useState(false);
+
     // Player position based on accelerometer
     const playerX = useDeviceMotion(
-        typeof window !== "undefined" ? globalThis.innerWidth / 2 : 0,
+        typeof window !== "undefined" && motionPermissionGranted
+            ? globalThis.innerWidth / 2
+            : 0,
         typeof window !== "undefined" ? globalThis.innerWidth : 0
     );
 
@@ -20,21 +26,36 @@ const BatteryRush: FunctionalComponent = () => {
     // Timer to control obstacle generation
     const lastObstacleTime = useRef<number>(0);
 
-    // Game state
-    const [isGameOver, setIsGameOver] = useState(false);
+    // Request motion permission
+    const requestMotionPermission = async () => {
 
-    // Restart the game
-    const restartGame = () => {
-        obstaclesRef.current = [];
-        lastObstacleTime.current = performance.now();
-        setIsGameOver(false);
+        if (
+            typeof DeviceMotionEvent !== "undefined" &&
+            typeof DeviceMotionEvent.requestPermission === "function"
+        ) {
+            try {
+                const permission = await DeviceMotionEvent.requestPermission();
+                if (permission === "granted") {
+                    setMotionPermissionGranted(true);
+                    setIsGameRunning(true);
+                } else {
+                    alert("Motion controls are required to play this game.");
+                }
+            } catch (error) {
+                console.error("DeviceMotion permission request failed:", error);
+            }
+        } else {
+            // For browsers that don't require permission
+            setMotionPermissionGranted(true);
+            setIsGameRunning(true);
+        }
     };
 
     // Game update logic (fixed 60 FPS)
     useEffect(() => {
-        const updateGame = () => {
-            if (isGameOver) return;
+        if (!isGameRunning) return;
 
+        const updateGame = () => {
             const currentTime = performance.now();
 
             // Generate a new obstacle every 1.5 seconds
@@ -63,7 +84,9 @@ const BatteryRush: FunctionalComponent = () => {
                 );
 
                 if (isCollision) {
-                    setIsGameOver(true);
+                    console.log("Game Over");
+                    obstaclesRef.current = [];
+                    setIsGameRunning(false);
                 }
             });
         };
@@ -72,11 +95,11 @@ const BatteryRush: FunctionalComponent = () => {
         const intervalId = setInterval(updateGame, 1000 / 60);
 
         return () => clearInterval(intervalId);
-    }, [playerX, isGameOver]);
+    }, [playerX, isGameRunning]);
 
     // Canvas drawing (matches device's refresh rate)
     useEffect(() => {
-        if (typeof window === "undefined") return;
+        if (!isGameRunning || typeof window === "undefined") return;
 
         const canvas = canvasRef.current;
         if (!canvas) return;
@@ -87,14 +110,8 @@ const BatteryRush: FunctionalComponent = () => {
         const draw = () => {
             drawGame(ctx, playerX, obstaclesRef.current, canvas.width, canvas.height);
 
-            if (!isGameOver) {
+            if (isGameRunning) {
                 requestAnimationFrame(draw);
-            } else {
-                // Draw "Game Over" text
-                ctx.font = "48px Arial";
-                ctx.fillStyle = "#e74c3c";
-                ctx.textAlign = "center";
-                ctx.fillText("Game Over", canvas.width / 2, canvas.height / 2);
             }
         };
 
@@ -102,37 +119,38 @@ const BatteryRush: FunctionalComponent = () => {
         canvas.width = globalThis.innerWidth;
         canvas.height = globalThis.innerHeight;
         draw();
-    }, [playerX, isGameOver]);
+    }, [playerX, isGameRunning]);
 
     return (
         <div>
+            {!isGameRunning && (
+                <div style={{ textAlign: "center", marginTop: "20px" }}>
+                    <button
+                        onClick={requestMotionPermission}
+                        style={{
+                            padding: "15px 30px",
+                            fontSize: "20px",
+                            backgroundColor: "#3498db",
+                            color: "#fff",
+                            border: "none",
+                            borderRadius: "8px",
+                            cursor: "pointer",
+                        }}
+                    >
+                        Start Game
+                    </button>
+                </div>
+            )}
+
             <canvas
                 ref={canvasRef}
                 style={{
                     border: "1px solid #000",
                     width: "100%",
                     height: "70vh",
-                    display: "block",
+                    display: isGameRunning ? "block" : "none",
                 }}
             />
-            {isGameOver && (
-                <div style={{ textAlign: "center", marginTop: "20px" }}>
-                    <button
-                        onClick={restartGame}
-                        style={{
-                            padding: "10px 20px",
-                            fontSize: "18px",
-                            backgroundColor: "#3498db",
-                            color: "#fff",
-                            border: "none",
-                            borderRadius: "5px",
-                            cursor: "pointer",
-                        }}
-                    >
-                        Restart Game
-                    </button>
-                </div>
-            )}
         </div>
     );
 };
