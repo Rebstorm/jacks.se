@@ -19,6 +19,7 @@ import * as $experiments_index from "./routes/experiments/index.tsx";
 import * as $index from "./routes/index.tsx";
 import * as $info from "./routes/info.tsx";
 import * as $BatteryRush_index from "./islands/BatteryRush/index.tsx";
+import * as $ConfettiParagraph_index from "./islands/ConfettiParagraph/index.tsx";
 import * as $Flappy_GameWindowProps from "./islands/Flappy/GameWindowProps.tsx";
 import * as $Flappy_components_fun_input from "./islands/Flappy/components/fun-input.tsx";
 import * as $Flappy_components_instructions from "./islands/Flappy/components/instructions.tsx";
@@ -32,7 +33,6 @@ import * as $Flappy_logic_obstacles from "./islands/Flappy/logic/obstacles.ts";
 import * as $Footer from "./islands/Footer.tsx";
 import * as $Header from "./islands/Header.tsx";
 import * as $Menu_Menu from "./islands/Menu/Menu.tsx";
-import * as $RustParagraph_index from "./islands/ConfettiParagraph/index.tsx";
 import type { Manifest } from "$fresh/server.ts";
 
 const manifest = {
@@ -56,6 +56,7 @@ const manifest = {
   },
   islands: {
     "./islands/BatteryRush/index.tsx": $BatteryRush_index,
+    "./islands/ConfettiParagraph/index.tsx": $ConfettiParagraph_index,
     "./islands/Flappy/GameWindowProps.tsx": $Flappy_GameWindowProps,
     "./islands/Flappy/components/fun-input.tsx": $Flappy_components_fun_input,
     "./islands/Flappy/components/instructions.tsx":
@@ -73,7 +74,6 @@ const manifest = {
     "./islands/Footer.tsx": $Footer,
     "./islands/Header.tsx": $Header,
     "./islands/Menu/Menu.tsx": $Menu_Menu,
-    "./islands/RustParagraph/index.tsx": $RustParagraph_index,
   },
   baseUrl: import.meta.url,
 } satisfies Manifest;

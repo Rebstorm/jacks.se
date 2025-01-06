@@ -1,5 +1,7 @@
 import { PageProps } from "$fresh/server.ts";
 import { H1 } from "../../../components/h1.tsx";
+import { asset } from "$fresh/runtime.ts";
+
 
 export default function CV(props: PageProps) {
   return (
@@ -12,16 +14,24 @@ export default function CV(props: PageProps) {
               <a href="mailto:paul@jacks.se">paul@jacks.se</a> / <a href="https://jacks.se" target="_blank">jacks.se</a>
           </address>
 
+
           <h2>Quick Links</h2>
-          <div>
-              <div><a href="https://github.com/rebstorm" target="_blank">Github</a></div>
-              <div><a href="https://jacks.se/blog" target="_blank">My Engineering Blog</a></div>
-              <div><a href="https://www.meetup.com/Softwerkskammer-Koln/" target="_blank">Softwerkammer Köln</a></div>
+          <div style={{display: "flex", gap: "1rem"}}>
+              <a href="https://github.com/rebstorm" target="_blank">
+                  <img src="/github-icon.svg" alt="GitHub" width="30"/>
+              </a>
+              <a href="https://jacks.se/blog" target="_blank">
+                  <img src="/blog-icon.svg" alt="Blog" width="30"/>
+              </a>
+              <a href="https://www.meetup.com/Softwerkskammer-Koln/" target="_blank">
+                  <img src="/meetup-icon.svg" alt="Meetup" width="30"/>
+              </a>
           </div>
 
 
           <h2>Recent Experience</h2>
-          <section>
+          <section className={'card'}>
+              <img width={128} src={asset("../../companies/google.png")} alt={'google'}/>
               <h3>Software Engineer L3, Google, Munich, Germany (Remote)</h3>
               <p>February 2023 - Present</p>
               <ul>
@@ -43,7 +53,8 @@ export default function CV(props: PageProps) {
               </ul>
           </section>
 
-          <section>
+          <section className={'card'}>
+              <img width={128} src={asset("../../companies/volvo.png")} alt={'volvo'}/>
               <h3>Tech Lead, Volvo Cars, Göteborg, Sweden (Remote)</h3>
               <p>August 2021 - February 2023</p>
               <ul>
@@ -68,17 +79,22 @@ export default function CV(props: PageProps) {
                   <li> Technologies: Employed React, Next.js, Kubernetes, Go, and TypeScript among other tools.</li>
               </ul>
           </section>
-          <section>
+          <section className={'card'}>
+              <img width={128} src={asset("../../companies/rd.png")} alt={'rewe digital'}/>
               <h3>Software Engineer, REWE Digital, Cologne, Germany</h3>
               <p>August 2018 - July 2021</p>
               <ul>
-                  <li> Microservices Development: Played a key role in the Fulfillment Tribe by developing microservices that streamlined the fulfillment process, creating a highly fault tolerant fulfillment process.
+                  <li> Microservices Development: Played a key role in the Fulfillment Tribe by developing microservices
+                      that streamlined the fulfillment process, creating a highly fault tolerant fulfillment process.
                   </li>
-                  <li>Educational Initiatives: Initiated and led workshops on Progressive Web Apps, raising development standards
+                  <li>Educational Initiatives: Initiated and led workshops on Progressive Web Apps, raising development
+                      standards
                       and enhancing team skills.
                   </li>
-                  <li>Crisis Management: Acted as a critical first responder for service breakdowns, minimizing downtime and
-                      maintaining system reliability under pressure.</li>
+                  <li>Crisis Management: Acted as a critical first responder for service breakdowns, minimizing downtime
+                      and
+                      maintaining system reliability under pressure.
+                  </li>
                   <li>Technologies: Specialized in Spring Boot, Angular, Java, TypeScript, Kotlin, and PostgreSQL.
                   </li>
               </ul>
