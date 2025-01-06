@@ -20,6 +20,7 @@ import * as $index from "./routes/index.tsx";
 import * as $info from "./routes/info.tsx";
 import * as $BatteryRush_controls_useAccelerometer from "./islands/BatteryRush/controls/useAccelerometer.ts";
 import * as $BatteryRush_index from "./islands/BatteryRush/index.tsx";
+import * as $BatteryRush_logic_detectCollision from "./islands/BatteryRush/logic/detectCollision.ts";
 import * as $BatteryRush_logic_drawGame from "./islands/BatteryRush/logic/drawGame.ts";
 import * as $BatteryRush_objects_obstacle from "./islands/BatteryRush/objects/obstacle.ts";
 import * as $ConfettiParagraph_index from "./islands/ConfettiParagraph/index.tsx";
@@ -61,6 +62,8 @@ const manifest = {
     "./islands/BatteryRush/controls/useAccelerometer.ts":
       $BatteryRush_controls_useAccelerometer,
     "./islands/BatteryRush/index.tsx": $BatteryRush_index,
+    "./islands/BatteryRush/logic/detectCollision.ts":
+      $BatteryRush_logic_detectCollision,
     "./islands/BatteryRush/logic/drawGame.ts": $BatteryRush_logic_drawGame,
     "./islands/BatteryRush/objects/obstacle.ts": $BatteryRush_objects_obstacle,
     "./islands/ConfettiParagraph/index.tsx": $ConfettiParagraph_index,

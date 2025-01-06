@@ -1,23 +1,22 @@
-// controls/Obstacle.ts
+// objects/obstacle.ts
 export class Obstacle {
     x: number;
+    y: number;
     size: number;
     speed: number;
 
     constructor(canvasWidth: number) {
-        this.x = Math.random() * canvasWidth; // Random starting position
-        this.size = 30; // Initial size
-        this.speed = 2; // Initial speed
+        this.x = Math.random() * canvasWidth;
+        this.y = 0; // Start at the top of the canvas
+        this.size = 20; // Fixed size
+        this.speed = 2 + Math.random() * 2; // Random speed
     }
 
     update() {
-        // Grow in size to simulate 2.5D perspective
-        this.size += 0.2;
-        this.speed += 0.02;
+        this.y += this.speed; // Move downward
     }
 
     isOffScreen(canvasHeight: number) {
-        // Check if the obstacle has gone off-screen
-        return this.size > canvasHeight / 10;
+        return this.y - this.size > canvasHeight;
     }
 }

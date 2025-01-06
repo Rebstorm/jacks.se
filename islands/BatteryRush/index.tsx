@@ -3,6 +3,7 @@ import { useEffect, useRef } from "preact/hooks";
 import { useDeviceMotion } from "./controls/useAccelerometer.ts";
 import { Obstacle } from "./objects/obstacle.ts";
 import { drawGame } from "./logic/drawGame.ts";
+import { detectCollision } from "./logic/detectCollision.ts";
 
 const BatteryRush: FunctionalComponent = () => {
     const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -14,38 +15,53 @@ const BatteryRush: FunctionalComponent = () => {
     );
 
     // Obstacle reference
-    const obstacleRef = useRef<Obstacle | null>(null);
+    const obstaclesRef = useRef<Obstacle[]>([]);
 
     // Timer to control obstacle generation
     const lastObstacleTime = useRef<number>(0);
 
-    // Game update logic (fixed 60 FPS, or, uh, I try to)
+    // Game update logic (fixed 60 FPS)
     useEffect(() => {
         const updateGame = () => {
             const currentTime = performance.now();
 
-            // Generate a new obstacle every 2 seconds
-            if (!obstacleRef.current && currentTime - lastObstacleTime.current > 2000) {
-                obstacleRef.current = new Obstacle(globalThis.innerWidth);
+            // Generate a new obstacle every 1.5 seconds
+            if (currentTime - lastObstacleTime.current > 1500 && obstaclesRef.current.length < 10) {
+                obstaclesRef.current.push(new Obstacle(globalThis.innerWidth));
                 lastObstacleTime.current = currentTime;
             }
 
-            // Update obstacle if it exists
-            if (obstacleRef.current) {
-                obstacleRef.current.update();
+            // Update obstacles
+            obstaclesRef.current.forEach((obstacle) => obstacle.update());
 
-                // Remove obstacle if it goes off-screen
-                if (obstacleRef.current.isOffScreen(globalThis.innerHeight)) {
-                    obstacleRef.current = null;
+            // Remove off-screen obstacles
+            obstaclesRef.current = obstaclesRef.current.filter(
+                (obstacle) => !obstacle.isOffScreen(globalThis.innerHeight)
+            );
+
+            // Collision detection
+            const playerY = globalThis.innerHeight - 100;
+            obstaclesRef.current.forEach((obstacle) => {
+                const isCollision = detectCollision(
+                    playerX,
+                    playerY,
+                    20, // Player radius
+                    obstacle,
+                    globalThis.innerHeight
+                );
+
+                if (isCollision) {
+                    console.log("Game Over");
+                    obstaclesRef.current = [];
                 }
-            }
+            });
         };
 
-        // Run game update logic at 60 FPS
+        // Run game update logic at 60 FPS (ish)
         const intervalId = setInterval(updateGame, 1000 / 60);
 
         return () => clearInterval(intervalId);
-    }, []);
+    }, [playerX]);
 
     // Canvas drawing (matches device's refresh rate)
     useEffect(() => {
@@ -58,7 +74,7 @@ const BatteryRush: FunctionalComponent = () => {
         if (!ctx) return;
 
         const draw = () => {
-            drawGame(ctx, playerX, obstacleRef.current, canvas.width, canvas.height);
+            drawGame(ctx, playerX, obstaclesRef.current, canvas.width, canvas.height);
             requestAnimationFrame(draw);
         };
 
