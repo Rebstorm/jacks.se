@@ -19,10 +19,12 @@ import * as $experiments_index from "./routes/experiments/index.tsx";
 import * as $index from "./routes/index.tsx";
 import * as $info from "./routes/info.tsx";
 import * as $BatteryRush_controls_useAccelerometer from "./islands/BatteryRush/controls/useAccelerometer.ts";
+import * as $BatteryRush_controls_useKeyboardControls from "./islands/BatteryRush/controls/useKeyboardControls.ts";
 import * as $BatteryRush_index from "./islands/BatteryRush/index.tsx";
 import * as $BatteryRush_logic_detectCollision from "./islands/BatteryRush/logic/detectCollision.ts";
 import * as $BatteryRush_logic_drawGame from "./islands/BatteryRush/logic/drawGame.ts";
 import * as $BatteryRush_objects_obstacle from "./islands/BatteryRush/objects/obstacle.ts";
+import * as $BatteryRush_views_StartScreen from "./islands/BatteryRush/views/StartScreen.tsx";
 import * as $ConfettiParagraph_index from "./islands/ConfettiParagraph/index.tsx";
 import * as $Flappy_GameWindowProps from "./islands/Flappy/GameWindowProps.tsx";
 import * as $Flappy_components_fun_input from "./islands/Flappy/components/fun-input.tsx";
@@ -61,11 +63,15 @@ const manifest = {
   islands: {
     "./islands/BatteryRush/controls/useAccelerometer.ts":
       $BatteryRush_controls_useAccelerometer,
+    "./islands/BatteryRush/controls/useKeyboardControls.ts":
+      $BatteryRush_controls_useKeyboardControls,
     "./islands/BatteryRush/index.tsx": $BatteryRush_index,
     "./islands/BatteryRush/logic/detectCollision.ts":
       $BatteryRush_logic_detectCollision,
     "./islands/BatteryRush/logic/drawGame.ts": $BatteryRush_logic_drawGame,
     "./islands/BatteryRush/objects/obstacle.ts": $BatteryRush_objects_obstacle,
+    "./islands/BatteryRush/views/StartScreen.tsx":
+      $BatteryRush_views_StartScreen,
     "./islands/ConfettiParagraph/index.tsx": $ConfettiParagraph_index,
     "./islands/Flappy/GameWindowProps.tsx": $Flappy_GameWindowProps,
     "./islands/Flappy/components/fun-input.tsx": $Flappy_components_fun_input,

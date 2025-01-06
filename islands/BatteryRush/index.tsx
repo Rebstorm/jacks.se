@@ -1,55 +1,39 @@
-import { FunctionalComponent, h } from "preact";
-import { useEffect, useRef, useState } from "preact/hooks";
-import { useDeviceMotion } from "./controls/useAccelerometer.ts";
-import { Obstacle } from "./objects/obstacle.ts";
-import { drawGame } from "./logic/drawGame.ts";
-import { detectCollision } from "./logic/detectCollision.ts";
+import {FunctionalComponent} from "preact";
+import {useEffect, useRef, useState} from "preact/hooks";
+import {useDeviceMotion} from "./controls/useAccelerometer.ts";
+import {useKeyboardControls} from "./controls/useKeyboardControls.ts";
+import {Obstacle} from "./objects/obstacle.ts";
+import {drawGame} from "./logic/drawGame.ts";
+import {detectCollision} from "./logic/detectCollision.ts";
+import StartScreen from "./views/StartScreen.tsx";
 
 const BatteryRush: FunctionalComponent = () => {
     const canvasRef = useRef<HTMLCanvasElement>(null);
 
     // Game state
     const [isGameRunning, setIsGameRunning] = useState(false);
-    const [motionPermissionGranted, setMotionPermissionGranted] = useState(false);
+    const [useMotionControls, setUseMotionControls] = useState(false);
 
-    // Player position based on accelerometer
-    const playerX = useDeviceMotion(
-        typeof window !== "undefined" && motionPermissionGranted
+    // Player position
+    const playerXFromMotion = useDeviceMotion(
+        typeof window !== "undefined" && useMotionControls
             ? globalThis.innerWidth / 2
             : 0,
         typeof window !== "undefined" ? globalThis.innerWidth : 0
     );
+    const playerXFromKeyboard = useKeyboardControls(
+        typeof window !== "undefined" ? globalThis.innerWidth / 2 : 0,
+        typeof window !== "undefined" ? globalThis.innerWidth : 0
+    );
+
+    // Merge both control inputs
+    const playerX = useMotionControls ? playerXFromMotion : playerXFromKeyboard;
 
     // Obstacle reference
     const obstaclesRef = useRef<Obstacle[]>([]);
 
     // Timer to control obstacle generation
     const lastObstacleTime = useRef<number>(0);
-
-    // Request motion permission
-    const requestMotionPermission = async () => {
-
-        if (
-            typeof DeviceMotionEvent !== "undefined" &&
-            typeof DeviceMotionEvent.requestPermission === "function"
-        ) {
-            try {
-                const permission = await DeviceMotionEvent.requestPermission();
-                if (permission === "granted") {
-                    setMotionPermissionGranted(true);
-                    setIsGameRunning(true);
-                } else {
-                    alert("Motion controls are required to play this game.");
-                }
-            } catch (error) {
-                console.error("DeviceMotion permission request failed:", error);
-            }
-        } else {
-            // For browsers that don't require permission
-            setMotionPermissionGranted(true);
-            setIsGameRunning(true);
-        }
-    };
 
     // Game update logic (fixed 60 FPS)
     useEffect(() => {
@@ -124,24 +108,13 @@ const BatteryRush: FunctionalComponent = () => {
     return (
         <div>
             {!isGameRunning && (
-                <div style={{ textAlign: "center", marginTop: "20px" }}>
-                    <button
-                        onClick={requestMotionPermission}
-                        style={{
-                            padding: "15px 30px",
-                            fontSize: "20px",
-                            backgroundColor: "#3498db",
-                            color: "#fff",
-                            border: "none",
-                            borderRadius: "8px",
-                            cursor: "pointer",
-                        }}
-                    >
-                        Start Game
-                    </button>
-                </div>
+                <StartScreen
+                    onStart={ (useMotionControls: boolean) => {
+                        setUseMotionControls(useMotionControls);
+                        setIsGameRunning(true);
+                    }}
+                />
             )}
-
             <canvas
                 ref={canvasRef}
                 style={{
