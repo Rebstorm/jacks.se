@@ -12,15 +12,18 @@ export default function Home(props: PageProps<HighscoreUser[]>) {
     const pathPrefix = getCSSPathPrefix(props.url.pathname);
 
     return (
-        <>
+        <div className={'center'}>
             <Head>
                 <link rel="preload" href={`${pathPrefix}css/flappy.css`} as="style"/>
                 <link rel="stylesheet" href={`${pathPrefix}css/flappy.css`}/>
 
+                <link rel="preload" href={`${pathPrefix}css/battery-rush.css`} as="style"/>
+                <link rel="stylesheet" href={`${pathPrefix}css/battery-rush.css`}/>
+
                 <title>Battery Rush | {TITLE}</title>
             </Head>
             <BatteryRush />
-        </>
+        </div>
     );
 }
 

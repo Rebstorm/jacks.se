@@ -1,4 +1,4 @@
-import { FunctionalComponent, h } from "preact";
+import { FunctionalComponent } from "preact";
 import { useEffect, useRef, useState } from "preact/hooks";
 import { useDeviceMotion } from "./controls/useAccelerometer.ts";
 import { useKeyboardControls } from "./controls/useKeyboardControls.ts";
@@ -38,19 +38,20 @@ const BatteryRush: FunctionalComponent = () => {
     useEffect(() => {
         if (!isGameRunning) return;
 
+        let lastFrameTime = performance.now();
+        let animationFrameId: number;
+
         const updateGame = () => {
             const currentTime = performance.now();
 
-            // Generate a new obstacle every 1.5 seconds
-            if (currentTime - lastObstacleTime.current > 1500 && obstaclesRef.current.length < 10) {
+            // Obstacle generation logic
+            if ( currentTime - lastObstacleTime.current  > 1500 && obstaclesRef.current.length < 10) {
                 obstaclesRef.current.push(new Obstacle(globalThis.innerWidth));
                 lastObstacleTime.current = currentTime;
             }
 
             // Update obstacles
             obstaclesRef.current.forEach((obstacle) => obstacle.update());
-
-            // Remove off-screen obstacles
             obstaclesRef.current = obstaclesRef.current.filter(
                 (obstacle) => !obstacle.isOffScreen(globalThis.innerHeight)
             );
@@ -58,26 +59,20 @@ const BatteryRush: FunctionalComponent = () => {
             // Collision detection
             const playerY = globalThis.innerHeight - 100;
             obstaclesRef.current.forEach((obstacle) => {
-                const isCollision = detectCollision(
-                    playerX,
-                    playerY,
-                    20, // Player radius
-                    obstacle,
-                    globalThis.innerHeight
-                );
-
-                if (isCollision) {
-                    console.log("Game Over");
+                if (detectCollision(playerX, playerY, 20, obstacle, globalThis.innerHeight)) {
                     obstaclesRef.current = [];
                     setIsGameRunning(false);
                 }
             });
+
+            // Schedule next frame
+            lastFrameTime = currentTime;
+            animationFrameId = requestAnimationFrame(updateGame);
         };
 
-        // Run game update logic at 60 FPS
-        const intervalId = setInterval(updateGame, 1000 / 60);
+        updateGame();
 
-        return () => clearInterval(intervalId);
+        return () => cancelAnimationFrame(animationFrameId);
     }, [playerX, isGameRunning]);
 
     // Canvas drawing (matches device's refresh rate)
@@ -116,10 +111,9 @@ const BatteryRush: FunctionalComponent = () => {
             )}
             <canvas
                 ref={canvasRef}
+                className='gameWindow'
                 style={{
-                    borderRadius: 'var(--norm)',
-                    width: "100%",
-                    height: "70vh",
+
                     display: isGameRunning ? "block" : "none",
                 }}
             />

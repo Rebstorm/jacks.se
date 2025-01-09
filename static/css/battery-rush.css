@@ -1,0 +1,11 @@
+.gameWindow {
+    border-radius: var(--norm);
+    width: 100%;
+    height: 70vh;
+    max-width: 1028px;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+}
