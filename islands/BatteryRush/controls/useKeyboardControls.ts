@@ -1,4 +1,3 @@
-// controls/useKeyboardControls.ts
 import { useEffect, useState } from "preact/hooks";
 
 export const useKeyboardControls = (initialX: number, maxX: number) => {
@@ -7,9 +6,9 @@ export const useKeyboardControls = (initialX: number, maxX: number) => {
     useEffect(() => {
         const handleKeyDown = (event: KeyboardEvent) => {
             if (event.key === "ArrowLeft" || event.key === "a") {
-                setPlayerX((prevX) => Math.max(prevX - 20, 0));
+                setPlayerX((prevX) => Math.max(prevX - 100, 0));
             } else if (event.key === "ArrowRight" || event.key === "d") {
-                setPlayerX((prevX) => Math.min(prevX + 20, maxX));
+                setPlayerX((prevX) => Math.min(prevX + 100, maxX));
             }
         };
 

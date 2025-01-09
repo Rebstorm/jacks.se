@@ -1,11 +1,12 @@
-import { FunctionalComponent } from "preact";
-import { useEffect, useRef, useState } from "preact/hooks";
-import { useDeviceMotion } from "./controls/useAccelerometer.ts";
-import { useKeyboardControls } from "./controls/useKeyboardControls.ts";
-import { Obstacle } from "./objects/obstacle.ts";
-import { drawGame } from "./logic/drawGame.ts";
-import { detectCollision } from "./logic/detectCollision.ts";
+import {FunctionalComponent} from "preact";
+import {useEffect, useRef, useState} from "preact/hooks";
+import {useDeviceMotion} from "./controls/useAccelerometer.ts";
+import {useKeyboardControls} from "./controls/useKeyboardControls.ts";
+import {Obstacle} from "./objects/obstacle.ts";
+import {drawGame} from "./logic/drawGame.ts";
+import {detectCollision} from "./logic/detectCollision.ts";
 import StartScreen from "./views/StartScreen.tsx";
+import {PLAYER_SIZE} from "./objects/player.ts";
 
 const BatteryRush: FunctionalComponent = () => {
     const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -64,7 +65,7 @@ const BatteryRush: FunctionalComponent = () => {
             // Collision detection
             const playerY = globalThis.innerHeight - 100;
             obstaclesRef.current.forEach((obstacle) => {
-                if (detectCollision(playerX, playerY, 20, obstacle, globalThis.innerHeight)) {
+                if (detectCollision(playerX, playerY, PLAYER_SIZE, obstacle, globalThis.innerHeight)) {
                     obstaclesRef.current = [];
                     setIsGameRunning(false);
                 }
