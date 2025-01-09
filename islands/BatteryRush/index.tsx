@@ -34,6 +34,8 @@ const BatteryRush: FunctionalComponent = () => {
     // Timer to control obstacle generation
     const lastObstacleTime = useRef<number>(0);
 
+    const [score, setScore] = useState(0);
+
     // Game update logic (fixed 60 FPS)
     useEffect(() => {
         if (!isGameRunning) return;
@@ -50,11 +52,14 @@ const BatteryRush: FunctionalComponent = () => {
                 lastObstacleTime.current = currentTime;
             }
 
-            // Update obstacles
             obstaclesRef.current.forEach((obstacle) => obstacle.update());
-            obstaclesRef.current = obstaclesRef.current.filter(
-                (obstacle) => !obstacle.isOffScreen(globalThis.innerHeight)
-            );
+            obstaclesRef.current = obstaclesRef.current.filter((obstacle) => {
+                if (obstacle.isOffScreen(globalThis.innerHeight)) {
+                    setScore((prevScore) => prevScore + 1);
+                    return false;
+                }
+                return true;
+            });
 
             // Collision detection
             const playerY = globalThis.innerHeight - 100;
@@ -106,14 +111,15 @@ const BatteryRush: FunctionalComponent = () => {
                     onStart={(useMotionControls) => {
                         setUseMotionControls(useMotionControls);
                         setIsGameRunning(true);
+                        setScore(0);
                     }}
+                    score={score}
                 />
             )}
             <canvas
                 ref={canvasRef}
                 className='gameWindow'
                 style={{
-
                     display: isGameRunning ? "block" : "none",
                 }}
             />

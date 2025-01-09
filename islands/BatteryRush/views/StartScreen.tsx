@@ -3,14 +3,12 @@ import {FunctionalComponent} from "preact";
 
 interface StartScreenProps {
     onStart: (useMotionControls: boolean) => void;
+    score?: number;
 }
 
-const StartScreen: FunctionalComponent<StartScreenProps> = ({ onStart }) => {
+const StartScreen: FunctionalComponent<StartScreenProps> = ({ onStart, score }) => {
     const handleStart = async (event: Event) => {
         const isTouch = event.type === "touchstart";
-
-        console.log("eventType", event.type)
-
         if (isTouch) {
             // Request motion permission for touch devices
             if (
@@ -45,6 +43,7 @@ const StartScreen: FunctionalComponent<StartScreenProps> = ({ onStart }) => {
         <div style={{ textAlign: "center" }}>
             <h1>Battery Rush</h1>
             <p>A motion-controlled 2D game</p>
+            { (score! > 1) && <div> Your score: {score} </div> }
             <button
                 onClick={handleStart}
                 onTouchStart={handleStart}
