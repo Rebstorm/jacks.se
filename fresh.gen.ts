@@ -5,6 +5,7 @@
 import * as $_404 from "./routes/_404.tsx";
 import * as $_app from "./routes/_app.tsx";
 import * as $_layout from "./routes/_layout.tsx";
+import * as $api_blog_index from "./routes/api/blog/index.tsx";
 import * as $api_highscore_index from "./routes/api/highscore/index.ts";
 import * as $blog_slug_index from "./routes/blog/[slug]/index.tsx";
 import * as $blog_layout from "./routes/blog/_layout.tsx";
@@ -48,6 +49,7 @@ const manifest = {
     "./routes/_404.tsx": $_404,
     "./routes/_app.tsx": $_app,
     "./routes/_layout.tsx": $_layout,
+    "./routes/api/blog/index.tsx": $api_blog_index,
     "./routes/api/highscore/index.ts": $api_highscore_index,
     "./routes/blog/[slug]/index.tsx": $blog_slug_index,
     "./routes/blog/_layout.tsx": $blog_layout,
