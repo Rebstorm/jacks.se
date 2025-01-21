@@ -6,7 +6,7 @@ image: "blog-images/smell.webp"
 ---
 
 
-![Code smell. Yuck.](../blog-images/smell.webp)
+<img alt="Code smell. Yuck." height="1024" src="../blog-images/smell.webp" width="400"/>
 
 # Why Refactor?
 

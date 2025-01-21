@@ -22,7 +22,7 @@ interface PostDataOptions {
   onlyMetaData?: boolean;
 }
 
-export async function getPost(slug: string, { onlyMetaData = null }: PostDataOptions): Promise<Post | undefined> {
+export async function getPost(slug: string, { onlyMetaData = undefined }: PostDataOptions): Promise<Post | undefined> {
   try {
     const text = await Deno.readTextFile(join("./posts", `${slug}.md`));
     const { attrs, body }: { attrs: Attributes; body: string } = extract(text);
@@ -30,7 +30,7 @@ export async function getPost(slug: string, { onlyMetaData = null }: PostDataOpt
       slug,
       title: attrs.title,
       publishedAt: new Date(attrs.published_at),
-      content: onlyMetaData !== null ? body : null,
+      content: onlyMetaData !== undefined ? body : '',
       snippet: attrs.snippet,
       image: attrs.image,
     };

@@ -4,7 +4,7 @@ published_at: 2024-02-25T16:00:00.000Z
 snippet: "Escape the copy-paste trap. Learn how to be DRY — because the only thing cornier than using 'DRY' as a pun is not using it in your code."
 ---
 
-![That's me in the corner, losing my religion](../blog-images/dry.webp)
+<img alt="That&#39;s me in the corner, losing my religion" height="400" src="../blog-images/dry.webp" width="1024"/>
 
 _"Always code as if the guy who ends up maintaining your code will be a violent psychopath who knows where you live. - [John F. Woods](https://groups.google.com/g/comp.lang.c++/c/rYCO5yn4lXw/m/oITtSkZOtoUJ)"_
 

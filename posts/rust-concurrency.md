@@ -4,7 +4,7 @@ published_at: 2023-12-28T19:00:00.000Z
 snippet: "In a nutshell."
 ---
 
-![Concurrency](../blog-images/concurrency.webp)
+<img alt="Concurrency" height="1024" src="../blog-images/concurrency.webp" width="400"/>
 
 # Concurrency And Parallelism in Rust 🦀
 Wow. You clicked it. You're in for a bit of fun, meanwhile I try to explain why Rust just kicks butt. But first some basics. 

@@ -4,7 +4,7 @@ published_at: 2024-12-15T18:12:00.000Z
 snippet: "When should we use XML to help LLMs understand and structure our outputs? Click-bait me to find out."
 ---
 
-![Bue bue](../blog-images/block_1.webp)
+<img alt="Lego blocks" height="400" src="../blog-images/block_1.webp" width="1024"/>
 
 # Does Using XML Improve AI Understanding?
 

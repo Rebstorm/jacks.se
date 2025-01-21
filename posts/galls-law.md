@@ -15,7 +15,7 @@ We developers, architects of the abstract (corny, sorry), often craft code that 
 
 ## Understanding Gall’s Law
 
-![Overengineering in a nutshell](../blog-images/over-engineering.png)
+<img alt="Overengineering in a nutshell" width="550" height="230" src="../blog-images/over-engineering.png"/>
 
 _The general problem — (Image: XKDC)_
 

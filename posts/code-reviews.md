@@ -4,7 +4,7 @@ published_at: 2024-05-04T18:04:00.000Z
 snippet: "What do you mean \"LGTM\"???"
 ---
 
-![Code review goes brrrrr](../blog-images/codereview.webp)
+<img alt="Code review goes brrrrr" height="400" src="../blog-images/codereview.webp" width="1024"/>
 
 # Code Reviews: Let's get real.
 Code reviews are a crucial part of the software development process. They serve multiple purposes: they keep your team informed about changes, help catch bugs (though not all!), and add contextual depth to your code through comments and discussions.
