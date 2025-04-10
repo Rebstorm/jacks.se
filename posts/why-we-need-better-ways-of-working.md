@@ -49,7 +49,7 @@ You can’t go fast if you don’t know where you’re going. Better working hab
 ##  The Myth of “Move Fast and Break Things”
 That phrase made sense when you were building a prototype and trying to disrupt an industry from a garage. But if you’re working on a platform used by real customers—or even just your own teammates—reckless speed is a liability.
 
-### Mature products require stability.
+### Mature products require stability
 Mature products can’t afford chaos, if you have stakeholders relying on your products, you cant just go haywire and break stuff. 
 It takes time, especially if the product is struggling with tech debt.
 
