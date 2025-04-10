@@ -26,7 +26,8 @@ But then:
 - Oh, and now it’s blocking another feature because of a rushed architectural shortcut.
 
 So that “2-day ticket”? You just spent two weeks orbiting around it in various Slack threads, meetings, and patch fixes.
-❓What went wrong?
+
+### What went wrong?
 
 - Lack of clarity up front: the goal was “ship fast,” not “solve the problem well.”
 - No shared understanding of what done means. 
