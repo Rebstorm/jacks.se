@@ -10,7 +10,7 @@ snippet: "Speed is seductive in software development — but without solid found
 
 # Why We Need Better Ways of Working, Not Just Faster Ones
 
-The software industry loves speed. Fast iterations, fast deployments, fast feedback loops. And don’t get me wrong—speed matters. But somewhere along the way, “faster” became the goal instead of a side effect of working well.
+The software industry loves speed. Fast iterations & fast feedback loops. And don’t get me wrong—speed matters. But somewhere along the way, “faster” became the goal instead of a side effect of working well.
 This post is a reflection (and a bit of a rant) on why chasing speed without structure burns teams out, buries quality, and ultimately slows us down.
 
 
