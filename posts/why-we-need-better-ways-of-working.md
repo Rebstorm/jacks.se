@@ -5,7 +5,7 @@ snippet: "Speed is seductive in software development — but without solid found
 ---
 
 
-![Man on rocket shoes, going through wall](../blog-images/better_ways_of_working.webp)
+<img alt="Man on rocket shoes, going through wall" height="400" src="../blog-images/better_ways_of_working.webp" width="1280"/>
 
 
 # Why We Need Better Ways of Working, Not Just Faster Ones
