@@ -1,7 +1,7 @@
 ---
 title: "Why We Need Better Ways of Working, Not Just Faster Ones"
 published_at: 2025-04-10T15:21:00.000Z
-snippet: "Speed is seductive in software development—but without solid foundations, it leads to burnout, rework, and brittle systems. This post explores why sustainable progress comes from better ways of working, not just faster ones."
+snippet: "Speed is seductive in software development — but without solid foundations, it leads to burnout, rework, and brittle systems. This post explores why sustainable progress comes from better ways of working, not just faster ones."
 ---
 
 
