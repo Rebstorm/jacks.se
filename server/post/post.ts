@@ -10,12 +10,22 @@ export interface Post {
   image?: string;
 }
 
+export interface PaginatedPost {
+  posts: Post[];
+  totalPages: number;
+  page: number;
+}
+
 // Because I am a lazy butt. Please type this.
 interface Attributes {
   [key: string]: string;
 }
 
 interface PostDataOptions {
+  /**
+   * @description Which page to get.
+   */
+  page?: number;
   /**
    * @description Do not get the content, only the meta data, front matter, basically.
    */
@@ -39,14 +49,32 @@ export async function getPost(slug: string, { onlyMetaData = undefined }: PostDa
   }
 }
 
-export async function getPosts(options?: PostDataOptions): Promise<Post[]> {
+const PAGE_SIZE = 5;
+export async function getPosts(options?: PostDataOptions): Promise<PaginatedPost> {
   const files = Deno.readDir("./posts");
   const promises: Array<Promise<Post | undefined>> = [];
+
   for await (const file of files) {
     const slug = file.name.replace(".md", "");
-    promises.push(getPost(slug, options));
+    promises.push(getPost(slug, options || {} ));
   }
   const posts = (await Promise.all(promises)).filter(Boolean) as Post[];
   posts.sort((a, b) => b.publishedAt.getTime() - a.publishedAt.getTime());
-  return posts;
+
+  // Calculate total pages
+  const totalPages = Math.ceil(posts.length / PAGE_SIZE);
+
+  // Default to page 0 if not specified
+  const page = options?.page ?? 0;
+
+  // Get posts for the requested page
+  const startIndex = page * PAGE_SIZE;
+  const paginatedPosts = posts.slice(startIndex, startIndex + PAGE_SIZE);
+
+
+  return {
+    posts: paginatedPosts,
+    totalPages,
+    page
+  };
 }

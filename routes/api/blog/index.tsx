@@ -5,7 +5,7 @@ import {TITLE} from "../../../constants/meta.ts";
 export const handler = {
   async GET(_req: Request, _ctx: HandlerContext) {
     // Fetch all posts
-    const posts = await getPosts({ onlyMetaData: true });
+    const posts = await getPosts({ onlyMetaData: true, page: 0 });
 
     // Generate the RSS XML
     const rssFeed = `<?xml version="1.0" encoding="UTF-8"?>
@@ -16,7 +16,7 @@ export const handler = {
       <description>PJ's blog</description>
       <language>en-us</language>
       ${
-        posts
+        posts.posts
           .map((post) =>
             `
       <item>

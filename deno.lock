@@ -175,7 +175,8 @@
   },
   "redirects": {
     "https://esm.sh/@types/babel__helper-validator-identifier@~7.15.2/index.d.ts": "https://esm.sh/@types/babel__helper-validator-identifier@7.15.2/index.d.ts",
-    "https://esm.sh/@types/canvas-confetti@~1.9.0/index.d.ts": "https://esm.sh/@types/canvas-confetti@1.9.0/index.d.ts"
+    "https://esm.sh/@types/canvas-confetti@~1.9.0/index.d.ts": "https://esm.sh/@types/canvas-confetti@1.9.0/index.d.ts",
+    "https://esm.sh/preact@%3E=10?target=denonext": "https://esm.sh/preact@10.26.9?target=denonext"
   },
   "remote": {
     "https://deno.land/std@0.198.0/_util/os.ts": "d932f56d41e4f6a6093d56044e29ce637f8dcc43c5a90af43504a889cf1775e3",
@@ -599,6 +600,8 @@
     "https://esm.sh/@babel/helper-validator-identifier@7.22.20/denonext/helper-validator-identifier.mjs": "f765fd69eb4fd81b839b76bf60f227caac4fe4d41b4c646cc08aa7b8d948fe17",
     "https://esm.sh/canvas-confetti@1.5.1": "7b21f5d75482e82de249371daf3230e1736f5ef85c604864c7f47498c58cffda",
     "https://esm.sh/canvas-confetti@1.5.1/denonext/canvas-confetti.mjs": "7941ba01df7bbbf08fba4d5f52823773e9c78dd41e3a97784a94491bc14efb4b",
+    "https://esm.sh/preact-render-to-string@6.2.2": "3ddfb46f7c9d6de2ae8400cbd6c46a5afd2528721c80641582ab9b881c465417",
+    "https://esm.sh/preact-render-to-string@6.2.2/denonext/preact-render-to-string.mjs": "43c273bac17dfa9cdaf439f7bcfdeebecb03de3df9234b6d2d51c6b7994e7514",
     "https://esm.sh/preact@10.22.0": "0fb9b89617c3a27b6be4eee74bd07b845e92900e6b7fdb757bc3a498a6ec9065",
     "https://esm.sh/preact@10.22.0/debug": "fb8d7b9ea5c7bbfb6cb9d9f9abfa31e8038b08ec623ec029f8feafbe6c5891e4",
     "https://esm.sh/preact@10.22.0/denonext/debug.mjs": "dfb39c01d509fab4948036bc2e6ad5ecd26ed5d7242e97be163ba575c815f01e",
@@ -608,6 +611,8 @@
     "https://esm.sh/preact@10.22.0/denonext/preact.mjs": "4d84d31589efc25c9c066968c07fa9ac3db53831b34a4c46535d0c724cdb486e",
     "https://esm.sh/preact@10.22.0/hooks": "8a1ea3148ef7373b9c3dc027a147ff6728a4e53e10e3506c1191b087f0e564e1",
     "https://esm.sh/preact@10.22.0/jsx-runtime": "6c6117abd414386ed23785f7c198e03bee696c1fa0fee01b72a64abe5e7ae7fb",
+    "https://esm.sh/preact@10.26.9/denonext/preact.mjs": "4cd7a49dac13e586b0e110cfa468caa933fd3dc7c101de55642a3771a4f242cf",
+    "https://esm.sh/preact@10.26.9?target=denonext": "e867e0b1e34e8ab6dbc8bbb7347c61e28a948cff8b278b55b3ef086bac37c8ee",
     "https://esm.sh/prismjs@1.29.0/components/prism-rust?no-check": "a6814240355908451418cf6c9a6a1a35dd471ec67424b907516ad78ccd1bb567",
     "https://esm.sh/prismjs@1.29.0/components/prism-typescript?no-check": "999460db7802459f03c85134349b772f061e1be9f401a81b708b65c6061b6d9a",
     "https://esm.sh/prismjs@1.29.0/denonext/components/prism-rust.mjs": "4fc971a3457c5a5169847046afb2e9055a22b0ceaf834a05e677cbf91d636cf4",

@@ -2,10 +2,10 @@ import {HandlerContext, Handlers, PageProps} from "$fresh/server.ts";
 import {Paragraph} from "../components/paragraph.tsx";
 import {H1} from "../components/h1.tsx";
 import {H2} from "../components/h2.tsx";
-import {getPosts, Post} from "../server/post/post.ts";
+import {getPosts, PaginatedPost, Post} from "../server/post/post.ts";
 import ConfettiParapgraph from "../islands/ConfettiParagraph/index.tsx";
 
-export default function Home(props: PageProps<Array<Post>>) {
+export default function Home(props: PageProps<PaginatedPost>) {
     return (
         <>
             <H1 gradientColor animate>Hello, I'm Paul. I code things.</H1>
@@ -28,13 +28,13 @@ export default function Home(props: PageProps<Array<Post>>) {
             </Paragraph>
 
             <H2> Latest Blog Articles </H2>
-            {props.data.map((availablePosts: Post) => (
+            {props.data.posts.map((availablePosts: Post) => (
                 <div>
                     <a href={`blog/${availablePosts.slug}`}>
                         📄 {availablePosts.title}
                     </a>
                 </div>
-            )).slice(0,5)}
+            ))}
         </>
     );
 }
@@ -42,7 +42,7 @@ export default function Home(props: PageProps<Array<Post>>) {
 
 export const handler: Handlers = {
     async GET(_req: Request, ctx: HandlerContext) {
-        const resp = await ctx.render(await getPosts({ onlyMetaData: true }));
+        const resp = await ctx.render(await getPosts({ onlyMetaData: true, page: 0 }));
         return resp;
     },
 };

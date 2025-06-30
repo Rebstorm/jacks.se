@@ -150,6 +150,34 @@ b {
     margin-bottom: calc(var(--norm) * 3);
 }
 
+/* Pager styles */
+.pager {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: calc(var(--norm) * 2) 0;
+    gap: calc(var(--norm) * 1.5);
+}
+
+.pager-link {
+    padding: calc(var(--norm) * 0.5) calc(var(--norm) * 1);
+    background-color: var(--secondary-color);
+    border-radius: var(--border);
+    color: var(--secondary-text);
+    font-weight: 700;
+    transition: background-color 0.3s ease;
+}
+
+.pager-link:hover {
+    background-color: var(--accent-color);
+    color: var(--background-color);
+}
+
+.pager-info {
+    color: var(--tertiary-text);
+    font-weight: 700;
+}
+
 .md {
   display: block;
   padding: var(--norm);
