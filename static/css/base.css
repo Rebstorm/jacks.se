@@ -65,11 +65,14 @@ img {
 .nav {
     display: flex;
     justify-content: center;
+    align-self: center;
     box-shadow: none;
     transition: all 500ms ease-in;
-    padding: 0.5rem;
-    overflow-x: hidden;
+    padding: calc(8* var(--norm)) 0 0 0;
     z-index: 2;
+    width: 100%;
+    overflow-x: scroll;
+    scroll-behavior: smooth;
 }
 
 .active {
@@ -115,14 +118,22 @@ b {
 }
 
 .nav > a {
+    display: flex;
     padding: var(--norm);
     text-decoration: none;
-    color: var(--secondary-text);
+    color: var(--background-contrast);
     fill: none;
     stroke: black;
     stroke-width: 0.1rem;
     stroke-linejoin : round;
     font-size: 2rem;
+    align-content: center;
+    align-items: center;
+    gap: var(--norm);
+}
+
+.nav > a > span {
+    font-size: calc(1.2*var(--norm));
 }
 
 .nav > a:hover {
@@ -280,6 +291,11 @@ b {
         font-size: 1.5rem;
     }
 
+    .nav {
+        justify-content: start;
+        padding: calc(3* var(--norm)) 0 0 0;
+    }
+
     .overflow-hidden {
         height: 10rem;
     }
@@ -302,5 +318,6 @@ b {
     .nav {
         box-shadow: none
     }
+
 
 }

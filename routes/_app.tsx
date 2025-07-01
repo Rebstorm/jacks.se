@@ -52,11 +52,11 @@ export default function App({ Component, route, ...rest }: PageProps) {
         <Wave />
         <div f-client-nav className={"portal"}>
           <Header route={route} />
-          <div className={"container"}>
+          <section className={"container"}>
             <Partial name="main">
               <Component />
             </Partial>
-          </div>
+          </section>
         </div>
         <Footer />
       </body>

@@ -11,18 +11,19 @@ interface Link {
 
 export const linksAvailable = () =>
   Array.of<Link>(
-    { path: "/", label: "🏡" },
-    { path: "/experiments", label: "🧪" },
-    { path: "/blog", label: "📒" },
+    { path: "/", label: "🏡", title: "Home" },
+    { path: "/blog", label: "📒", title: "Blog" },
+    { path: "/experiments", label: "🧪", title: "Experiments" },
     {
       href: "https://github.com/Rebstorm",
       label: <GithubIcon />,
-      title: 'Github',
+      title: "Github",
       isExternal: true,
     },
     {
       href: "https://fosstodon.org/@sendcookies",
       label: "🦣",
+      title: "Mastodon",
       isExternal: true,
     },
   );

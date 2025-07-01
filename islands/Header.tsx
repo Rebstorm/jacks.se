@@ -1,8 +1,5 @@
 import Menu from "./Menu/Menu.tsx";
 
-const container = `
-p-12`;
-
 export interface HeaderProps {
   route: string;
 }
