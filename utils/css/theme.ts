@@ -1,3 +1,6 @@
+/**
+ * @deprecated - We should probably not do this.
+ */
 export function getTheme(): "light" | "dark" {
   if (
     globalThis.matchMedia &&
