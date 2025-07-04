@@ -11,19 +11,20 @@ export default function Home(props: PageProps<PaginatedPost>) {
             <H1 gradientColor animate>Hello, I'm Paul. I code things.</H1>
 
             <Paragraph>
-                Yes, you read that right.
+                A software dev with over 10+ years in a wide field of domains. Now available for <a href={"mailto:paul@paul.wiki"}>projects.</a>
             </Paragraph>
+
+            <ConfettiParapgraph>
+                I’ve spent the last few years leading developer teams, crafting solutions and refactoring complex problems to simple and maintainable standards.
+                <br />
+            </ConfettiParapgraph>
 
             <Paragraph>
                 I often hang out at the <a href={"https://developer.mozilla.org/en-US/"}>Mozilla Developer Network Documentation</a> 📚,
                 browse through <a href={"https://primer.style/"}>Primer</a> 🎨 for design inspiration, or explore <a href={"https://fresh.deno.dev/"}>Fresh</a> 🍋 to build modern web apps in my free time.
             </Paragraph>
 
-            <ConfettiParapgraph>
-                I’ve spent the last few years leading developer teams and crafting solutions and refactoring complex problems to simple and maintainable standards.
-                <br />
-                <span>Oh. And teaching why Rust 🦀 is amazing. </span>
-            </ConfettiParapgraph>
+
             <Paragraph>
             </Paragraph>
 
