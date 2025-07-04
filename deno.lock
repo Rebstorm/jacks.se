@@ -181,8 +181,11 @@
     }
   },
   "redirects": {
+    "https://esm.sh/@preact/signals-core@^1.4.0?target=denonext": "https://esm.sh/@preact/signals-core@1.8.0?target=denonext",
     "https://esm.sh/@types/babel__helper-validator-identifier@~7.15.2/index.d.ts": "https://esm.sh/@types/babel__helper-validator-identifier@7.15.2/index.d.ts",
-    "https://esm.sh/@types/canvas-confetti@~1.9.0/index.d.ts": "https://esm.sh/@types/canvas-confetti@1.9.0/index.d.ts"
+    "https://esm.sh/@types/canvas-confetti@~1.9.0/index.d.ts": "https://esm.sh/@types/canvas-confetti@1.9.0/index.d.ts",
+    "https://esm.sh/preact@10.x/hooks?target=denonext": "https://esm.sh/preact@10.26.5/hooks?target=denonext",
+    "https://esm.sh/preact@10.x?target=denonext": "https://esm.sh/preact@10.26.5?target=denonext"
   },
   "remote": {
     "https://deno.land/std@0.198.0/_util/os.ts": "d932f56d41e4f6a6093d56044e29ce637f8dcc43c5a90af43504a889cf1775e3",
@@ -604,6 +607,10 @@
     "https://esm.sh/*preact-render-to-string@6.3.1/denonext/preact-render-to-string.mjs": "859e9f3dc137a53c17542bbed4cf8accdca81a2895d7a52d1fca38e6c5c00c90",
     "https://esm.sh/@babel/helper-validator-identifier@7.22.20": "3b0b7d94b8ac689175ecb7e72183b07c6a771cc7680a7c9916091add73bd7f88",
     "https://esm.sh/@babel/helper-validator-identifier@7.22.20/denonext/helper-validator-identifier.mjs": "f765fd69eb4fd81b839b76bf60f227caac4fe4d41b4c646cc08aa7b8d948fe17",
+    "https://esm.sh/@preact/signals-core@1.8.0/denonext/signals-core.mjs": "35f8624f983ba148f83c919a15541c7714cabf14b758bcb45ac25708aeb675f5",
+    "https://esm.sh/@preact/signals-core@1.8.0?target=denonext": "4b723b6aeb5294bcd9d3a7399cacd9517f0db1de8883b8651c33021ec43b6db1",
+    "https://esm.sh/@preact/signals@1.2.2": "32d01c41401ae32120546ec8b9036be51ca4e6f07d97ccae347d23ff7c2d6e9c",
+    "https://esm.sh/@preact/signals@1.2.2/denonext/signals.mjs": "109f920a41b7dc8b59b9544c6f8f1832f9a329123cec271eab84a0fc0e46e33b",
     "https://esm.sh/canvas-confetti@1.5.1": "7b21f5d75482e82de249371daf3230e1736f5ef85c604864c7f47498c58cffda",
     "https://esm.sh/canvas-confetti@1.5.1/denonext/canvas-confetti.mjs": "7941ba01df7bbbf08fba4d5f52823773e9c78dd41e3a97784a94491bc14efb4b",
     "https://esm.sh/preact@10.22.0": "0fb9b89617c3a27b6be4eee74bd07b845e92900e6b7fdb757bc3a498a6ec9065",
@@ -615,6 +622,10 @@
     "https://esm.sh/preact@10.22.0/denonext/preact.mjs": "4d84d31589efc25c9c066968c07fa9ac3db53831b34a4c46535d0c724cdb486e",
     "https://esm.sh/preact@10.22.0/hooks": "8a1ea3148ef7373b9c3dc027a147ff6728a4e53e10e3506c1191b087f0e564e1",
     "https://esm.sh/preact@10.22.0/jsx-runtime": "6c6117abd414386ed23785f7c198e03bee696c1fa0fee01b72a64abe5e7ae7fb",
+    "https://esm.sh/preact@10.26.5/denonext/hooks.mjs": "6baed5b7049f0124504c2c140d9be701cebd515eb7fc508b179422c11e64722f",
+    "https://esm.sh/preact@10.26.5/denonext/preact.mjs": "d8fd34a8324d1d4df0e3c03c6343d36214d09fe03862a1119640f2de0f80e916",
+    "https://esm.sh/preact@10.26.5/hooks?target=denonext": "6c54ede2fb8004fa2dc1ce00de02e2fa60820056bb00195953720fedd45895fc",
+    "https://esm.sh/preact@10.26.5?target=denonext": "e45c1f6116e0648ddd56fdd8d91dc9f16ebccb66773f65a22008e47798989e61",
     "https://esm.sh/prismjs@1.29.0/components/prism-rust?no-check": "a6814240355908451418cf6c9a6a1a35dd471ec67424b907516ad78ccd1bb567",
     "https://esm.sh/prismjs@1.29.0/components/prism-typescript?no-check": "999460db7802459f03c85134349b772f061e1be9f401a81b708b65c6061b6d9a",
     "https://esm.sh/prismjs@1.29.0/denonext/components/prism-rust.mjs": "4fc971a3457c5a5169847046afb2e9055a22b0ceaf834a05e677cbf91d636cf4",
