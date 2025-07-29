@@ -4,7 +4,7 @@ published_at: 2025-07-29T11:15:00.000Z
 snippet: "Want to make frontend developers really uncomfortable? Ask them about their test suite."
 ---
 
-<img1 alt="Frontend testing shouldn't be hard" src="../blog-images/frontend-test.webp"/>
+<img alt="Frontend testing shouldn't be hard" src="../blog-images/frontend-test.webp"/>
 
 # Frontend Tests shouldn't be hard
 Whenever I have been lucky enough to be a part of a frontend, I have noticed how unwilling most people seem to be to test the UI's and components they have been writing.
