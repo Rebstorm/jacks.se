@@ -34,7 +34,7 @@ interface PostDataOptions {
 
 export async function getPost(slug: string, { onlyMetaData = undefined }: PostDataOptions): Promise<Post | undefined> {
   try {
-    const text = await Deno.readTextFile(join("./posts", `${slug}.md`));
+    const text = await Deno.readTextFile(join("./static/posts", `${slug}.md`));
     const { attrs, body }: { attrs: Attributes; body: string } = extract(text);
     return {
       slug,
@@ -51,7 +51,7 @@ export async function getPost(slug: string, { onlyMetaData = undefined }: PostDa
 
 const PAGE_SIZE = 5;
 export async function getPosts(options?: PostDataOptions): Promise<PaginatedPost> {
-  const files = Deno.readDir("./posts");
+  const files = Deno.readDir("./static/posts");
   const promises: Array<Promise<Post | undefined>> = [];
 
   for await (const file of files) {
