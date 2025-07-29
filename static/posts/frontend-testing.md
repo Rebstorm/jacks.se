@@ -1,5 +1,5 @@
 ---
-title: "Frontend Tests shouldn't be hard"
+title: "Frontend Testing shouldn't be hard"
 published_at: 2025-07-29T11:15:00.000Z
 snippet: "Want to make frontend developers really uncomfortable? Ask them about their test suite."
 ---
