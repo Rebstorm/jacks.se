@@ -7,7 +7,7 @@ snippet: "Want to make frontend developers really uncomfortable? Ask them about 
 <img alt="Frontend testing shouldn't be hard" src="../blog-images/frontend-test.webp"/>
 
 # Frontend Tests shouldn't be hard
-Whenever I have been lucky enough to be a part of a frontend project, I have noticed how unwilling most people seem to be to test the UI's and components they have been writing.
+Whenever I have been lucky enough to be a part of a frontend project, I have noticed how unwilling most people seem to be to test the UIs and components they have been writing.
 
 Whether it’s been on the web, in an app, or in a native application, the excuses tend to be many: it takes extra time, the framework doesn’t support it, it’s too hard to recreate in a testing environment, and so on. The problem stems from the same issue though, and I don't want to sound harsh, but you might be writing your UIs incorrectly.
 
