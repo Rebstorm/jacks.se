@@ -154,12 +154,23 @@
     font-weight: bold;
 }
 
+.error-message{
+    color: var(--flavor-2);
+    margin-top: var(--norm);
+}
+
 .move {
     display: flex;
     align-self: center;
     animation: rotateLeftRight 3s ease-in-out infinite alternate;
 }
 
+@media (prefers-color-scheme: light) {
+
+    .error-message {
+        color: var(--flavor-1);
+    }
+}
 
 @keyframes rotateLeftRight {
     0%, 100% {

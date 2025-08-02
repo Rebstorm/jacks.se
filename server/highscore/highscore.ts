@@ -1,4 +1,4 @@
-import { HandlerContext } from "$fresh/server.ts";
+import { FreshContext } from "$fresh/server.ts";
 import { HIGHSCORE_DB_NAME } from "../../constants/kv.ts";
 import { badwords } from "./censorship/badwords.ts";
 
@@ -10,19 +10,26 @@ export interface HighscoreUser {
 
 const kv = await Deno.openKv();
 
-export async function getHighscore(): Promise<HighscoreUser[]> {
+export async function getHighscore(): Promise<Omit<HighscoreUser, 'ip'>[]> {
   const list = await kv.list({ prefix: [HIGHSCORE_DB_NAME] });
   const players = [];
   for await (const res of list) {
-    players.push(res.value as HighscoreUser);
+    const player = res.value as HighscoreUser;
+    const { ip, ...playerWithoutIp } = player;
+    players.push(playerWithoutIp);
   }
   return players;
 }
 
+export interface HighscoreResponse {
+  highscores: HighscoreUser[];
+  error?: string;
+}
+
 export async function maybeSetHighscore(
   user: HighscoreUser,
-  ctx: HandlerContext
-): Promise<HighscoreUser[]> {
+  ctx: FreshContext
+): Promise<HighscoreResponse> {
   const currentHighScores = await getHighscore();
 
   if (user.username.length > 20) {
@@ -36,7 +43,10 @@ export async function maybeSetHighscore(
     console.info("Some one tried to use a bad name:", user.username);
     console.info(ctx);
     console.groupEnd();
-    return [];
+    return { 
+      highscores: [],
+      error: "Dont use bad words :(. Please select another tag/username."
+    };
   }
 
   // If there are less than 10 scores, or if the user's score is higher than the lowest score in the list
@@ -56,13 +66,17 @@ export async function maybeSetHighscore(
       currentHighScores.length = 10;
     }
 
-    const result = await updateHighScores(currentHighScores);
-
-    // Update the high scores in the database
-    return result;
+    const updatedScores = await updateHighScores(currentHighScores);
+    return { 
+      highscores: updatedScores,
+      error: undefined
+    };
   }
 
-  return [];
+  return { 
+    highscores: [],
+    error: "Your score didn't make it to the highscore list. Try again!"
+  };
 }
 
 async function updateHighScores(

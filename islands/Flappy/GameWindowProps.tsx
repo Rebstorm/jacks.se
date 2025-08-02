@@ -142,11 +142,11 @@ const GameWindow: FunctionalComponent<GameWindowProps> = (props: GameWindowProps
   }, [birdY, birdVelocity, obstacles, isGameOver]);
 
   return (
-    <div className={"game-window-center"}>
+    <div className="game-window-center">
       {gameState === "initial" && (
         <div>
           <Instructions />
-          <div className={"funButton"} onClick={() => restartGame()}>
+          <div className="funButton" onClick={() => restartGame()}>
             Start!
           </div>
         </div>
@@ -155,7 +155,7 @@ const GameWindow: FunctionalComponent<GameWindowProps> = (props: GameWindowProps
         <div>
           <H2 gradientColor> Your Score: {score}⭐</H2>
 
-          <div className={"funButton"} onClick={() => restartGame()}>
+          <div className="funButton" onClick={() => restartGame()}>
             Restart
           </div>
 
@@ -167,13 +167,13 @@ const GameWindow: FunctionalComponent<GameWindowProps> = (props: GameWindowProps
               }}
             />
           )}
-          <div className={"game-high-scores"}>
+          <div className="game-high-scores">
             <H2 noMargin gradientColor>
               Highscores
             </H2>
             {highscoreList.map((highScore) => (
               <div>
-                <div className={"player-headline"}>{highScore.username}</div>
+                <div className="player-headline">{highScore.username}</div>
                 <div>{highScore.score}⭐</div>
               </div>
             ))}
