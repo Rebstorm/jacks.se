@@ -1,0 +1,66 @@
+.pillar-wrap {
+    position: fixed;
+    top: var(--lane, 60%);
+    left: -180px;
+    animation: crawl var(--speed, 12s) linear var(--delay, 0s) infinite;
+    cursor: pointer;
+    z-index: 50;
+}
+@keyframes crawl {
+    from { transform: translateX(0) }
+    to   { transform: translateX(calc(100vw + 280px)) }
+}
+
+.pillar-svg { display:block }
+
+/* Palette & strokes */
+.seg, .head { fill: url(#gBody); stroke: #2d6627; stroke-width: 3 }
+.foot { fill: #2d8c35 }
+.ant  { stroke:#2d6627; stroke-width: 3; stroke-linecap: round }
+
+/* Liveliness */
+.wiggle { animation: wiggle 1.2s ease-in-out infinite }
+@keyframes wiggle {
+    0%   { transform: translateY(0)       scaleY(1)   }
+    50%  { transform: translateY(-1.5px)  scaleY(0.98)}
+    100% { transform: translateY(0)       scaleY(1)   }
+}
+
+/* Feet tread */
+.foot { transform-origin: center; animation: tread .5s ease-in-out infinite alternate }
+.foot--2 { animation-delay: .05s } .foot--3 { animation-delay: .10s }
+.foot--4 { animation-delay: .15s } .foot--5 { animation-delay: .20s }
+.foot--6 { animation-delay: .25s }
+@keyframes tread {
+    from { transform: translateY(0) }
+    to   { transform: translateY(-2px) }
+}
+
+/* Antennae twitch */
+.ant { animation: ant-wiggle 1.4s ease-in-out infinite alternate }
+@keyframes ant-wiggle { from { transform: rotate(-4deg) } to { transform: rotate(4deg) } }
+
+/* Quick squash micro-bounce on click */
+.pillar-squash .pillar-svg { animation: squish .16s ease-out 1 }
+@keyframes squish {
+    0%   { transform: scale(1,1) }
+    60%  { transform: scale(1.12,.72) translateY(2px) }
+    100% { transform: scale(1,1) }
+}
+
+/* Dead state: freeze crawl & swap groups */
+.pillar-dead { animation: none !important }
+.pillar-dead .pillar-svg .pillar-alive { display:none }
+.pillar-dead .pillar-svg .pillar-flat  { display:block }
+
+/* Flat visuals (cute, not gory) */
+.shadow     { fill: rgba(0,0,0,.18) }
+.flat-body  { fill: url(#gBody); stroke:#2d6627; stroke-width:3 }
+.sleep-eye  { stroke:#1b1b1b; stroke-width:3; stroke-linecap:round; fill:none }
+.puff       { fill:#d6d6d6; opacity:.85 }
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+    .pillar-wrap { animation-duration: 20s }
+    .wiggle, .foot, .ant { animation-duration: 2s }
+}
