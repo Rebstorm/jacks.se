@@ -1,19 +1,14 @@
 import {PageProps} from "$fresh/server.ts";
-import {Head, Partial} from "$fresh/runtime.ts";
-import Header from "../islands/Header.tsx";
-import Wave from "../components/wave.tsx";
-import Footer from "../islands/Footer.tsx";
+import {Head, Partial, asset} from "$fresh/runtime.ts";
 import FontLink from "../components/font-link.tsx";
 import {META_IMAGE, META_SITE, META_TYPE,} from "../constants/meta.ts";
-import {getCSSPathPrefix} from "../utils/css/pathPrefix.ts";
+import Wave from "../components/wave.tsx";
+import Header from "../islands/Header.tsx";
+import Footer from "../islands/Footer.tsx";
 
 export default function App({ Component, route, ...rest }: PageProps) {
-  // I dont know if Fresh supports plain css right now. But this ensures we get the base css no matter where in the app
-  // we are.
-
-  const pathPrefix = getCSSPathPrefix(route);
   return (
-    <html lang={"en"}>
+    <html lang="en">
       <Head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, minimum-scale=1.0" />
@@ -45,8 +40,8 @@ export default function App({ Component, route, ...rest }: PageProps) {
           />
         </noscript>
 
-        <link rel="preload" href={`${pathPrefix}css/base.css`} as="style" />
-        <link rel="stylesheet" href={`${pathPrefix}css/base.css`} />
+        <link rel="preload" href={`${asset('/css/base.css')}`} as="style" />
+        <link rel="stylesheet" href={`${asset('/css/base.css')}`} />
       </Head>
       <body>
         <Wave />

@@ -1,4 +1,32 @@
 .center {
     text-align: center;
-    width: inherit;
+}
+
+
+.duck-wrap {
+    display: inline-block;
+    /* center it in a container if needed */
+    /* place-items: center; inline-grid; min-height: 200px; */
+}
+
+.duck {
+    display: block;
+    transform-origin: 50% 60%;
+    animation: duck-spin 6s linear infinite;
+    filter: drop-shadow(0 6px 10px rgba(0,0,0,.08));
+}
+
+@keyframes duck-spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Optional: pause on hover/focus (nice for desktop) */
+.duck-wrap:hover .duck,
+.duck-wrap:focus-within .duck {
+    animation-play-state: paused;
+}
+
+/* Optional: prefers-reduced-motion support */
+@media (prefers-reduced-motion: reduce) {
+    .duck { animation-duration: 20s; }
 }
