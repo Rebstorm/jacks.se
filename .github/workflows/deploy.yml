@@ -1,4 +1,4 @@
-name: Deploy
+name: "Compile and Deploy Website"
 on:
   push:
     branches: [main]
@@ -19,9 +19,9 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Install Deno
-        uses: denoland/setup-deno@v1
+        uses: denoland/setup-deno@v2
         with:
-          deno-version: v2.1.4
+          deno-version: v2.2.14
 
       - name: Build step
         run: "deno task build"
