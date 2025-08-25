@@ -1,0 +1,12 @@
+# jacks.se
+
+> Personal website of Paul Jacks—developer writing on testing, sustainable engineering, Rust, and experiments. Includes blog posts and small demos.
+
+## Primary Pages
+- [Home](https://jacks.se/): Overview & current availability
+- [Blog](https://jacks.se/blog): Main index to articles
+- [Experiments](https://jacks.se/experiments): Interactive mini-projects
+
+## Optional
+- [Source Code (GitHub)](https://github.com/Rebstorm)
+- [Mastodon Profile](https://fosstodon.org/@sendcookies)
