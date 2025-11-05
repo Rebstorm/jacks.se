@@ -75,7 +75,7 @@ h1 {
     padding: calc(8* var(--norm)) 0 0 0;
     z-index: 2;
     width: 100%;
-    overflow-x: scroll;
+    overflow-x: auto;
     scroll-behavior: smooth;
 }
 
