@@ -4,7 +4,7 @@
     "build": "deno run -A  --unstable-kv dev.ts build",
     "preview": "deno run -A main.ts",
     "upgrade": "deno run -A -r https://fresh.deno.dev/update .",
-    "reload:lockfile": "deno run --reload main.ts",
+    "reload:lockfile": "deno cache --reload main.ts",
     "db:run": "deno run -A --unstable-kv server/cli/db.ts"
   },
   "imports": {
