@@ -8,6 +8,8 @@
     "jsr:@std/encoding@^1.0.5": "1.0.10",
     "jsr:@std/internal@^1.0.12": "1.0.12",
     "jsr:@std/path@^1.0.6": "1.1.3",
+    "npm:@preact/signals-core@1.5.1": "1.5.1",
+    "npm:@preact/signals@1.2.2": "1.2.2_preact@10.22.0",
     "npm:github-slugger@2": "2.0.0",
     "npm:he@^1.2.0": "1.2.0",
     "npm:katex@0.16": "0.16.27",
@@ -15,6 +17,8 @@
     "npm:marked-footnote@^1.2.0": "1.4.0_marked@12.0.2",
     "npm:marked-gfm-heading-id@^3.1.0": "3.2.0_marked@12.0.2",
     "npm:marked@12": "12.0.2",
+    "npm:preact-render-to-string@6.2.2": "6.2.2_preact@10.22.0",
+    "npm:preact@10.22.0": "10.22.0",
     "npm:prismjs@^1.29.0": "1.30.0",
     "npm:sanitize-html@^2.13.0": "2.17.0"
   },
@@ -62,6 +66,16 @@
     }
   },
   "npm": {
+    "@preact/signals-core@1.5.1": {
+      "integrity": "sha512-dE6f+WCX5ZUDwXzUIWNMhhglmuLpqJhuy3X3xHrhZYI0Hm2LyQwOu0l9mdPiWrVNsE+Q7txOnJPgtIqHCYoBVA=="
+    },
+    "@preact/signals@1.2.2_preact@10.22.0": {
+      "integrity": "sha512-ColCqdo4cRP18bAuIR4Oik5rDpiyFtPIJIygaYPMEAwTnl4buWkBOflGBSzhYyPyJfKpkwlekrvK+1pzQ2ldWw==",
+      "dependencies": [
+        "@preact/signals-core",
+        "preact"
+      ]
+    },
     "commander@8.3.0": {
       "integrity": "sha512-OkTL9umf+He2DZkUq8f8J9of7yL6RJKI24dVITBmNfZBmri9zYZQrKkuXiKhyfPSu8tUhnVBB1iKXevvnlR4Ww=="
     },
@@ -165,6 +179,19 @@
         "picocolors",
         "source-map-js"
       ]
+    },
+    "preact-render-to-string@6.2.2_preact@10.22.0": {
+      "integrity": "sha512-YDfXQiVeYZutFR8/DpxLSbW3W6b7GgjBExRBxOOqcjrGq5rA9cziitQdNPMZe4RVMSdfBnf4hYqyeLs/KvtIuA==",
+      "dependencies": [
+        "preact",
+        "pretty-format"
+      ]
+    },
+    "preact@10.22.0": {
+      "integrity": "sha512-RRurnSjJPj4rp5K6XoP45Ui33ncb7e4H7WiOHVpjbkvqvA3U+N8Z6Qbo0AE6leGYBV66n8EhEaFixvIu3SkxFw=="
+    },
+    "pretty-format@3.8.0": {
+      "integrity": "sha512-WuxUnVtlWL1OfZFQFuqvnvs6MiAGk9UNsBostyBOB0Is9wb5uRESevA6rnl/rkksXaGX3GzZhPup5d6Vp1nFew=="
     },
     "prismjs@1.30.0": {
       "integrity": "sha512-DEvV2ZF2r2/63V+tK8hQvrR2ZGn10srHbXviTlcv7Kpzw8jWiNTqbVgjO3IY8RxrrOUF8VPMQQFysYYYv0YZxw=="
@@ -562,7 +589,13 @@
     "https://deno.land/x/fresh@1.7.3/src/runtime/build_id.ts": "8376e70e42ce456dfa6932c638409d2ef1bca4833b4ceba0bf74510080a7f976",
     "https://deno.land/x/fresh@1.7.3/src/runtime/csp.ts": "9ee900e9b0b786057b1009da5976298c202d1b86d1f1e4d2510bde5f06530ac9",
     "https://deno.land/x/fresh@1.7.3/src/runtime/deserializer.ts": "1b83e75fa61c48b074ea121f33647d1ed15c68fa2f2a11b0a7f7a12cd38af627",
+    "https://deno.land/x/fresh@1.7.3/src/runtime/entrypoints/client.ts": "a9224606e41bc58d81f37b7125650432920a7d136bdf416051e925ac9bbd1f05",
+    "https://deno.land/x/fresh@1.7.3/src/runtime/entrypoints/deserializer.ts": "e836f44c454e1f67c86eab30f108eb9be05a38489604a24e418b564b77058b96",
+    "https://deno.land/x/fresh@1.7.3/src/runtime/entrypoints/main.ts": "99e9882a376176b017059a8cda05e4f74caf3ea8c18e45a017c8562a50807c77",
+    "https://deno.land/x/fresh@1.7.3/src/runtime/entrypoints/main_dev.ts": "d2960e339119e45017954c7cf6798b9e0a3110d173cc378e1e3e7bc84bd68c34",
+    "https://deno.land/x/fresh@1.7.3/src/runtime/entrypoints/signals.ts": "782c81f97d125ad4f92aa0160dad3a2e8b6ea7a61cec7fdab87bbbbd8c0d215c",
     "https://deno.land/x/fresh@1.7.3/src/runtime/head.ts": "0f9932874497ab6e57ed1ba01d549e843523df4a5d36ef97460e7a43e3132fdc",
+    "https://deno.land/x/fresh@1.7.3/src/runtime/polyfills.ts": "c3de932b2f23df9a4ade1ab4f8890730c0db0a71bf85faa41742a1763631e917",
     "https://deno.land/x/fresh@1.7.3/src/runtime/utils.ts": "4f40630c308e8ea7d53860687905caf1a2f2a46ad8692f24e905a8e996b584c3",
     "https://deno.land/x/fresh@1.7.3/src/server/boot.ts": "3a574c4baa6120f6770f419af6d8d6d5ae32c8e1bdddf2bb14cb258ba18ac62f",
     "https://deno.land/x/fresh@1.7.3/src/server/build_id.ts": "82d9cb985de6b1e38c3108e5a00667b16e80eedc145d73835d6b44349ebe6389",
@@ -602,15 +635,6 @@
     "https://esm.sh/@babel/helper-validator-identifier@7.22.20/denonext/helper-validator-identifier.mjs": "f765fd69eb4fd81b839b76bf60f227caac4fe4d41b4c646cc08aa7b8d948fe17",
     "https://esm.sh/canvas-confetti@1.5.1": "7b21f5d75482e82de249371daf3230e1736f5ef85c604864c7f47498c58cffda",
     "https://esm.sh/canvas-confetti@1.5.1/denonext/canvas-confetti.mjs": "731c88e250e7f4aa19e0679fc9258ca9688b2dbe3f4443789e26bd1991bf62d5",
-    "https://esm.sh/preact@10.22.0": "0fb9b89617c3a27b6be4eee74bd07b845e92900e6b7fdb757bc3a498a6ec9065",
-    "https://esm.sh/preact@10.22.0/debug": "fb8d7b9ea5c7bbfb6cb9d9f9abfa31e8038b08ec623ec029f8feafbe6c5891e4",
-    "https://esm.sh/preact@10.22.0/denonext/debug.mjs": "64ce18634f47de8a2053cc9c9874eeffd7a956532f8e322b138e27a5b7163847",
-    "https://esm.sh/preact@10.22.0/denonext/devtools.mjs": "6c08d70ecd3e6b67e003f742cfd7931ce294c1a354d5d5768f3713593d59b025",
-    "https://esm.sh/preact@10.22.0/denonext/hooks.mjs": "f0fe69655ba3c4c88747b228acd6115c315bce6afeb8160d80afdb6712d949ff",
-    "https://esm.sh/preact@10.22.0/denonext/jsx-runtime.mjs": "135034958157406811f9d44d7f07595da1da9f8ec9dc6adf316e3f3815661e7e",
-    "https://esm.sh/preact@10.22.0/denonext/preact.mjs": "8d07e2251111a69a3d7caf057173bbb806ac7d79954397ce5377309067f50097",
-    "https://esm.sh/preact@10.22.0/hooks": "8a1ea3148ef7373b9c3dc027a147ff6728a4e53e10e3506c1191b087f0e564e1",
-    "https://esm.sh/preact@10.22.0/jsx-runtime": "6c6117abd414386ed23785f7c198e03bee696c1fa0fee01b72a64abe5e7ae7fb",
     "https://esm.sh/prismjs@1.29.0/components/prism-rust?no-check": "a6814240355908451418cf6c9a6a1a35dd471ec67424b907516ad78ccd1bb567",
     "https://esm.sh/prismjs@1.29.0/components/prism-typescript?no-check": "999460db7802459f03c85134349b772f061e1be9f401a81b708b65c6061b6d9a",
     "https://esm.sh/prismjs@1.29.0/denonext/components/prism-rust.mjs": "4fc971a3457c5a5169847046afb2e9055a22b0ceaf834a05e677cbf91d636cf4",
@@ -618,7 +642,11 @@
   },
   "workspace": {
     "dependencies": [
-      "jsr:@deno/gfm@0.10"
+      "jsr:@deno/gfm@0.10",
+      "npm:@preact/signals-core@1.5.1",
+      "npm:@preact/signals@1.2.2",
+      "npm:preact-render-to-string@6.2.2",
+      "npm:preact@10.22.0"
     ]
   }
 }
