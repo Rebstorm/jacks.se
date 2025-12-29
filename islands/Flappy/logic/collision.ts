@@ -12,7 +12,7 @@ export const checkCollisionAndUpdate = (
   birdY: number,
   isGameOver: boolean,
   gameOverCallback: GameOverCallback,
-  scoreCallback: ScoreCallback
+  scoreCallback: ScoreCallback,
 ): void => {
   const birdX = 100; // The bird's X position is fixed at 100 based on the drawing logic
   const birdWidth = PLAYER_WIDTH; // The bird's width is 20 based on the drawing logic
@@ -22,8 +22,7 @@ export const checkCollisionAndUpdate = (
 
   obstacles.forEach((obstacle, index) => {
     // Collision detection logic
-    const hasCollision =
-      birdX + hitboxPadding < obstacle.x + COLUMN_WIDTH &&
+    const hasCollision = birdX + hitboxPadding < obstacle.x + COLUMN_WIDTH &&
       birdX + hitboxPadding + hitboxWidth > obstacle.x &&
       (birdY + hitboxPadding < obstacle.gapHeight ||
         birdY + hitboxPadding + hitboxWidth >

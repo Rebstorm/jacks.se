@@ -1,4 +1,4 @@
-import { FreshContext } from "$fresh/server.ts";
+import { FreshContext } from "fresh";
 import { HIGHSCORE_DB_NAME } from "../../constants/kv.ts";
 import { badwords } from "./censorship/badwords.ts";
 
@@ -10,7 +10,7 @@ export interface HighscoreUser {
 
 const kv = await Deno.openKv();
 
-export async function getHighscore(): Promise<Omit<HighscoreUser, 'ip'>[]> {
+export async function getHighscore(): Promise<Omit<HighscoreUser, "ip">[]> {
   const list = await kv.list({ prefix: [HIGHSCORE_DB_NAME] });
   const players = [];
   for await (const res of list) {
@@ -28,7 +28,7 @@ export interface HighscoreResponse {
 
 export async function maybeSetHighscore(
   user: HighscoreUser,
-  ctx: FreshContext
+  ctx: FreshContext,
 ): Promise<HighscoreResponse> {
   const currentHighScores = await getHighscore();
 
@@ -43,9 +43,9 @@ export async function maybeSetHighscore(
     console.info("Some one tried to use a bad name:", user.username);
     console.info(ctx);
     console.groupEnd();
-    return { 
+    return {
       highscores: [],
-      error: "Dont use bad words :(. Please select another tag/username."
+      error: "Dont use bad words :(. Please select another tag/username.",
     };
   }
 
@@ -67,20 +67,20 @@ export async function maybeSetHighscore(
     }
 
     const updatedScores = await updateHighScores(currentHighScores);
-    return { 
+    return {
       highscores: updatedScores,
-      error: undefined
+      error: undefined,
     };
   }
 
-  return { 
+  return {
     highscores: [],
-    error: "Your score didn't make it to the highscore list. Try again!"
+    error: "Your score didn't make it to the highscore list. Try again!",
   };
 }
 
 async function updateHighScores(
-  highScores: HighscoreUser[]
+  highScores: HighscoreUser[],
 ): Promise<HighscoreUser[]> {
   // Assuming you can set the entire list (this depends on how your database and kv variable are set up):
 

@@ -1,18 +1,20 @@
-import { FreshContext, Handlers } from "$fresh/server.ts";
+import { FreshContext } from "fresh";
 import {
-  HighscoreUser,
   HighscoreResponse,
+  HighscoreUser,
   maybeSetHighscore,
 } from "../../../server/highscore/highscore.ts";
+import { Handlers } from "fresh/compat";
 
 export const handler: Handlers = {
-  async POST(req: Request, _ctx: FreshContext) {
+  async POST(_ctx: FreshContext) {
+    const req = ctx.req;
     const res: HighscoreUser = await req.json();
 
     const response = await maybeSetHighscore(res, _ctx);
-    return new Response(JSON.stringify({ 
+    return new Response(JSON.stringify({
       isNewHighscore: response.highscores,
-      error: response.error
+      error: response.error,
     }));
   },
 };

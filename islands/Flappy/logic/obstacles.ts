@@ -13,7 +13,7 @@ export interface Obstacle {
 }
 export const generateObstacles = (
   obstacles: Obstacle[],
-  setObstacles: StateUpdater<Obstacle[]>
+  setObstacles: StateUpdater<Obstacle[]>,
 ) => {
   const MINIMUM_OBSTACLE_SPACING = 300; // This can be adjusted based on your game's difficulty and speed.
   const obstacleInterval = setInterval(() => {

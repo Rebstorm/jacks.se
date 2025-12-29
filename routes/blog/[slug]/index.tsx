@@ -1,24 +1,23 @@
-import { HandlerContext, PageProps } from "$fresh/server.ts";
+import { HandlerContext, PageProps } from "fresh";
 import { getPost, Post } from "../../../server/post/post.ts";
-import { Head } from "$fresh/runtime.ts";
+import { Head } from "fresh/runtime";
 import { CSS, render } from "@deno/gfm";
 import {
-  OG_META_DESCRIPTION,
+  META_IMAGE,
   META_TITLE,
   META_TYPE,
   META_URL,
+  OG_META_DESCRIPTION,
   TITLE,
-  META_IMAGE,
 } from "../../../constants/meta.ts";
 
 // Give TS highlight support.
-import "https://esm.sh/prismjs@1.29.0/components/prism-typescript?no-check";
-import "https://esm.sh/prismjs@1.29.0/components/prism-rust?no-check";
+import "prismjs/components/prism-typescript";
+import "prismjs/components/prism-rust";
 
 export default function BlogEntry(props: PageProps<Post>) {
   return (
     <>
-      {/* https://fresh.deno.dev/docs/examples/modifying-the-head */}
       <Head>
         <title>
           {props.data.title} | {TITLE}
@@ -55,8 +54,8 @@ export default function BlogEntry(props: PageProps<Post>) {
 }
 
 export const handler = {
-  async GET(req: Request, ctx: HandlerContext) {
+  async GET(ctx: HandlerContext) {
     const post = await getPost(ctx.params.slug, { onlyMetaData: false });
-    return ctx.render(post);
+    return { data: post};
   },
 };

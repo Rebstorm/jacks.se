@@ -1,27 +1,32 @@
-import { ComponentChildren, FunctionalComponent } from "preact";
-
-// Load canvas-confetti from a CDN
-const confetti = await import("https://esm.sh/canvas-confetti@1.5.1");
+import type { ComponentChildren, FunctionalComponent } from "preact";
 
 interface RustParagraphProps {
-  children?: ComponentChildren;
+    children?: ComponentChildren;
 }
 
-const RustParagraph: FunctionalComponent<RustParagraphProps> = (props) => {
-  const handleClick = () => {
-    // Trigger confetti animation
-    confetti.default({
-      particleCount: 100,
-      spread: 70,
-      origin: { y: 0.9 },
-    });
-  };
+let confettiMod: any | null = null;
 
-  return (
-      <div className="inline interactable" onClick={handleClick}>
-        {props.children}
-      </div>
-  );
+const ConfettiParagraph: FunctionalComponent<RustParagraphProps> = (props) => {
+    const handleClick = async () => {
+        // Load only when needed (and only in the browser)
+        if (!confettiMod) {
+            confettiMod = await import("canvas-confetti");
+        }
+
+        const confetti = confettiMod.default ?? confettiMod;
+
+        confetti({
+            particleCount: 100,
+            spread: 70,
+            origin: { y: 0.9 },
+        });
+    };
+
+    return (
+        <div className="inline interactable" onClick={handleClick}>
+            {props.children}
+        </div>
+    );
 };
 
-export default RustParagraph;
+export default ConfettiParagraph;

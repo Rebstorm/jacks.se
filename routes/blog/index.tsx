@@ -1,5 +1,5 @@
-import { FreshContext, PageProps } from "$fresh/server.ts";
-import {getPosts, PaginatedPost, Post} from "../../server/post/post.ts";
+import { FreshContext, PageProps } from "fresh";
+import { getPosts, PaginatedPost, Post } from "../../server/post/post.ts";
 import { H1 } from "../../components/h1.tsx";
 
 export default function BlogList(props: PageProps<PaginatedPost>) {
@@ -38,13 +38,15 @@ export default function BlogList(props: PageProps<PaginatedPost>) {
 }
 
 export const handler = {
-  async GET(req: Request, ctx: FreshContext) {
+  async GET(ctx: FreshContext) {
+    const req = ctx.req;
+
     // Get page from URL query parameter, default to 0 if not present
     const url = new URL(req.url);
     const pageParam = url.searchParams.get("page");
     const page = pageParam ? parseInt(pageParam) : 0;
 
     const posts = await getPosts({ onlyMetaData: true, page });
-    return ctx.render(posts);
+    return { data: posts};
   },
 };

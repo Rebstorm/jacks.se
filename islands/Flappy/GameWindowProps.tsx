@@ -5,7 +5,7 @@ import {
   GAME_WINDOW_WIDTH,
   IS_SMALL_SCREEN,
 } from "./logic/constants.ts";
-import {generateObstacles, Obstacle} from "./logic/obstacles.ts";
+import { generateObstacles, Obstacle } from "./logic/obstacles.ts";
 import { drawObstacles, drawPlayer } from "./logic/draw.ts";
 import { checkCollisionAndUpdate } from "./logic/collision.ts";
 import { H2 } from "../../components/h2.tsx";
@@ -19,7 +19,7 @@ interface GameWindowProps {
 
 const shouldSubmitNewScore = (
   score: number,
-  highscoreUsers?: HighscoreUser[]
+  highscoreUsers?: HighscoreUser[],
 ) => {
   const lowestScore = highscoreUsers?.[highscoreUsers.length - 1] || {
     score: 0,
@@ -28,7 +28,9 @@ const shouldSubmitNewScore = (
   return score > lowestScore?.score;
 };
 
-const GameWindow: FunctionalComponent<GameWindowProps> = (props: GameWindowProps) => {
+const GameWindow: FunctionalComponent<GameWindowProps> = (
+  props: GameWindowProps,
+) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [birdImage, setBirdImage] = useState<null | HTMLImageElement>(null);
   const [birdY, setBirdY] = useState(300);
@@ -37,7 +39,7 @@ const GameWindow: FunctionalComponent<GameWindowProps> = (props: GameWindowProps
   const [score, setScore] = useState(0);
   const [isGameOver, setIsGameOver] = useState(true);
   const [highscoreList, setHighscoreList] = useState<HighscoreUser[]>(
-    props.highscores || []
+    props.highscores || [],
   );
   const [gameState, setGameState] = useState<"initial" | "running">("initial");
 
@@ -111,7 +113,7 @@ const GameWindow: FunctionalComponent<GameWindowProps> = (props: GameWindowProps
         birdVelocity,
         setBirdY,
         setBirdVelocity,
-        birdImage
+        birdImage,
       );
       drawObstacles(canvas, context, obstacles);
 
@@ -120,7 +122,7 @@ const GameWindow: FunctionalComponent<GameWindowProps> = (props: GameWindowProps
         birdY,
         isGameOver,
         gameOverHandler,
-        scoreHandler
+        scoreHandler,
       );
 
       // Cleanup when game over
@@ -153,7 +155,7 @@ const GameWindow: FunctionalComponent<GameWindowProps> = (props: GameWindowProps
       )}
       {isGameOver && gameState === "running" && (
         <div>
-          <H2 gradientColor> Your Score: {score}⭐</H2>
+          <H2 gradientColor>Your Score: {score}⭐</H2>
 
           <div className="funButton" onClick={() => restartGame()}>
             Restart

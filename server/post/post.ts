@@ -32,7 +32,10 @@ interface PostDataOptions {
   onlyMetaData?: boolean;
 }
 
-export async function getPost(slug: string, { onlyMetaData = undefined }: PostDataOptions): Promise<Post | undefined> {
+export async function getPost(
+  slug: string,
+  { onlyMetaData = undefined }: PostDataOptions,
+): Promise<Post | undefined> {
   try {
     const text = await Deno.readTextFile(join("./static/posts", `${slug}.md`));
     const { attrs, body }: { attrs: Attributes; body: string } = extract(text);
@@ -40,7 +43,7 @@ export async function getPost(slug: string, { onlyMetaData = undefined }: PostDa
       slug,
       title: attrs.title,
       publishedAt: new Date(attrs.published_at),
-      content: onlyMetaData !== undefined ? body : '',
+      content: onlyMetaData !== undefined ? body : "",
       snippet: attrs.snippet,
       image: attrs.image,
     };
@@ -50,13 +53,15 @@ export async function getPost(slug: string, { onlyMetaData = undefined }: PostDa
 }
 
 const PAGE_SIZE = 5;
-export async function getPosts(options?: PostDataOptions): Promise<PaginatedPost> {
+export async function getPosts(
+  options?: PostDataOptions,
+): Promise<PaginatedPost> {
   const files = Deno.readDir("./static/posts");
   const promises: Array<Promise<Post | undefined>> = [];
 
   for await (const file of files) {
     const slug = file.name.replace(".md", "");
-    promises.push(getPost(slug, options || {} ));
+    promises.push(getPost(slug, options || {}));
   }
   const posts = (await Promise.all(promises)).filter(Boolean) as Post[];
   posts.sort((a, b) => b.publishedAt.getTime() - a.publishedAt.getTime());
@@ -71,10 +76,9 @@ export async function getPosts(options?: PostDataOptions): Promise<PaginatedPost
   const startIndex = page * PAGE_SIZE;
   const paginatedPosts = posts.slice(startIndex, startIndex + PAGE_SIZE);
 
-
   return {
     posts: paginatedPosts,
     totalPages,
-    page
+    page,
   };
 }

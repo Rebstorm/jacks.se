@@ -1,9 +1,9 @@
-import { HandlerContext } from "$fresh/server.ts";
+import { HandlerContext } from "fresh";
 import { getPosts } from "../../../server/post/post.ts";
-import {TITLE} from "../../../constants/meta.ts";
+import { TITLE } from "../../../constants/meta.ts";
 
 export const handler = {
-  async GET(_req: Request, _ctx: HandlerContext) {
+  async GET(_ctx: HandlerContext) {
     // Fetch all posts
     const posts = await getPosts({ onlyMetaData: true, page: 0 });
 
@@ -16,9 +16,9 @@ export const handler = {
       <description>PJ's blog</description>
       <language>en-us</language>
       ${
-        posts.posts
-          .map((post) =>
-            `
+      posts.posts
+        .map((post) =>
+          `
       <item>
         <title>${escapeXML(post.title)}</title>
         <link>https://jacks.se/blog/${post.slug}</link>
@@ -26,9 +26,9 @@ export const handler = {
         <pubDate>${post.publishedAt.toUTCString()}</pubDate>
       </item>
       `.trim()
-          )
-          .join("\n")
-      }
+        )
+        .join("\n")
+    }
       </channel>
     </rss>`;
 

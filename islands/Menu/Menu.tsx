@@ -13,13 +13,15 @@ export const Menu = (props: MenuProps) => {
           key={index}
           title={link.title}
           href={link.isExternal ? link.href : link.path}
-          {...(link.isExternal ? {
-            "aria-label": link?.title,
-            target: "_blank",
-            rel: "noopener noreferrer"
-          } : {
-            "f-partial": `${link.path}`
-          })}
+          {...(link.isExternal
+            ? {
+              "aria-label": link?.title,
+              target: "_blank",
+              rel: "noopener noreferrer",
+            }
+            : {
+              "f-partial": `${link.path}`,
+            })}
         >
           {link.label}
           <span>{link.title}</span>

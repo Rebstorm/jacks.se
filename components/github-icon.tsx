@@ -1,4 +1,3 @@
-import { getTheme } from "../utils/css/theme.ts";
 
 export const GithubIcon = () => {
   return (

@@ -9,7 +9,7 @@ interface SubmitHighscoreProps {
   onClosed: (newHighScorelist: HighscoreUser[]) => void;
 }
 export const SubmitHighscore: FunctionalComponent<SubmitHighscoreProps> = (
-  props: SubmitHighscoreProps
+  props: SubmitHighscoreProps,
 ) => {
   const [name, setName] = useState("");
   const [loading, setLoading] = useState(false);
@@ -23,18 +23,19 @@ export const SubmitHighscore: FunctionalComponent<SubmitHighscoreProps> = (
       body: JSON.stringify(user),
     });
 
-    const { isNewHighscore = [] as HighscoreUser[], error } = await response.json();
-    
+    const { isNewHighscore = [] as HighscoreUser[], error } = await response
+      .json();
+
     if (error) {
       setError(error);
       return false;
     }
-      
+
     if (Array.isArray(isNewHighscore) && isNewHighscore.length > 1) {
       props.onClosed(isNewHighscore);
       return true;
     }
-    
+
     return false;
   };
 
@@ -58,7 +59,10 @@ export const SubmitHighscore: FunctionalComponent<SubmitHighscoreProps> = (
         className="funButton"
         onClick={async () => {
           setLoading(true);
-          const success = await postHighScoreMaybe({ username: name, score: props.score });
+          const success = await postHighScoreMaybe({
+            username: name,
+            score: props.score,
+          });
           setLoading(false);
           if (success) {
             setClose(true);

@@ -2,9 +2,9 @@ import { StateUpdater } from "preact/hooks";
 import { Obstacle } from "./obstacles.ts";
 import {
   COLUMN_WIDTH,
+  OBSTACLE_GAP,
   PLAYER_HEIGHT,
   PLAYER_WIDTH,
-  OBSTACLE_GAP,
 } from "./constants.ts";
 
 export type GameOverCallback = () => void;
@@ -17,7 +17,7 @@ export const drawPlayer = (
   birdVelocity: number,
   setBirdY: StateUpdater<number>,
   setBirdVelocity: StateUpdater<number>,
-  birdImage: HTMLImageElement | null // new parameter here
+  birdImage: HTMLImageElement | null, // new parameter here
 ): void => {
   // Clear the previous drawing
   context.clearRect(0, 0, canvas.width, canvas.height);
@@ -42,7 +42,7 @@ export const drawPlayer = (
       -playerWidth / 2,
       -playerHeight / 2,
       playerWidth,
-      playerHeight
+      playerHeight,
     );
 
     // Restore the context's state - this is important, as it prevents future drawings from being affected
@@ -61,7 +61,7 @@ const framesPerColorChange = 200; // for example, change color every 200 frames.
 export const drawObstacles = (
   canvas: HTMLCanvasElement,
   context: CanvasRenderingContext2D,
-  obstacles: Obstacle[]
+  obstacles: Obstacle[],
 ): void => {
   const obstacleWidth = COLUMN_WIDTH;
   const obstacleGap = OBSTACLE_GAP;
@@ -82,7 +82,7 @@ export const drawObstacles = (
       obstacle.x,
       obstacle.gapHeight + obstacleGap,
       obstacleWidth,
-      canvas.height
+      canvas.height,
     );
   });
 };

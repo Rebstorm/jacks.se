@@ -1,11 +1,11 @@
-import { FunctionalComponent, h } from "preact";
+import { FunctionalComponent } from "preact";
 
 export interface FunInputProps {
   onValueChange: (value: string) => void;
   label?: string;
 }
 export const FunInput: FunctionalComponent<FunInputProps> = (
-  props: FunInputProps
+  props: FunInputProps,
 ) => {
   const handleChange = (event: Event) => {
     const target = event.target as HTMLInputElement; // Type assertion, so TypeScript understands the type of the event target
