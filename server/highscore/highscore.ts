@@ -54,8 +54,7 @@ export async function maybeSetHighscore(
     currentHighScores.length < 10 ||
     user.score > currentHighScores[currentHighScores.length - 1].score
   ) {
-    // set their remote addr
-    user.ip = `${ctx.remoteAddr.hostname}:${ctx.remoteAddr.port}`;
+    user.ip = `${ctx.info.remoteAddr.hostname}:${ctx.info.remoteAddr.port}`;
 
     // Insert the new user score sorted into the array by score descending
     currentHighScores.push(user);

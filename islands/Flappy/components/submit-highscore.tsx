@@ -18,7 +18,7 @@ export const SubmitHighscore: FunctionalComponent<SubmitHighscoreProps> = (
 
   const postHighScoreMaybe = async (user: HighscoreUser) => {
     setError(undefined);
-    const response = await fetch("/api/highscore/", {
+    const response = await fetch("/api/highscore", {
       method: "POST",
       body: JSON.stringify(user),
     });

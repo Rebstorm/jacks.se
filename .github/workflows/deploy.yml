@@ -1,9 +1,9 @@
 name: "Compile and Deploy Website"
 on:
   push:
-    branches: [main]
-  pull_request:
-    branches: main
+    branches: [ignore-me]
+#  pull_request:
+#    branches: [ main ]
 
 jobs:
   deploy:
