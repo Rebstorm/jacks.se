@@ -48,7 +48,7 @@ const GameWindow: FunctionalComponent<GameWindowProps> = (
     setBirdY(300); // Reset bird position
     setBirdVelocity(0); // Reset bird velocity
     setObstacles([]); // Clear obstacles
-    setScore(1000); // Reset score
+    setScore(0); // Reset score
     setIsGameOver(false); // Game is now running again
     setGameState("running");
     // If you have a game loop, you might want to restart it here.
