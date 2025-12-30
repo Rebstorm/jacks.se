@@ -1,7 +1,7 @@
 import { define } from "../utils.ts";
 import {Partial} from "fresh/runtime";
 
-import { META_IMAGE, META_SITE, META_TYPE } from "../constants/meta.ts";
+import {META_IMAGE, META_SITE, META_TYPE, TITLE} from "../constants/meta.ts";
 
 import Wave from "@/components/wave.tsx";
 import Header from "@/islands/Header.tsx";
@@ -10,7 +10,7 @@ import Footer from "@/islands/Footer.tsx";
 import FontLink from "@/components/font-link.tsx";
 
 export default define.page(
-  function App({ Component, route, ...rest }) {
+  function App({ Component, route, state, ...rest }) {
     return (
       <html lang="en">
         <head>
@@ -38,7 +38,7 @@ export default define.page(
             key={META_SITE}
           />
 
-          <title>Pauls Dev Page. Add salt for saltiness</title>
+          <title key={TITLE}>Pauls Dev Page. Add salt for saltiness</title>
 
           <FontLink />
 

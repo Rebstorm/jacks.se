@@ -12,7 +12,7 @@ export default function Layout({ Component, state, ...rest }: PageProps) {
           as="style"
         />
         <link rel="stylesheet" href={asset("/css/experiments.css")} />
-        <title>Experiments | {TITLE}</title>
+        <title key={TITLE}>Experiments | {TITLE}</title>
       </Head>
       <Component />
     </>

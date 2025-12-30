@@ -7,7 +7,7 @@ export default function Layout({ Component, state }: PageProps) {
   return (
     <>
       <Head>
-        <title>Blog | {TITLE}</title>
+        <title key={TITLE}>Blog | {TITLE}</title>
       </Head>
       <Component />
     </>

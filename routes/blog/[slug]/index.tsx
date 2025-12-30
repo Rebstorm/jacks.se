@@ -1,25 +1,20 @@
-import { HandlerContext, PageProps } from "fresh";
-import { getPost, Post } from "../../../server/post/post.ts";
-import { Head } from "fresh/runtime";
-import { CSS, render } from "@deno/gfm";
-import {
-  META_IMAGE,
-  META_TITLE,
-  META_TYPE,
-  META_URL,
-  OG_META_DESCRIPTION,
-  TITLE,
-} from "../../../constants/meta.ts";
+import {HandlerContext, PageProps} from "fresh";
+import {getPost, Post} from "../../../server/post/post.ts";
+import {Head} from "fresh/runtime";
+import {CSS, render} from "@deno/gfm";
+import {META_IMAGE, META_TITLE, META_TYPE, META_URL, OG_META_DESCRIPTION, TITLE,} from "../../../constants/meta.ts";
 
 // Give TS highlight support.
 import "prismjs/components/prism-typescript";
 import "prismjs/components/prism-rust";
+import {define} from "@/utils.ts";
 
-export default function BlogEntry(props: PageProps<Post>) {
+export default define.page(function BlogEntry(props: PageProps<Post>) {
+    props.state.title = props.data.title;
   return (
     <>
       <Head>
-        <title>
+        <title key={TITLE}>
           {props.data.title} | {TITLE}
         </title>
         <style dangerouslySetInnerHTML={{ __html: CSS }} />
@@ -51,7 +46,7 @@ export default function BlogEntry(props: PageProps<Post>) {
       />
     </>
   );
-}
+});
 
 export const handler = {
   async GET(ctx: HandlerContext) {

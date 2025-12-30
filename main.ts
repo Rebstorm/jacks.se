@@ -1,5 +1,6 @@
 import { App, staticFiles } from "fresh";
 import { define, type State } from "./utils.ts";
+import {TITLE} from "./constants/meta.ts";
 
 export const app = new App<State>();
 
@@ -7,7 +8,7 @@ app.use(staticFiles());
 
 // Pass a shared value from a middleware
 app.use(async (ctx) => {
-    ctx.state.shared = "hello";
+    ctx.state.title = TITLE;
     return await ctx.next();
 });
 
