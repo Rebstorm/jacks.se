@@ -30,6 +30,10 @@ interface PostDataOptions {
    * @description Do not get the content, only the meta data, front matter, basically.
    */
   onlyMetaData?: boolean;
+  /**
+   * @description Get all posts without pagination.
+   */
+  all?: boolean;
 }
 
 export async function getPost(
@@ -68,6 +72,14 @@ export async function getPosts(
 
   // Calculate total pages
   const totalPages = Math.ceil(posts.length / PAGE_SIZE);
+
+  if (options?.all) {
+    return {
+      posts,
+      totalPages: 1,
+      page: 0,
+    };
+  }
 
   // Default to page 0 if not specified
   const page = options?.page ?? 0;
