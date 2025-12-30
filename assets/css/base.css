@@ -219,6 +219,7 @@ b {
 
 
 .footer {
+    margin-top: calc(var(--norm) * 2);
     display: flex;
     justify-content: center;
 }
