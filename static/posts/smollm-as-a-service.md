@@ -31,18 +31,18 @@ The heart of the setup is a simple service class that loads the model, formats p
 
 ```python
 def __init__(self, model_name: str = "HuggingFaceTB/SmolLM2-1.7B-Instruct") -> None:
-self.device = "cuda" if torch.cuda.is_available() else "cpu"
-self.set_default_system_prompt: str = "You are a helpful assistant."
-self.max_new_tokens: int = 100
-print(f"Loading model '{model_name}' to {self.device}...")
-try:
-    self.tokenizer: Any = AutoTokenizer.from_pretrained(model_name)
-    self.model: Any = AutoModelForCausalLM.from_pretrained(model_name).to(
-        self.device
-    )
-except Exception as e:
-    print(f"Error loading model: {e}")
-    sys.exit(1)
+    self.device = "cuda" if torch.cuda.is_available() else "cpu"
+    self.set_default_system_prompt: str = "You are a helpful assistant."
+    self.max_new_tokens: int = 100
+    print(f"Loading model '{model_name}' to {self.device}...")
+    try:
+        self.tokenizer: Any = AutoTokenizer.from_pretrained(model_name)
+        self.model: Any = AutoModelForCausalLM.from_pretrained(model_name).to(
+            self.device
+        )
+    except Exception as e:
+        print(f"Error loading model: {e}")
+        sys.exit(1)
 ```
 
 The model loads once at startup and then lives for the lifetime of the application. That makes requests fast and avoids repeated GPU or CPU warmup.
