@@ -4,9 +4,11 @@ import {Head} from "fresh/runtime";
 import {CSS, render} from "@deno/gfm";
 import {META_IMAGE, META_TITLE, META_TYPE, META_URL, OG_META_DESCRIPTION, TITLE,} from "../../../constants/meta.ts";
 
-// Give TS highlight support.
+// Give highlight support.
 import "prismjs/components/prism-typescript";
 import "prismjs/components/prism-rust";
+import "prismjs/components/prism-python";
+
 import {define} from "@/utils.ts";
 
 export default define.page(function BlogEntry(props: PageProps<Post>) {
