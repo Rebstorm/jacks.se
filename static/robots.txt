@@ -2,4 +2,7 @@ User-agent: *
 Allow: /
 Disallow: /api/
 
+User-agent: Googlebot
+Allow: /api/
+
 Sitemap: https://jacks.se/api/sitemap.xml
