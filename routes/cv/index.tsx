@@ -37,7 +37,7 @@ export default function CV(props: PageProps) {
           src={asset("../../companies/sap.svg")}
           alt={"sap"}
         />
-        <h3>Lead Developer, SAP, Remote, Walldorf/s-Hertogenbosch, Germany/Netherlands</h3>
+        <h3>Lead Developer, SAP, Walldorf/s-Hertogenbosch, Germany/Netherlands (Remote)</h3>
         <p>September 2025 - Present</p>
         <ul>
           <li>
