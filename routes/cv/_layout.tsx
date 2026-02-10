@@ -9,10 +9,10 @@ export default function Layout({ Component, state, ...rest }: PageProps) {
         <title>CV | {TITLE}</title>
         <link
           rel="preload"
-          href={asset("cv.css")}
+          href={asset("/css/cv.css")}
           as="style"
         />
-        <link rel="stylesheet" href={asset("cv.css")} />
+        <link rel="stylesheet" href={asset("/css/cv.css")} />
       </Head>
       <Component />
     </>
