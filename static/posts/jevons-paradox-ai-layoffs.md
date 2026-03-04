@@ -4,7 +4,7 @@ published_at: 2026-03-04T18:00:00.000Z
 snippet: "What Jevons Paradox tells us about AI and the engineers being shown the door."
 ---
 
-<img alt="What comes up must go down" src="../blog-images/jevons_paradox.webp"/>
+<img alt="What goes up must come down" src="../blog-images/jevons_paradox.webp"/>
 
 
 # The Layoff Math Doesn't Add Up: What Jevons Paradox Tells Us About AI and Software Engineers
