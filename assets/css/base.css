@@ -60,6 +60,22 @@ h1 {
     font-size: calc(2 * var(--norm));
 }
 
+.skip-link {
+    position: absolute;
+    top: -100%;
+    left: var(--norm);
+    padding: calc(var(--norm) * 0.5) var(--norm);
+    background: var(--accent-color);
+    color: var(--background-color);
+    border-radius: var(--border);
+    font-weight: 700;
+    z-index: 9999;
+}
+
+.skip-link:focus {
+    top: var(--norm);
+}
+
 .portal {
     z-index: 100;
     display: flex;

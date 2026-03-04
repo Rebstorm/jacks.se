@@ -50,10 +50,11 @@ export default define.page(
           </noscript>
         </head>
         <body>
+          <a href="#main-content" className="skip-link">Jump to content</a>
           <Wave />
           <div f-client-nav className={"portal"}>
               <Header route={route} />
-              <section className={"container"}>
+              <section id="main-content" className={"container"}>
               <Partial name="main">
                 <Component />
               </Partial>
