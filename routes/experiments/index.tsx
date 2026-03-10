@@ -9,12 +9,18 @@ export default function Info(props: PageProps) {
         Experiments
       </H1>
 
-      <div className={"grid"}>
-        <div className={"grid-item"}>
-          <a href={"./experiments/flappy"}>
+      <div className="grid">
+        <div className="grid-item">
+          <a href="./experiments/flappy">
             <img width={128} src={asset("./experiments/flappy/drone.png")} />
           </a>
-          <a href={"./experiments/flappy"}>Flappy</a>
+          <a href="./experiments/flappy">Flappy</a>
+        </div>
+        <div className="grid-item">
+          <a href="./experiments/gravity">
+            <img width={128} src={asset("./experiments/gravity/preview.svg")} />
+          </a>
+          <a href="./experiments/gravity">Obstacle</a>
         </div>
         {/*<div className={"grid-item"}>*/}
         {/*    <a href={"./experiments/battery-rush"}>*/}

@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128">
+  <rect width="128" height="128" fill="#0a0a14" rx="16"/>
+  <!-- Lane stripe -->
+  <rect x="54" y="8" width="20" height="80" fill="#12121e" rx="4"/>
+  <!-- Pins (triangle arrangement) -->
+  <rect x="60" y="16" width="8" height="22" rx="4" fill="#e8e8e8"/>
+  <rect x="47" y="30" width="8" height="22" rx="4" fill="#e8e8e8"/>
+  <rect x="73" y="30" width="8" height="22" rx="4" fill="#e8e8e8"/>
+  <rect x="34" y="44" width="8" height="22" rx="4" fill="#e8e8e8"/>
+  <rect x="60" y="44" width="8" height="22" rx="4" fill="#e8e8e8"/>
+  <rect x="86" y="44" width="8" height="22" rx="4" fill="#e8e8e8"/>
+  <!-- Ball (sphere with highlight) -->
+  <circle cx="64" cy="98" r="20" fill="#2255cc"/>
+  <circle cx="64" cy="98" r="20" fill="url(#ballGrad)"/>
+  <defs>
+    <radialGradient id="ballGrad" cx="38%" cy="35%" r="60%">
+      <stop offset="0%" stop-color="rgba(120,180,255,0.55)"/>
+      <stop offset="100%" stop-color="rgba(0,0,0,0)"/>
+    </radialGradient>
+  </defs>
+</svg>

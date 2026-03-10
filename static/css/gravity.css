@@ -1,0 +1,149 @@
+/* ──────────────────────────────────────────
+   Gravity Ball experiment
+   ────────────────────────────────────────── */
+
+.gravity-container {
+  position: relative;
+  width: 100%;
+  /* Fill the viewport under the site header (~64 px tall) */
+  height: calc(100dvh - 68px);
+  overflow: hidden;
+  background: #06060f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* Canvas fills the container; touch-action:none prevents scroll hijack */
+.gravity-canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+  touch-action: none;
+}
+
+/* ── Drag-direction SVG overlay ── */
+.gravity-arrow-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 20;
+}
+
+/* ── HUD (pin counter) ── */
+.gravity-hud {
+  position: absolute;
+  top: 14px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  padding: 6px 18px;
+  border-radius: 20px;
+  z-index: 10;
+  pointer-events: none;
+}
+
+/* ── Idle / Won overlay ── */
+.gravity-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: var(--primary-text, #fff);
+  z-index: 10;
+  padding: var(--norm, 1rem);
+  gap: 0.5rem;
+}
+
+.gravity-overlay h2 {
+  font-size: clamp(1.6rem, 5vw, 2.4rem);
+  margin: 0 0 0.4rem;
+}
+
+.gravity-overlay p {
+  font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+  opacity: 0.75;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* ── Re-use funButton from flappy.css ── */
+.gravity-overlay .funButton {
+  display: inline-block;
+  padding: var(--norm, 0.75rem) calc(var(--norm, 0.75rem) * 2);
+  margin: calc(var(--norm, 0.75rem) * 1.5) 0 0;
+  text-align: center;
+  text-decoration: none;
+  color: var(--primary-text, #fff);
+  background-color: var(--flavor-1, #3355ff);
+  border: none;
+  border-radius: calc(var(--norm, 0.75rem) * 0.5);
+  box-shadow: 0 8px 6px -6px black;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.gravity-overlay .funButton:hover {
+  background-color: var(--flavor-2, #5577ff);
+  box-shadow: 0 12px 10px -8px #333;
+  transform: scale(1.08);
+}
+
+.gravity-overlay .funButton:active {
+  background-color: var(--flavor-3, #2244dd);
+  box-shadow: 0 4px 3px -2px #333;
+  transform: scale(1.03);
+}
+
+/* ── Loading indicator ── */
+.gravity-loader {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 38% 35%, rgba(160, 210, 255, 0.6), transparent 60%),
+              #3366ff;
+  box-shadow: 0 0 18px rgba(60, 120, 255, 0.55);
+  animation: gravityBounce 0.75s cubic-bezier(0.45, 0, 0.55, 1) infinite alternate;
+  margin: 0 auto 0.75rem;
+}
+
+@keyframes gravityBounce {
+  from {
+    transform: translateY(-18px);
+    box-shadow: 0 2px 6px rgba(60, 120, 255, 0.3);
+  }
+  to {
+    transform: translateY(18px);
+    box-shadow: 0 20px 24px rgba(60, 120, 255, 0.15);
+  }
+}
+
+.gravity-loading-text {
+  font-size: 0.9rem;
+  opacity: 0.55;
+  letter-spacing: 0.06em;
+  margin: 0;
+}
+
+/* ── Mobile tweaks ── */
+@media (max-width: 600px) {
+  .gravity-hud {
+    font-size: 0.85rem;
+    padding: 5px 14px;
+  }
+}
