@@ -7,6 +7,7 @@ import {
   createLights,
   createPlayer,
   createScene,
+  createSkybox,
 } from "./logic/scene.ts";
 import { clampSpeed, updateBall } from "./logic/ball.ts";
 import {
@@ -45,6 +46,7 @@ const GravityGame: FunctionalComponent = () => {
 
       const camera = createCamera(scene);
       createLights(scene);
+      createSkybox(scene);
       createGround(scene);
 
       const player = createPlayer(scene);
