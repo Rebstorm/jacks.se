@@ -5,11 +5,15 @@ import {
   createCamera,
   createGround,
   createLights,
+  createObstacles,
   createPlayer,
   createScene,
   createSkybox,
 } from "./logic/scene.ts";
+import { RAMPS } from "./logic/obstacles.ts";
 import { clampSpeed, updateBall } from "./logic/ball.ts";
+import { resolveCollision, resolveRampCollision } from "./logic/collision.ts";
+import { initPins, updatePin } from "./logic/pin.ts";
 import {
   applyDragVelocity,
   attachDragControls,
@@ -50,7 +54,9 @@ const GravityGame: FunctionalComponent = () => {
       createGround(scene);
 
       const player = createPlayer(scene);
-      const ball: BallState = { velX: 0, velZ: 0 };
+      const pinMeshes = createObstacles(scene);
+      const pins = initPins(pinMeshes);
+      const ball: BallState = { velX: 0, velZ: 0, velY: 0 };
       let prevPointer: { x: number; y: number } | null = null;
 
       const detachControls = attachDragControls(canvas, {
@@ -71,7 +77,12 @@ const GravityGame: FunctionalComponent = () => {
           dt,
         );
         clampSpeed(ball);
-        updateBall(ball, player, dt, isDragging.current);
+        updateBall(ball, player, dt, isDragging.current, RAMPS);
+        resolveRampCollision(ball, player, RAMPS);
+        for (const pin of pins) {
+          updatePin(pin, dt);
+          resolveCollision(ball, player, pin);
+        }
 
         // Smoothly track camera to player
         camera.target.x += (player.position.x - camera.target.x) * 0.08;

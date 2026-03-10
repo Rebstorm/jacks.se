@@ -7,6 +7,7 @@ import {
   Engine,
   FresnelParameters,
   HemisphericLight,
+  Mesh,
   MeshBuilder,
   Scene,
   StandardMaterial,
@@ -14,6 +15,9 @@ import {
 } from "@babylonjs/core";
 import { CellMaterial } from "@babylonjs/materials";
 import { BALL_RADIUS, BOUNDS } from "./constants.ts";
+import { PIN_POSITIONS, RAMPS } from "./obstacles.ts";
+import { createRampMeshes } from "./ramp.ts";
+import { createPinMeshes } from "./pin.ts";
 
 export function createScene(canvas: HTMLCanvasElement) {
   const engine = new Engine(canvas, true, {
@@ -35,12 +39,12 @@ export function createCamera(scene: Scene) {
     "cam",
     -Math.PI / 2,
     (2 / 3) * (Math.PI / 2),
-    14,
+    22,
     Vector3.Zero(),
     scene,
   );
-  camera.lowerRadiusLimit = 14;
-  camera.upperRadiusLimit = 14;
+  camera.lowerRadiusLimit = 22;
+  camera.upperRadiusLimit = 22;
   return camera;
 }
 
@@ -67,7 +71,7 @@ export function createSkybox(scene: Scene) {
   const ctx = tex.getContext();
   const grad = ctx.createLinearGradient(0, 0, 0, 256);
   grad.addColorStop(0, "#1a6fff");
-  grad.addColorStop(0.55, "#62b0ff");
+  grad.addColorStop(0.55, "#1a6fff");
   grad.addColorStop(1, "#d2ecff");
   ctx.fillStyle = grad;
   ctx.fillRect(0, 0, 2, 256);
@@ -80,14 +84,13 @@ export function createSkybox(scene: Scene) {
 }
 
 export function createGround(scene: Scene) {
-  const size = BOUNDS * 2; // exactly matches the playable area
+  const size = BOUNDS * 2;
   const ground = MeshBuilder.CreateGround(
     "ground",
     { width: size, height: size },
     scene,
   );
 
-  // Grid texture: solid grass base with darker grid lines
   const texSize = 512;
   const tiles = 20;
   const tileSize = texSize / tiles;
@@ -125,11 +128,9 @@ export function createPlayer(scene: Scene) {
   const tex = new DynamicTexture("marbleTex", { width: S, height: S }, scene);
   const ctx = tex.getContext() as unknown as CanvasRenderingContext2D;
 
-  // Deep blue-indigo base
   ctx.fillStyle = "#0c1540";
   ctx.fillRect(0, 0, S, S);
 
-  // Helper: draw one bezier vein
   const vein = (
     x0: number, y0: number,
     cx0: number, cy0: number,
@@ -149,20 +150,14 @@ export function createPlayer(scene: Scene) {
     ctx.restore();
   };
 
-  // Broad luminous veins
   vein(0, 220, 140, 40,  370, 460, 512, 300, "#a8d8ff", 22, 0.55);
   vein(60, 0,  200, 140, 310, 370, 440, 512, "#ffffff", 14, 0.45);
   vein(0, 420, 160, 480, 350, 80,  512, 100, "#c0e4ff", 10, 0.60);
-
-  // Finer accent veins
   vein(0,  90,  180, 20,  330, 490, 512, 390, "#5599ee", 6, 0.80);
   vein(100, 0,  160, 200, 340, 290, 510, 512, "#6688cc", 4, 0.60);
   vein(0,  340, 100, 380, 410, 100, 512, 200, "#88aadd", 5, 0.50);
-
-  // Gold highlight ribbon
   vein(0, 480, 150, 500, 360, 10,  512, 50,  "#f0c840", 4, 0.40);
 
-  // Radial inner-glow (simulates light refracting through glass)
   const glow = ctx.createRadialGradient(190, 160, 8, 190, 160, 130);
   glow.addColorStop(0,   "rgba(255,255,255,0.38)");
   glow.addColorStop(0.4, "rgba(180,210,255,0.15)");
@@ -172,21 +167,24 @@ export function createPlayer(scene: Scene) {
 
   tex.update();
 
-  // ── Material ──────────────────────────────────────────────────────────────
   const mat = new StandardMaterial("marbleMat", scene);
   mat.diffuseTexture = tex;
   mat.specularColor = new Color3(1, 1, 1);
-  mat.specularPower = 220;                        // tight, sharp highlight
+  mat.specularPower = 220;
 
-  // Fresnel: dark core, bright rim — gives the glass-sphere edge glow
   mat.refractionFresnelParameters = new FresnelParameters();
   mat.refractionFresnelParameters.leftColor  = Color3.White();
   mat.refractionFresnelParameters.rightColor = Color3.Black();
   mat.refractionFresnelParameters.power = 3;
   mat.refractionFresnelParameters.bias  = 0.1;
 
-  mat.emissiveColor = new Color3(0.04, 0.06, 0.18); // faint inner blue glow
+  mat.emissiveColor = new Color3(0.04, 0.06, 0.18);
 
   player.material = mat;
   return player;
+}
+
+export function createObstacles(scene: Scene): Mesh[] {
+  createRampMeshes(scene, RAMPS);
+  return createPinMeshes(scene, PIN_POSITIONS);
 }
