@@ -1,10 +1,13 @@
 import type { AbstractMesh } from "@babylonjs/core";
 import { BALL_RADIUS, BOUNDS, FRICTION, MAX_SPEED } from "./constants.ts";
+import { getActiveBump, getBumpHeight, getBumpSlope } from "./bump.ts";
+import type { BumpData } from "./bump.ts";
 import { getActiveRamp, getRampHeight, getRampSlope } from "./ramp.ts";
 import type { RampData } from "./ramp.ts";
 import type { BallState } from "./types.ts";
 
-const GRAVITY = 24;
+const GRAVITY = 13;
+const BOUNCE = 0.45; // restitution — fraction of velY reflected on floor impact
 
 export function clampSpeed(ball: BallState) {
   const spd = Math.sqrt(ball.velX * ball.velX + ball.velZ * ball.velZ);
@@ -21,6 +24,7 @@ export function updateBall(
   dt: number,
   isDragging: boolean,
   ramps: RampData[],
+  bumps: BumpData[],
 ) {
   // ── Horizontal movement (X / Z) ──────────────────────────────────────────
   const spd = Math.sqrt(ball.velX * ball.velX + ball.velZ * ball.velZ);
@@ -48,26 +52,31 @@ export function updateBall(
   player.position.z = nz;
 
   // ── Vertical movement (Y) ────────────────────────────────────────────────
-  const activeRamp = getActiveRamp(player.position.x, player.position.z, ramps);
-  const rampH = activeRamp ? getRampHeight(player.position.x, player.position.z, activeRamp) : 0;
-  const surfaceY = rampH + BALL_RADIUS;
-  const onRampSurface = activeRamp !== null && rampH > 0 && player.position.y <= surfaceY + 0.05;
+  const bx = player.position.x;
+  const bz = player.position.z;
 
-  if (onRampSurface && activeRamp) {
-    // Ball is in contact with the ramp — follow the surface.
-    // velY is set to the slope-derived launch velocity so that when the ball
-    // reaches the ramp edge and becomes airborne it flies off correctly.
+  const activeRamp = getActiveRamp(bx, bz, ramps);
+  const activeBump = getActiveBump(bx, bz, bumps);
+  const rampH = activeRamp ? getRampHeight(bx, bz, activeRamp) : 0;
+  const bumpH = activeBump ? getBumpHeight(bx, bz, activeBump) : 0;
+
+  const surfaceH = Math.max(rampH, bumpH);
+  const surfaceY = surfaceH + BALL_RADIUS;
+  const onSurface = surfaceH > 0 && player.position.y <= surfaceY + 0.05;
+
+  if (onSurface) {
     player.position.y = surfaceY;
-    ball.velY = ball.velX * getRampSlope(activeRamp); // +X travel → +Y launch velocity
+    if (rampH >= bumpH && activeRamp) {
+      ball.velY = ball.velX * getRampSlope(activeRamp);
+    } else if (activeBump) {
+      ball.velY = ball.velX * getBumpSlope(bx, activeBump);
+    }
   } else {
-    // Ball is airborne or on flat ground — apply gravity.
     ball.velY -= GRAVITY * dt;
     const newY = player.position.y + ball.velY * dt;
-
     if (newY <= BALL_RADIUS) {
-      // Landed on flat ground
       player.position.y = BALL_RADIUS;
-      ball.velY = 0;
+      ball.velY = Math.abs(ball.velY) > 0.5 ? -ball.velY * BOUNCE : 0;
     } else {
       player.position.y = newY;
     }

@@ -5,9 +5,8 @@ export const PIN_POSITIONS: [number, number][] = [
 ];
 
 export const BALL_RADIUS = 0.65;
-export const PIN_RADIUS = 0.25;    // cylinder radius
-export const PIN_HEIGHT = 1.8;     // cylinder height
-export const PIN_HIT_RADIUS = 0.25;
+export const PIN_RADIUS = 0.32;    // log radius — chunkier than a bowling pin
+export const PIN_HEIGHT = 1.1;     // log height — short and stocky
 export const BOUNDS = 25;
 
 export const FRICTION = 2.2;    // deceleration (units/s²) when not dragging

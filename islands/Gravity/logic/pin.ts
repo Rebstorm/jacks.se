@@ -6,7 +6,7 @@ import type { PinState } from "./types.ts";
 
 export function createPinMeshes(scene: Scene, positions: [number, number][]): Mesh[] {
   const mat = new CellMaterial("pinMat", scene);
-  mat.diffuseColor = new Color3(0.9, 0.15, 0.15);
+  mat.diffuseColor = new Color3(0.58, 0.38, 0.18); // warm wood brown — matches ramps
   mat.computeHighLevel = true;
 
   return positions.map(([x, z], i) => {

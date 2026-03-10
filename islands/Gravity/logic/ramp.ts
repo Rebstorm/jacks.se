@@ -1,19 +1,21 @@
-import { Color3, Mesh, MeshBuilder, VertexData } from "@babylonjs/core";
+import { Color3, Mesh, VertexData } from "@babylonjs/core";
 import type { Scene } from "@babylonjs/core";
 import { CellMaterial } from "@babylonjs/materials";
 
 export interface RampData {
-  zCenter: number;   // world-Z centre of the ramp
-  halfDepth: number; // half-extent in Z (the "width" of the ramp)
-  xStart: number;    // x where the ramp foot meets the ground (approach side)
-  xEnd: number;      // x where the ramp peaks and the ball launches
-  height: number;    // height at xEnd
+  zCenter: number;
+  halfDepth: number;
+  xStart: number;
+  xEnd: number;
+  height: number;
+  /** false (default): peak at xEnd, rises in +X.  true: peak at xStart, falls in +X. */
+  reversed: boolean;
 }
 
 export function buildRamp(
   x: number,
   z: number,
-  opts?: { length?: number; depth?: number; height?: number },
+  opts?: { length?: number; depth?: number; height?: number; reversed?: boolean },
 ): RampData {
   return {
     xStart: x,
@@ -21,42 +23,51 @@ export function buildRamp(
     zCenter: z,
     halfDepth: opts?.depth ?? 2.5,
     height: opts?.height ?? 2.2,
+    reversed: opts?.reversed ?? false,
   };
 }
 
+/**
+ * Signed slope for velY: positive = rises in +X, negative = falls in +X.
+ */
 export function getRampSlope(ramp: RampData): number {
-  return ramp.height / (ramp.xEnd - ramp.xStart);
+  const s = ramp.height / (ramp.xEnd - ramp.xStart);
+  return ramp.reversed ? -s : s;
 }
 
 /**
- * Returns the ramp surface height at world position (x, z) for a given ramp.
- * Returns 0 if the position is outside the ramp footprint.
+ * Returns the ramp surface height at world position (x, z).
+ * Returns 0 if outside the ramp footprint.
  */
 export function getRampHeight(x: number, z: number, ramp: RampData): number {
   if (Math.abs(z - ramp.zCenter) > ramp.halfDepth) return 0;
   if (x < ramp.xStart || x > ramp.xEnd) return 0;
   const t = (x - ramp.xStart) / (ramp.xEnd - ramp.xStart);
-  return t * ramp.height;
+  return (ramp.reversed ? 1 - t : t) * ramp.height;
 }
 
 function createRampMesh(scene: Scene, ramp: RampData, index: number): void {
-  const { zCenter, halfDepth, xStart, xEnd, height } = ramp;
+  const { zCenter, halfDepth, xStart, xEnd, height, reversed } = ramp;
   const d = halfDepth;
 
-  // Triangular prism (wedge) — ramp faces right (+X direction).
-  // Vertices: 0=foot-front, 1=foot-back, 2=base-front, 3=base-back, 4=peak-front, 5=peak-back
+  // For a reversed ramp the foot (height=0) is at xEnd and the peak is at xStart.
+  const xFoot = reversed ? xEnd : xStart;
+  const xPeak = reversed ? xStart : xEnd;
+
+  // Triangular prism — same topology for both orientations.
+  // 0=foot-front  1=foot-back  2=base-front  3=base-back  4=peak-front  5=peak-back
   const positions = [
-    xStart, 0,      zCenter - d, // 0
-    xStart, 0,      zCenter + d, // 1
-    xEnd,   0,      zCenter - d, // 2
-    xEnd,   0,      zCenter + d, // 3
-    xEnd,   height, zCenter - d, // 4
-    xEnd,   height, zCenter + d, // 5
+    xFoot, 0,      zCenter - d,
+    xFoot, 0,      zCenter + d,
+    xPeak, 0,      zCenter - d,
+    xPeak, 0,      zCenter + d,
+    xPeak, height, zCenter - d,
+    xPeak, height, zCenter + d,
   ];
   const indices = [
     0, 3, 2,  0, 1, 3, // bottom
     0, 4, 1,  1, 4, 5, // slope
-    2, 4, 3,  3, 4, 5, // right wall
+    2, 4, 3,  3, 4, 5, // peak wall
     0, 2, 4,            // front triangle
     1, 5, 3,            // back triangle
   ];

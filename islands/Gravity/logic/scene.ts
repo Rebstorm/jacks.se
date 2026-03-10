@@ -15,7 +15,8 @@ import {
 } from "@babylonjs/core";
 import { CellMaterial } from "@babylonjs/materials";
 import { BALL_RADIUS, BOUNDS } from "./constants.ts";
-import { PIN_POSITIONS, RAMPS } from "./obstacles.ts";
+import { BUMPS, PIN_POSITIONS, RAMPS } from "./obstacles.ts";
+import { createBumpMeshes } from "./bump.ts";
 import { createRampMeshes } from "./ramp.ts";
 import { createPinMeshes } from "./pin.ts";
 
@@ -91,21 +92,23 @@ export function createGround(scene: Scene) {
     scene,
   );
 
+  // Mosaic of slightly varied greens — no grid lines.
+  // The CellMaterial posterizes the lighting on top, giving the toon/cell look.
   const texSize = 512;
-  const tiles = 20;
-  const tileSize = texSize / tiles;
+  const patchSize = 24;
+  const shades = ["#3d7a1a", "#4a8f28", "#528c24", "#426e1c", "#4e9426", "#3f8020"];
 
   const tex = new DynamicTexture("groundTex", { width: texSize, height: texSize }, scene);
   const ctx = tex.getContext();
 
-  ctx.fillStyle = "#4a8f28";
-  ctx.fillRect(0, 0, texSize, texSize);
-
-  ctx.strokeStyle = "#3a7020";
-  ctx.lineWidth = 2;
-  for (let i = 0; i <= texSize; i += tileSize) {
-    ctx.beginPath(); ctx.moveTo(i, 0); ctx.lineTo(i, texSize); ctx.stroke();
-    ctx.beginPath(); ctx.moveTo(0, i); ctx.lineTo(texSize, i); ctx.stroke();
+  for (let y = 0; y < texSize; y += patchSize) {
+    for (let x = 0; x < texSize; x += patchSize) {
+      const ix = (x / patchSize) | 0;
+      const iy = (y / patchSize) | 0;
+      const idx = ((ix * 7 + iy * 13 + ix * iy * 3) % shades.length + shades.length) % shades.length;
+      ctx.fillStyle = shades[idx];
+      ctx.fillRect(x, y, patchSize, patchSize);
+    }
   }
   tex.update();
 
@@ -128,7 +131,7 @@ export function createPlayer(scene: Scene) {
   const tex = new DynamicTexture("marbleTex", { width: S, height: S }, scene);
   const ctx = tex.getContext() as unknown as CanvasRenderingContext2D;
 
-  ctx.fillStyle = "#0c1540";
+  ctx.fillStyle = "#ede8df";
   ctx.fillRect(0, 0, S, S);
 
   const vein = (
@@ -150,17 +153,19 @@ export function createPlayer(scene: Scene) {
     ctx.restore();
   };
 
-  vein(0, 220, 140, 40,  370, 460, 512, 300, "#a8d8ff", 22, 0.55);
-  vein(60, 0,  200, 140, 310, 370, 440, 512, "#ffffff", 14, 0.45);
-  vein(0, 420, 160, 480, 350, 80,  512, 100, "#c0e4ff", 10, 0.60);
-  vein(0,  90,  180, 20,  330, 490, 512, 390, "#5599ee", 6, 0.80);
-  vein(100, 0,  160, 200, 340, 290, 510, 512, "#6688cc", 4, 0.60);
-  vein(0,  340, 100, 380, 410, 100, 512, 200, "#88aadd", 5, 0.50);
-  vein(0, 480, 150, 500, 360, 10,  512, 50,  "#f0c840", 4, 0.40);
+  // Broad gray veins — classic Carrara style
+  vein(0, 220, 140, 40,  370, 460, 512, 300, "#9a9090", 18, 0.45);
+  vein(60, 0,  200, 140, 310, 370, 440, 512, "#b0a8a0", 12, 0.35);
+  vein(0, 420, 160, 480, 350, 80,  512, 100, "#888080",  9, 0.50);
+  // Fine dark veins
+  vein(0,  90,  180, 20,  330, 490, 512, 390, "#7a7272",  5, 0.65);
+  vein(100, 0,  160, 200, 340, 290, 510, 512, "#8090a0",  3, 0.40);
+  vein(0,  340, 100, 380, 410, 100, 512, 200, "#706868",  4, 0.45);
+  vein(0, 480, 150, 500, 360, 10,  512, 50,  "#c0b8b0",  3, 0.30);
 
-  const glow = ctx.createRadialGradient(190, 160, 8, 190, 160, 130);
-  glow.addColorStop(0,   "rgba(255,255,255,0.38)");
-  glow.addColorStop(0.4, "rgba(180,210,255,0.15)");
+  const glow = ctx.createRadialGradient(190, 160, 8, 190, 160, 160);
+  glow.addColorStop(0,   "rgba(255,255,255,0.50)");
+  glow.addColorStop(0.4, "rgba(240,235,228,0.20)");
   glow.addColorStop(1,   "rgba(255,255,255,0)");
   ctx.fillStyle = glow;
   ctx.fillRect(0, 0, S, S);
@@ -170,7 +175,7 @@ export function createPlayer(scene: Scene) {
   const mat = new StandardMaterial("marbleMat", scene);
   mat.diffuseTexture = tex;
   mat.specularColor = new Color3(1, 1, 1);
-  mat.specularPower = 220;
+  mat.specularPower = 280;
 
   mat.refractionFresnelParameters = new FresnelParameters();
   mat.refractionFresnelParameters.leftColor  = Color3.White();
@@ -178,7 +183,7 @@ export function createPlayer(scene: Scene) {
   mat.refractionFresnelParameters.power = 3;
   mat.refractionFresnelParameters.bias  = 0.1;
 
-  mat.emissiveColor = new Color3(0.04, 0.06, 0.18);
+  mat.emissiveColor = new Color3(0.08, 0.07, 0.06);
 
   player.material = mat;
   return player;
@@ -186,5 +191,6 @@ export function createPlayer(scene: Scene) {
 
 export function createObstacles(scene: Scene): Mesh[] {
   createRampMeshes(scene, RAMPS);
+  createBumpMeshes(scene, BUMPS);
   return createPinMeshes(scene, PIN_POSITIONS);
 }

@@ -1,5 +1,7 @@
 import type { AbstractMesh } from "@babylonjs/core";
 import { BALL_RADIUS, PIN_HEIGHT, PIN_RADIUS } from "./constants.ts";
+import type { BumpData } from "./bump.ts";
+import { getBumpHeight } from "./bump.ts";
 import type { RampData } from "./ramp.ts";
 import type { BallState, PinState } from "./types.ts";
 
@@ -8,7 +10,7 @@ function resolveOneRampCollision(
   player: AbstractMesh,
   ramp: RampData,
 ) {
-  const { zCenter, halfDepth, xStart, xEnd, height } = ramp;
+  const { zCenter, halfDepth, xStart, xEnd, height, reversed } = ramp;
   const bx = player.position.x;
   const by = player.position.y;
   const bz = player.position.z;
@@ -16,21 +18,20 @@ function resolveOneRampCollision(
   const zFront = zCenter - halfDepth;
   const zBack  = zCenter + halfDepth;
 
-  // Height of the triangular side face at a given x (0 outside the ramp footprint)
+  // Height of the triangular side face at a given x (accounts for orientation)
   const faceH = (x: number) => {
     if (x < xStart || x > xEnd) return 0;
-    return ((x - xStart) / (xEnd - xStart)) * height;
+    const t = (x - xStart) / (xEnd - xStart);
+    return (reversed ? 1 - t : t) * height;
   };
 
-  // ── Front face (z = zFront): ball approaching from the -Z side ──────────
+  // ── Front / back side faces ──────────────────────────────────────────────
   if (bz > zFront - BALL_RADIUS && bz < zFront + BALL_RADIUS &&
       bx >= xStart && bx <= xEnd &&
       by < faceH(bx) + BALL_RADIUS) {
     player.position.z = zFront - BALL_RADIUS;
     if (ball.velZ > 0) ball.velZ *= -0.55;
   }
-
-  // ── Back face (z = zBack): ball approaching from the +Z side ───────────
   if (bz > zBack - BALL_RADIUS && bz < zBack + BALL_RADIUS &&
       bx >= xStart && bx <= xEnd &&
       by < faceH(bx) + BALL_RADIUS) {
@@ -38,15 +39,63 @@ function resolveOneRampCollision(
     if (ball.velZ < 0) ball.velZ *= -0.55;
   }
 
-  // ── Right wall (x = xEnd): block approach from the right ────────────────
-  // Allow the ball to launch off the peak (velX > 0), only block inbound.
-  if (bx > xEnd - BALL_RADIUS && bx < xEnd + BALL_RADIUS &&
-      bz >= zFront && bz <= zBack &&
-      by < height + BALL_RADIUS &&
-      ball.velX < 0) {
-    player.position.x = xEnd + BALL_RADIUS;
-    ball.velX *= -0.55;
+  if (!reversed) {
+    // ── Right wall at xEnd: block ball entering from the right ──────────────
+    if (bx > xEnd - BALL_RADIUS && bx < xEnd + BALL_RADIUS &&
+        bz >= zFront && bz <= zBack &&
+        by < height + BALL_RADIUS &&
+        ball.velX < 0) {
+      player.position.x = xEnd + BALL_RADIUS;
+      ball.velX *= -0.55;
+    }
+  } else {
+    // ── Left wall at xStart (peak of reversed ramp) ─────────────────────────
+    // Only block balls clearly below the peak — not a ball transitioning from
+    // an adjacent ramp that is already at peak height.
+    if (bx > xStart - BALL_RADIUS && bx < xStart + BALL_RADIUS &&
+        bz >= zFront && bz <= zBack &&
+        by < height - BALL_RADIUS &&
+        ball.velX > 0) {
+      player.position.x = xStart - BALL_RADIUS;
+      ball.velX *= -0.55;
+    }
   }
+}
+
+function resolveOneBumpCollision(
+  ball: BallState,
+  player: AbstractMesh,
+  bump: BumpData,
+) {
+  const { zCenter, halfDepth, xStart, xEnd } = bump;
+  const bx = player.position.x;
+  const by = player.position.y;
+  const bz = player.position.z;
+  const zFront = zCenter - halfDepth;
+  const zBack  = zCenter + halfDepth;
+
+  const faceH = (x: number) => getBumpHeight(x, zCenter, bump);
+
+  if (bz > zFront - BALL_RADIUS && bz < zFront + BALL_RADIUS &&
+      bx >= xStart && bx <= xEnd &&
+      by < faceH(bx) + BALL_RADIUS) {
+    player.position.z = zFront - BALL_RADIUS;
+    if (ball.velZ > 0) ball.velZ *= -0.55;
+  }
+  if (bz > zBack - BALL_RADIUS && bz < zBack + BALL_RADIUS &&
+      bx >= xStart && bx <= xEnd &&
+      by < faceH(bx) + BALL_RADIUS) {
+    player.position.z = zBack + BALL_RADIUS;
+    if (ball.velZ < 0) ball.velZ *= -0.55;
+  }
+}
+
+export function resolveBumpCollision(
+  ball: BallState,
+  player: AbstractMesh,
+  bumps: BumpData[],
+) {
+  for (const bump of bumps) resolveOneBumpCollision(ball, player, bump);
 }
 
 /**
