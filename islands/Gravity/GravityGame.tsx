@@ -10,9 +10,10 @@ import {
   createScene,
   createSkybox,
 } from "./logic/scene.ts";
-import { BUMPS, RAMPS } from "./logic/obstacles.ts";
+import { BUMPS, RAMPS, WALLS } from "./logic/obstacles.ts";
 import { clampSpeed, updateBall } from "./logic/ball.ts";
 import { resolveBumpCollision, resolveCollision, resolveRampCollision } from "./logic/collision.ts";
+import { resolveWallCollisions } from "./logic/wall.ts";
 import { initPins, updatePin } from "./logic/pin.ts";
 import {
   applyDragVelocity,
@@ -78,6 +79,7 @@ const GravityGame: FunctionalComponent = () => {
         );
         clampSpeed(ball);
         updateBall(ball, player, dt, isDragging.current, RAMPS, BUMPS);
+        resolveWallCollisions(ball, player, WALLS);
         resolveRampCollision(ball, player, RAMPS);
         resolveBumpCollision(ball, player, BUMPS);
         for (const pin of pins) {

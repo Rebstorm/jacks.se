@@ -2,34 +2,81 @@ import { buildBump } from "./bump.ts";
 import type { BumpData } from "./bump.ts";
 import { buildRamp } from "./ramp.ts";
 import type { RampData } from "./ramp.ts";
+import { buildWall } from "./wall.ts";
+import type { WallData } from "./wall.ts";
 
-/**
- * Row 1 (z≈0, going +X): ramp into pins
- * Row 2 (z≈+9, above on screen): bump
- *
- * buildRamp(xFoot, zCenter, opts?)  — default length=6, depth=2.5, height=2.2
- * buildBump(xStart, zCenter, opts?) — default length=8, depth=2.5, height=2.0
- */
-export const RAMPS: RampData[] = [
-  buildRamp(15, 8, { length: 5 }),  // right of bump, top row
+// ─────────────────────────────────────────────────────────────────────────────
+//  COURSE MAP  —  edit this file to design the level
+//
+//  Coordinate system (top-down view):
+//
+//            y = +25  (top of world)
+//                 │
+//    x = -25 ─────┼───── x = +25
+//                 │
+//            y = -25  (bottom of world)
+//
+//  Ball starts at (x=0, y=0).
+//  y maps to z in 3D space.
+//
+//  Helpers:
+//    wall(x, y, { width, depth, height? })     — solid box obstacle
+//    ramp(x, y, { length?, height?, depth? })  — slope rising in +x direction
+//    bump(x, y, { length?, height?, depth? })  — symmetric hill, peak at mid-x
+//    pin (x, y)                                — knockable pin (target)
+//
+//  ramp/bump x = left edge,  y = center line
+// ─────────────────────────────────────────────────────────────────────────────
+
+const wall = buildWall;
+const ramp = buildRamp;
+const bump = buildBump;
+const pin = (x: number, y: number): [number, number] => [x, y];
+
+// ── WALLS ────────────────────────────────────────────────────────────────────
+
+export const WALLS: WallData[] = [
+  // Corridor walls — funnel ball through the middle section (y = 1 → 13)
+  wall(-9,  7, { width: 1, depth: 12 }),   // left wall
+  wall( 9,  7, { width: 1, depth: 12 }),   // right wall
+
+  // Chicane 1 (y ≈ 4) — wall from the right, gap on the left
+  wall( 3,  4, { width: 10, depth: 1.5 }),
+
+  // Chicane 2 (y ≈ 9) — wall from the left, gap on the right
+  wall(-3,  9, { width: 10, depth: 1.5 }),
 ];
+
+// ── RAMPS ────────────────────────────────────────────────────────────────────
+
+export const RAMPS: RampData[] = [
+  // Launch ramp at top of corridor — rolls ball up before the goal area
+  ramp(10, -5, { length: 5, height: 2 }),
+];
+
+// ── BUMPS ────────────────────────────────────────────────────────────────────
 
 export const BUMPS: BumpData[] = [
-  buildBump(3, 8, { length: 10, height: 2 }),  // top of screen
+  // Barrier below start — deflects ball sideways
+  bump(-4, -15, { length: 8, height: 2 }),
+  bump(5, -15, { length: 16, height: 2 }),
+
+  // Bump near the goal — last obstacle before pins
+  bump(-3, 18, { length: 6, height: 1.5 }),
 ];
 
-/**
- * Pin positions [x, z].
- * Row 1a — bowling triangle, lower on screen
- * Row 1b — cluster after the ramp, top row
- */
-export const PIN_POSITIONS: [number, number][] = [
-  // Row 1a: bowling triangle — lower
-  [3,   -6  ],
-  [4.5, -6.9], [4.5, -5.1],
-  [6,   -7.8], [6,   -6  ], [6,   -4.2],
+// ── PINS  [x, y] ─────────────────────────────────────────────────────────────
 
-  // Row 1b: cluster after the ramp — top row, right side
-  [22,   6  ], [22,   8  ], [22,  10  ],
-  [23.5, 7  ], [23.5, 9  ],
+export const PIN_POSITIONS: [number, number][] = [
+  // Bowling triangle — just below start
+  pin( 0,  -4),
+  pin(-1.5, -5.5), pin(1.5, -5.5),
+  pin(-3,   -7  ), pin(0,   -7  ), pin(3,  -7),
+
+  // Scattered pins past the ramp
+  pin(-6, 15), pin(0, 16), pin(6, 15),
+
+  // Goal cluster at the top
+  pin(-3, 21), pin(0, 21.5), pin(3, 21),
+  pin(-1.5, 23), pin(1.5, 23),
 ];

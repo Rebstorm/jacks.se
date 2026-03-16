@@ -15,10 +15,11 @@ import {
 } from "@babylonjs/core";
 import { CellMaterial } from "@babylonjs/materials";
 import { BALL_RADIUS, BOUNDS } from "./constants.ts";
-import { BUMPS, PIN_POSITIONS, RAMPS } from "./obstacles.ts";
+import { BUMPS, PIN_POSITIONS, RAMPS, WALLS } from "./obstacles.ts";
 import { createBumpMeshes } from "./bump.ts";
 import { createRampMeshes } from "./ramp.ts";
 import { createPinMeshes } from "./pin.ts";
+import { createWallMeshes } from "./wall.ts";
 
 export function createScene(canvas: HTMLCanvasElement) {
   const engine = new Engine(canvas, true, {
@@ -190,6 +191,7 @@ export function createPlayer(scene: Scene) {
 }
 
 export function createObstacles(scene: Scene): Mesh[] {
+  createWallMeshes(scene, WALLS);
   createRampMeshes(scene, RAMPS);
   createBumpMeshes(scene, BUMPS);
   return createPinMeshes(scene, PIN_POSITIONS);
