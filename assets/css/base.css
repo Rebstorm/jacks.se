@@ -1,5 +1,6 @@
 /* Light Theme */
 :root {
+    /* Color */
     --background-color: #f6f8fa;
     --background-contrast: #18202c;
     --primary-color: #0366d6;
@@ -8,11 +9,43 @@
     --primary-text: #1c1f23;
     --secondary-text: #0366d6;
     --tertiary-text: #959da5;
+
+    /* Flavor (gradient trio — type-only, never solid fills) */
     --flavor-1: #f06;
     --flavor-2: #9f6;
     --flavor-3: #f0a;
+
+    /* Sizing primitives */
     --norm: 1rem;
     --border: 0.2rem;
+
+    /* Type */
+    --font-sans: 'Nunito', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+    --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    --fs-base: 18px;
+    --fs-h1: calc(var(--norm) * 2);
+    --fs-h2: 1.5rem;
+    --fs-h3: 1.17rem;
+    --fs-small: 0.875rem;
+    --fw-regular: 400;
+    --fw-bold: 700;
+    --lh-base: 1.55;
+
+    /* Spacing scale (multiples of --norm) */
+    --sp-1: calc(var(--norm) * 0.25);
+    --sp-2: calc(var(--norm) * 0.5);
+    --sp-3: var(--norm);
+    --sp-4: calc(var(--norm) * 1.5);
+    --sp-5: calc(var(--norm) * 2);
+    --sp-6: calc(var(--norm) * 3);
+    --sp-8: calc(var(--norm) * 4);
+    --sp-12: calc(var(--norm) * 12);
+
+    /* Layout */
+    --container-max: calc(var(--norm) * 70);
+    --radius-sm: var(--border);
+    --radius-md: 0.5rem;
+    --radius-lg: 2rem;
 }
 
 @font-face {
@@ -34,10 +67,11 @@ body, html {
     margin: 0;
     background-color: var(--background-color);
     color: var(--primary-text);
-    font-size: 18px;
+    font-size: var(--fs-base);
     font-weight: 300;
+    line-height: var(--lh-base);
     overflow-x: hidden;
-    font-family: 'Nunito', sans-serif;
+    font-family: var(--font-sans);
     display: flex;
     flex-direction: column;
     word-wrap: break-word;
@@ -46,8 +80,9 @@ body, html {
 
 pre {
     background: var(--secondary-color);
-    border-radius: 2rem;
-    padding: 1rem;
+    border-radius: var(--radius-lg);
+    padding: var(--sp-3);
+    font-family: var(--font-mono);
 }
 
 
@@ -57,7 +92,22 @@ img {
 }
 
 h1 {
-    font-size: calc(2 * var(--norm));
+    font-size: var(--fs-h1);
+    font-weight: var(--fw-bold);
+}
+
+h2 {
+    font-size: var(--fs-h2);
+    font-weight: var(--fw-bold);
+}
+
+h3 {
+    font-size: var(--fs-h3);
+    font-weight: var(--fw-bold);
+}
+
+b, strong {
+    font-weight: var(--fw-bold);
 }
 
 .skip-link {
@@ -171,7 +221,7 @@ b {
     flex-direction: column;
     align-self: center;
     padding: 0.2rem;
-    max-width: calc(var(--norm) * 70);
+    max-width: var(--container-max);
     width: 100vw;
     z-index: 2;
 }
