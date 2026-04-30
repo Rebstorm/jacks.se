@@ -16,7 +16,7 @@
     "prismjs": "npm:prismjs@1.29.0",
 
     "canvas-confetti": "npm:canvas-confetti@^1.9.4",
-    "@babylonjs/core": "npm:@babylonjs/core@^7.0.0",
+    "@babylonjs/core": "npm:@babylonjs/core@^9.0.0",
     "@babylonjs/havok": "npm:@babylonjs/havok@^1.3.0",
     "@babylonjs/materials": "npm:@babylonjs/materials@^7.0.0",
 
