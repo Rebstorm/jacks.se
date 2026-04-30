@@ -13,7 +13,7 @@
     "$std/": "https://deno.land/std@0.198.0/",
 
     "@deno/gfm": "jsr:@deno/gfm@^0.10.0",
-    "prismjs": "npm:prismjs@1.29.0",
+    "prismjs": "npm:prismjs@1.30.0",
 
     "canvas-confetti": "npm:canvas-confetti@^1.9.4",
     "@babylonjs/core": "npm:@babylonjs/core@^7.0.0",

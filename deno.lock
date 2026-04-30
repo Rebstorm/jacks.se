@@ -52,8 +52,8 @@
     "npm:preact-render-to-string@^6.6.3": "6.6.4_preact@10.28.1",
     "npm:preact@^10.27.0": "10.28.1",
     "npm:preact@^10.27.2": "10.28.1",
-    "npm:prismjs@1.29.0": "1.29.0",
-    "npm:prismjs@^1.29.0": "1.29.0",
+    "npm:prismjs@1.30.0": "1.30.0",
+    "npm:prismjs@^1.29.0": "1.30.0",
     "npm:rollup@^4.50.0": "4.54.0",
     "npm:sanitize-html@^2.13.0": "2.17.0",
     "npm:vite@^7.1.3": "7.3.0_picomatch@4.0.3",
@@ -1272,8 +1272,8 @@
     "preact@10.28.1": {
       "integrity": "sha512-u1/ixq/lVQI0CakKNvLDEcW5zfCjUQfZdK9qqWuIJtsezuyG6pk9TWj75GMuI/EzRSZB/VAE43sNWWZfiy8psw=="
     },
-    "prismjs@1.29.0": {
-      "integrity": "sha512-Kx/1w86q/epKcmte75LNrEoT+lX8pBpavuAbvJWRXar7Hz8jrtF+e3vY751p0R8H9HdArwaCTNDDzHg/ScJK1Q=="
+    "prismjs@1.30.0": {
+      "integrity": "sha512-DEvV2ZF2r2/63V+tK8hQvrR2ZGn10srHbXviTlcv7Kpzw8jWiNTqbVgjO3IY8RxrrOUF8VPMQQFysYYYv0YZxw=="
     },
     "rollup@4.54.0": {
       "integrity": "sha512-3nk8Y3a9Ea8szgKhinMlGMhGMw89mqule3KWczxhIzqudyHdCIOHw8WJlj/r329fACjKLEh13ZSk7oE22kyeIw==",
@@ -1371,7 +1371,7 @@
       "npm:@preact/signals@^2.5.0",
       "npm:canvas-confetti@^1.9.4",
       "npm:preact@^10.27.2",
-      "npm:prismjs@1.29.0",
+      "npm:prismjs@1.30.0",
       "npm:vite@^7.1.3"
     ]
   }
