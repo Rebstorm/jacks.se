@@ -32,7 +32,7 @@
     "npm:@babel/preset-react@^7.27.1": "7.28.5_@babel+core@7.28.5",
     "npm:@babylonjs/core@7": "7.54.3",
     "npm:@babylonjs/havok@^1.3.0": "1.3.11",
-    "npm:@babylonjs/materials@7": "7.54.3_@babylonjs+core@7.54.3",
+    "npm:@babylonjs/materials@9": "9.5.0_@babylonjs+core@7.54.3",
     "npm:@mjackson/node-fetch-server@0.7": "0.7.0",
     "npm:@opentelemetry/api@^1.9.0": "1.9.0",
     "npm:@preact/signals@^2.2.1": "2.5.1_preact@10.28.1",
@@ -385,8 +385,8 @@
         "@types/emscripten"
       ]
     },
-    "@babylonjs/materials@7.54.3_@babylonjs+core@7.54.3": {
-      "integrity": "sha512-WYqvpX6+iR0/h/X0SaoFZH2hD1nDIzu9Qo86/yEK8R+whhShgpkJ9VDdTE1yYNBxf5azFoUrxWcMy3OXNn3Z3w==",
+    "@babylonjs/materials@9.5.0_@babylonjs+core@7.54.3": {
+      "integrity": "sha512-zKXs5UBqMGhDcpGhlIKvOuMPd77Pm6myAv0xEi0d7UL4dGk0u86bs4dQO2kqXGstf3bwzR3fNvljAuhOrDYflg==",
       "dependencies": [
         "@babylonjs/core"
       ]
@@ -1367,7 +1367,7 @@
       "jsr:@fresh/plugin-vite@^1.0.8",
       "npm:@babylonjs/core@7",
       "npm:@babylonjs/havok@^1.3.0",
-      "npm:@babylonjs/materials@7",
+      "npm:@babylonjs/materials@9",
       "npm:@preact/signals@^2.5.0",
       "npm:canvas-confetti@^1.9.4",
       "npm:preact@^10.27.2",
