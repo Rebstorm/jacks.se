@@ -1,6 +1,6 @@
 import { HandlerContext, PageProps } from "fresh";
 import BatteryRush from "../../islands/BatteryRush/index.tsx";
-import { asset, Head } from "fresh/runtime";
+import { Head } from "fresh/runtime";
 import {
   getHighscore,
   HighscoreUser,
@@ -11,12 +11,6 @@ export default function Home(props: PageProps<HighscoreUser[]>) {
   return (
     <div className={"center"}>
       <Head>
-        <link rel="preload" href={asset("/css/flappy.css")} as="style" />
-        <link rel="stylesheet" href={asset("/css/flappy.css")} />
-
-        <link rel="preload" href={asset("/css/battery-rush.css")} as="style" />
-        <link rel="stylesheet" href={asset("/css/battery-rush.css")} />
-
         <title>Battery Rush | {TITLE}</title>
       </Head>
       <BatteryRush />

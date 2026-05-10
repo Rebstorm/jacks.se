@@ -34,15 +34,16 @@ export default define.page(function Home(props: PageProps<PaginatedPost>) {
         🍋 to build modern web apps in my free time.
       </Paragraph>
 
-      <Paragraph>
-      </Paragraph>
-
       <H2>Latest Blog Articles</H2>
-      {props.data.posts.map((availablePosts: Post) => (
-        <div>
-          <a href={`blog/${availablePosts.slug}`}>
-            📄 {availablePosts.title}
+      {props.data.posts.map((post: Post) => (
+        <div class="blog-list-item">
+          <a class="blog-title" href={`blog/${post.slug}`}>
+            {post.title}
           </a>
+          <div class="blog-meta">
+            <time>{post.publishedAt.toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}</time>
+          </div>
+          {post.snippet && <p class="blog-snippet">{post.snippet}</p>}
         </div>
       ))}
     </>
