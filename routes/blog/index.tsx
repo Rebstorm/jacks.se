@@ -47,6 +47,6 @@ export const handler = {
     const page = pageParam ? parseInt(pageParam) : 0;
 
     const posts = await getPosts({ onlyMetaData: true, page });
-    return { data: posts};
+    return { data: posts };
   },
 };

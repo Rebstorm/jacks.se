@@ -1,10 +1,18 @@
 import { Color3, MeshBuilder, Quaternion, Vector3 } from "@babylonjs/core";
 import type { Mesh, Scene } from "@babylonjs/core";
 import { CellMaterial } from "@babylonjs/materials";
-import { PIN_GRAVITY, PIN_HEIGHT, PIN_RADIUS, PIN_SLIDE_FRICTION } from "./constants.ts";
+import {
+  PIN_GRAVITY,
+  PIN_HEIGHT,
+  PIN_RADIUS,
+  PIN_SLIDE_FRICTION,
+} from "./constants.ts";
 import type { PinState } from "./types.ts";
 
-export function createPinMeshes(scene: Scene, positions: [number, number][]): Mesh[] {
+export function createPinMeshes(
+  scene: Scene,
+  positions: [number, number][],
+): Mesh[] {
   const mat = new CellMaterial("pinMat", scene);
   mat.diffuseColor = new Color3(0.58, 0.38, 0.18); // warm wood brown — matches ramps
   mat.computeHighLevel = true;

@@ -16,7 +16,7 @@ function resolveOneRampCollision(
   const bz = player.position.z;
 
   const zFront = zCenter - halfDepth;
-  const zBack  = zCenter + halfDepth;
+  const zBack = zCenter + halfDepth;
 
   // Height of the triangular side face at a given x (accounts for orientation)
   const faceH = (x: number) => {
@@ -26,25 +26,31 @@ function resolveOneRampCollision(
   };
 
   // ── Front / back side faces ──────────────────────────────────────────────
-  if (bz > zFront - BALL_RADIUS && bz < zFront + BALL_RADIUS &&
-      bx >= xStart && bx <= xEnd &&
-      by < faceH(bx) + BALL_RADIUS) {
+  if (
+    bz > zFront - BALL_RADIUS && bz < zFront + BALL_RADIUS &&
+    bx >= xStart && bx <= xEnd &&
+    by < faceH(bx) + BALL_RADIUS
+  ) {
     player.position.z = zFront - BALL_RADIUS;
     if (ball.velZ > 0) ball.velZ *= -0.55;
   }
-  if (bz > zBack - BALL_RADIUS && bz < zBack + BALL_RADIUS &&
-      bx >= xStart && bx <= xEnd &&
-      by < faceH(bx) + BALL_RADIUS) {
+  if (
+    bz > zBack - BALL_RADIUS && bz < zBack + BALL_RADIUS &&
+    bx >= xStart && bx <= xEnd &&
+    by < faceH(bx) + BALL_RADIUS
+  ) {
     player.position.z = zBack + BALL_RADIUS;
     if (ball.velZ < 0) ball.velZ *= -0.55;
   }
 
   if (!reversed) {
     // ── Right wall at xEnd: block ball entering from the right ──────────────
-    if (bx > xEnd - BALL_RADIUS && bx < xEnd + BALL_RADIUS &&
-        bz >= zFront && bz <= zBack &&
-        by < height + BALL_RADIUS &&
-        ball.velX < 0) {
+    if (
+      bx > xEnd - BALL_RADIUS && bx < xEnd + BALL_RADIUS &&
+      bz >= zFront && bz <= zBack &&
+      by < height + BALL_RADIUS &&
+      ball.velX < 0
+    ) {
       player.position.x = xEnd + BALL_RADIUS;
       ball.velX *= -0.55;
     }
@@ -52,10 +58,12 @@ function resolveOneRampCollision(
     // ── Left wall at xStart (peak of reversed ramp) ─────────────────────────
     // Only block balls clearly below the peak — not a ball transitioning from
     // an adjacent ramp that is already at peak height.
-    if (bx > xStart - BALL_RADIUS && bx < xStart + BALL_RADIUS &&
-        bz >= zFront && bz <= zBack &&
-        by < height - BALL_RADIUS &&
-        ball.velX > 0) {
+    if (
+      bx > xStart - BALL_RADIUS && bx < xStart + BALL_RADIUS &&
+      bz >= zFront && bz <= zBack &&
+      by < height - BALL_RADIUS &&
+      ball.velX > 0
+    ) {
       player.position.x = xStart - BALL_RADIUS;
       ball.velX *= -0.55;
     }
@@ -72,19 +80,23 @@ function resolveOneBumpCollision(
   const by = player.position.y;
   const bz = player.position.z;
   const zFront = zCenter - halfDepth;
-  const zBack  = zCenter + halfDepth;
+  const zBack = zCenter + halfDepth;
 
   const faceH = (x: number) => getBumpHeight(x, zCenter, bump);
 
-  if (bz > zFront - BALL_RADIUS && bz < zFront + BALL_RADIUS &&
-      bx >= xStart && bx <= xEnd &&
-      by < faceH(bx) + BALL_RADIUS) {
+  if (
+    bz > zFront - BALL_RADIUS && bz < zFront + BALL_RADIUS &&
+    bx >= xStart && bx <= xEnd &&
+    by < faceH(bx) + BALL_RADIUS
+  ) {
     player.position.z = zFront - BALL_RADIUS;
     if (ball.velZ > 0) ball.velZ *= -0.55;
   }
-  if (bz > zBack - BALL_RADIUS && bz < zBack + BALL_RADIUS &&
-      bx >= xStart && bx <= xEnd &&
-      by < faceH(bx) + BALL_RADIUS) {
+  if (
+    bz > zBack - BALL_RADIUS && bz < zBack + BALL_RADIUS &&
+    bx >= xStart && bx <= xEnd &&
+    by < faceH(bx) + BALL_RADIUS
+  ) {
     player.position.z = zBack + BALL_RADIUS;
     if (ball.velZ < 0) ball.velZ *= -0.55;
   }
@@ -148,15 +160,27 @@ export function resolveCollision(
   if (pin.angle >= Math.PI / 2) {
     // ── Fallen pin: capsule collision, pin can slide away ──────────────────
     // Skip if ball is airborne above the lying cylinder
-    if (player.position.y - BALL_RADIUS > pin.mesh.position.y + PIN_RADIUS) return;
+    if (player.position.y - BALL_RADIUS > pin.mesh.position.y + PIN_RADIUS) {
+      return;
+    }
 
     // Capsule axis = fallDir (sin(PI/2) = 1). Find closest point on segment.
     const halfLen = PIN_HEIGHT / 2;
     const t = Math.max(
       -halfLen,
-      Math.min(halfLen, (player.position.x - px) * pin.fallDirX + (player.position.z - pz) * pin.fallDirZ),
+      Math.min(
+        halfLen,
+        (player.position.x - px) * pin.fallDirX +
+          (player.position.z - pz) * pin.fallDirZ,
+      ),
     );
-    const hit = pushOut(ball, player, px + pin.fallDirX * t, pz + pin.fallDirZ * t, minDist);
+    const hit = pushOut(
+      ball,
+      player,
+      px + pin.fallDirX * t,
+      pz + pin.fallDirZ * t,
+      minDist,
+    );
     if (hit && hit.relVel < 0) {
       const { nx, nz, relVel } = hit;
       ball.velX -= nx * relVel * 1.3;

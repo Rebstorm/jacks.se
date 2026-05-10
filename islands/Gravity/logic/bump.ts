@@ -39,9 +39,7 @@ export function getBumpHeight(x: number, z: number, bump: BumpData): number {
 export function getBumpSlope(x: number, bump: BumpData): number {
   const xMid = (bump.xStart + bump.xEnd) / 2;
   const halfLen = xMid - bump.xStart;
-  return x <= xMid
-    ? bump.height / halfLen
-    : -(bump.height / halfLen);
+  return x <= xMid ? bump.height / halfLen : -(bump.height / halfLen);
 }
 
 export function getActiveBump(
@@ -66,23 +64,69 @@ function createBumpMesh(scene: Scene, bump: BumpData, index: number): void {
   // 4: right foot front  5: right foot back
   // 6: bottom-mid front  7: bottom-mid back
   const positions = [
-    xStart, 0,      zCenter - d, // 0
-    xStart, 0,      zCenter + d, // 1
-    xMid,   height, zCenter - d, // 2
-    xMid,   height, zCenter + d, // 3
-    xEnd,   0,      zCenter - d, // 4
-    xEnd,   0,      zCenter + d, // 5
-    xMid,   0,      zCenter - d, // 6
-    xMid,   0,      zCenter + d, // 7
+    xStart,
+    0,
+    zCenter - d, // 0
+    xStart,
+    0,
+    zCenter + d, // 1
+    xMid,
+    height,
+    zCenter - d, // 2
+    xMid,
+    height,
+    zCenter + d, // 3
+    xEnd,
+    0,
+    zCenter - d, // 4
+    xEnd,
+    0,
+    zCenter + d, // 5
+    xMid,
+    0,
+    zCenter - d, // 6
+    xMid,
+    0,
+    zCenter + d, // 7
   ];
 
   const indices = [
-    0, 2, 1,  1, 2, 3, // left slope
-    2, 4, 3,  3, 4, 5, // right slope
-    0, 6, 1,  1, 6, 7, // left bottom
-    6, 4, 7,  7, 4, 5, // right bottom
-    0, 2, 6,  6, 2, 4, // front triangular face
-    1, 7, 3,  7, 5, 3, // back triangular face
+    0,
+    2,
+    1,
+    1,
+    2,
+    3, // left slope
+    2,
+    4,
+    3,
+    3,
+    4,
+    5, // right slope
+    0,
+    6,
+    1,
+    1,
+    6,
+    7, // left bottom
+    6,
+    4,
+    7,
+    7,
+    4,
+    5, // right bottom
+    0,
+    2,
+    6,
+    6,
+    2,
+    4, // front triangular face
+    1,
+    7,
+    3,
+    7,
+    5,
+    3, // back triangular face
   ];
 
   const normals: number[] = [];

@@ -97,16 +97,28 @@ export function createGround(scene: Scene) {
   // The CellMaterial posterizes the lighting on top, giving the toon/cell look.
   const texSize = 512;
   const patchSize = 24;
-  const shades = ["#3d7a1a", "#4a8f28", "#528c24", "#426e1c", "#4e9426", "#3f8020"];
+  const shades = [
+    "#3d7a1a",
+    "#4a8f28",
+    "#528c24",
+    "#426e1c",
+    "#4e9426",
+    "#3f8020",
+  ];
 
-  const tex = new DynamicTexture("groundTex", { width: texSize, height: texSize }, scene);
+  const tex = new DynamicTexture("groundTex", {
+    width: texSize,
+    height: texSize,
+  }, scene);
   const ctx = tex.getContext();
 
   for (let y = 0; y < texSize; y += patchSize) {
     for (let x = 0; x < texSize; x += patchSize) {
       const ix = (x / patchSize) | 0;
       const iy = (y / patchSize) | 0;
-      const idx = ((ix * 7 + iy * 13 + ix * iy * 3) % shades.length + shades.length) % shades.length;
+      const idx =
+        ((ix * 7 + iy * 13 + ix * iy * 3) % shades.length + shades.length) %
+        shades.length;
       ctx.fillStyle = shades[idx];
       ctx.fillRect(x, y, patchSize, patchSize);
     }
@@ -136,11 +148,17 @@ export function createPlayer(scene: Scene) {
   ctx.fillRect(0, 0, S, S);
 
   const vein = (
-    x0: number, y0: number,
-    cx0: number, cy0: number,
-    cx1: number, cy1: number,
-    x1: number, y1: number,
-    color: string, width: number, alpha: number,
+    x0: number,
+    y0: number,
+    cx0: number,
+    cy0: number,
+    cx1: number,
+    cy1: number,
+    x1: number,
+    y1: number,
+    color: string,
+    width: number,
+    alpha: number,
   ) => {
     ctx.save();
     ctx.globalAlpha = alpha;
@@ -155,19 +173,19 @@ export function createPlayer(scene: Scene) {
   };
 
   // Broad gray veins — classic Carrara style
-  vein(0, 220, 140, 40,  370, 460, 512, 300, "#9a9090", 18, 0.45);
-  vein(60, 0,  200, 140, 310, 370, 440, 512, "#b0a8a0", 12, 0.35);
-  vein(0, 420, 160, 480, 350, 80,  512, 100, "#888080",  9, 0.50);
+  vein(0, 220, 140, 40, 370, 460, 512, 300, "#9a9090", 18, 0.45);
+  vein(60, 0, 200, 140, 310, 370, 440, 512, "#b0a8a0", 12, 0.35);
+  vein(0, 420, 160, 480, 350, 80, 512, 100, "#888080", 9, 0.50);
   // Fine dark veins
-  vein(0,  90,  180, 20,  330, 490, 512, 390, "#7a7272",  5, 0.65);
-  vein(100, 0,  160, 200, 340, 290, 510, 512, "#8090a0",  3, 0.40);
-  vein(0,  340, 100, 380, 410, 100, 512, 200, "#706868",  4, 0.45);
-  vein(0, 480, 150, 500, 360, 10,  512, 50,  "#c0b8b0",  3, 0.30);
+  vein(0, 90, 180, 20, 330, 490, 512, 390, "#7a7272", 5, 0.65);
+  vein(100, 0, 160, 200, 340, 290, 510, 512, "#8090a0", 3, 0.40);
+  vein(0, 340, 100, 380, 410, 100, 512, 200, "#706868", 4, 0.45);
+  vein(0, 480, 150, 500, 360, 10, 512, 50, "#c0b8b0", 3, 0.30);
 
   const glow = ctx.createRadialGradient(190, 160, 8, 190, 160, 160);
-  glow.addColorStop(0,   "rgba(255,255,255,0.50)");
+  glow.addColorStop(0, "rgba(255,255,255,0.50)");
   glow.addColorStop(0.4, "rgba(240,235,228,0.20)");
-  glow.addColorStop(1,   "rgba(255,255,255,0)");
+  glow.addColorStop(1, "rgba(255,255,255,0)");
   ctx.fillStyle = glow;
   ctx.fillRect(0, 0, S, S);
 
@@ -179,10 +197,10 @@ export function createPlayer(scene: Scene) {
   mat.specularPower = 280;
 
   mat.refractionFresnelParameters = new FresnelParameters();
-  mat.refractionFresnelParameters.leftColor  = Color3.White();
+  mat.refractionFresnelParameters.leftColor = Color3.White();
   mat.refractionFresnelParameters.rightColor = Color3.Black();
   mat.refractionFresnelParameters.power = 3;
-  mat.refractionFresnelParameters.bias  = 0.1;
+  mat.refractionFresnelParameters.bias = 0.1;
 
   mat.emissiveColor = new Color3(0.08, 0.07, 0.06);
 

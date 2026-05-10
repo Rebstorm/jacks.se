@@ -49,11 +49,9 @@ export default define.page(function Home(props: PageProps<PaginatedPost>) {
   );
 });
 
-
 export const handler: Handlers = {
-    async GET(ctx: HandlerContext) {
-
-        const posts = await getPosts({ onlyMetaData: true });
-        return { data: posts}
-    },
+  async GET(ctx: HandlerContext) {
+    const posts = await getPosts({ onlyMetaData: true });
+    return { data: posts };
+  },
 };

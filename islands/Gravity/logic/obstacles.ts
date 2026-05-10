@@ -37,14 +37,14 @@ const pin = (x: number, y: number): [number, number] => [x, y];
 
 export const WALLS: WallData[] = [
   // Corridor walls — funnel ball through the middle section (y = 1 → 13)
-  wall(-9,  7, { width: 1, depth: 12 }),   // left wall
-  wall( 9,  7, { width: 1, depth: 12 }),   // right wall
+  wall(-9, 7, { width: 1, depth: 12 }), // left wall
+  wall(9, 7, { width: 1, depth: 12 }), // right wall
 
   // Chicane 1 (y ≈ 4) — wall from the right, gap on the left
-  wall( 3,  4, { width: 10, depth: 1.5 }),
+  wall(3, 4, { width: 10, depth: 1.5 }),
 
   // Chicane 2 (y ≈ 9) — wall from the left, gap on the right
-  wall(-3,  9, { width: 10, depth: 1.5 }),
+  wall(-3, 9, { width: 10, depth: 1.5 }),
 ];
 
 // ── RAMPS ────────────────────────────────────────────────────────────────────
@@ -69,14 +69,22 @@ export const BUMPS: BumpData[] = [
 
 export const PIN_POSITIONS: [number, number][] = [
   // Bowling triangle — just below start
-  pin( 0,  -4),
-  pin(-1.5, -5.5), pin(1.5, -5.5),
-  pin(-3,   -7  ), pin(0,   -7  ), pin(3,  -7),
+  pin(0, -4),
+  pin(-1.5, -5.5),
+  pin(1.5, -5.5),
+  pin(-3, -7),
+  pin(0, -7),
+  pin(3, -7),
 
   // Scattered pins past the ramp
-  pin(-6, 15), pin(0, 16), pin(6, 15),
+  pin(-6, 15),
+  pin(0, 16),
+  pin(6, 15),
 
   // Goal cluster at the top
-  pin(-3, 21), pin(0, 21.5), pin(3, 21),
-  pin(-1.5, 23), pin(1.5, 23),
+  pin(-3, 21),
+  pin(0, 21.5),
+  pin(3, 21),
+  pin(-1.5, 23),
+  pin(1.5, 23),
 ];

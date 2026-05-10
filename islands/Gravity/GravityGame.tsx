@@ -12,7 +12,11 @@ import {
 } from "./logic/scene.ts";
 import { BUMPS, RAMPS, WALLS } from "./logic/obstacles.ts";
 import { clampSpeed, updateBall } from "./logic/ball.ts";
-import { resolveBumpCollision, resolveCollision, resolveRampCollision } from "./logic/collision.ts";
+import {
+  resolveBumpCollision,
+  resolveCollision,
+  resolveRampCollision,
+} from "./logic/collision.ts";
 import { resolveWallCollisions } from "./logic/wall.ts";
 import { initPins, updatePin } from "./logic/pin.ts";
 import {
@@ -126,7 +130,9 @@ const GravityGame: FunctionalComponent = () => {
         ref={canvasRef}
         class="gravity-canvas"
         style={{
-          display: gameState === "idle" || gameState === "won" ? "none" : "block",
+          display: gameState === "idle" || gameState === "won"
+            ? "none"
+            : "block",
         }}
       />
       {gameState !== "playing" && (

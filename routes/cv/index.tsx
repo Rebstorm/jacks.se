@@ -37,13 +37,16 @@ export default function CV(props: PageProps) {
           src={asset("../../companies/sap.svg")}
           alt={"sap"}
         />
-        <h3>Lead Developer, SAP, Walldorf/s-Hertogenbosch, Germany/Netherlands (Remote)</h3>
+        <h3>
+          Lead Developer, SAP, Walldorf/s-Hertogenbosch, Germany/Netherlands
+          (Remote)
+        </h3>
         <p>September 2025 - Present</p>
         <ul>
           <li>
             Leading a small team inside of the BTP Trials Automation platform,
-            creating and maintaining a solution which allows end users to try out
-            several parts of the SAP software for free.
+            creating and maintaining a solution which allows end users to try
+            out several parts of the SAP software for free.
           </li>
           <li>
             Responsible for leading and developing the platform, grooming
@@ -74,8 +77,8 @@ export default function CV(props: PageProps) {
           <li>
             Guided and implemented technical and architectural decisions to
             ensure the sustainability and functionality of Tibber's platforms.
-            This included strategic planning and architectural reviews to support
-            scalable and efficient system designs.
+            This included strategic planning and architectural reviews to
+            support scalable and efficient system designs.
           </li>
           <li>
             Led a team of 8 software developers in establishing and maintaining
@@ -285,9 +288,9 @@ export default function CV(props: PageProps) {
           >
             As an active organizer of Softwerkskammer Cologne
           </a>, which I run with friends and former colleagues, we've recently
-          reached a significant milestone of 1800 members. I'm currently
-          engaged in delivering talks on topics like Deno, Island Architecture
-          &amp; Parallelism/Concurrency.
+          reached a significant milestone of 1800 members. I'm currently engaged
+          in delivering talks on topics like Deno, Island Architecture &amp;
+          Parallelism/Concurrency.
         </p>
       </section>
       <section className={"card"}>
@@ -301,8 +304,8 @@ export default function CV(props: PageProps) {
             target="_blank"
           >
             GitHub profile
-          </a>
-          {" "}showcases a wide range of contributions across different projects.
+          </a>{" "}
+          showcases a wide range of contributions across different projects.
         </p>
       </section>
       <section className={"card"}>

@@ -1,7 +1,7 @@
 import { define } from "../utils.ts";
-import {Partial} from "fresh/runtime";
+import { Partial } from "fresh/runtime";
 
-import {META_IMAGE, META_SITE, META_TYPE, TITLE} from "../constants/meta.ts";
+import { META_IMAGE, META_SITE, META_TYPE, TITLE } from "../constants/meta.ts";
 
 import Wave from "@/components/wave.tsx";
 import Header from "@/islands/Header.tsx";
@@ -53,8 +53,8 @@ export default define.page(
           <a href="#main-content" className="skip-link">Jump to content</a>
           <Wave />
           <div f-client-nav className={"portal"}>
-              <Header route={route} />
-              <section id="main-content" className={"container"}>
+            <Header route={route} />
+            <section id="main-content" className={"container"}>
               <Partial name="main">
                 <Component />
               </Partial>

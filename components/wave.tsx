@@ -9,7 +9,8 @@ export const Wave = () => {
         <path
           fill="var(--background-contrast)"
           d="M0,50 C500,-50 500,150 1000,50 C1500,-50 1500,150 2000,50 V100 H0 Z"
-        ></path>
+        >
+        </path>
       </svg>
     </div>
   );

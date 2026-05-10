@@ -15,7 +15,12 @@ export interface RampData {
 export function buildRamp(
   x: number,
   z: number,
-  opts?: { length?: number; depth?: number; height?: number; reversed?: boolean },
+  opts?: {
+    length?: number;
+    depth?: number;
+    height?: number;
+    reversed?: boolean;
+  },
 ): RampData {
   return {
     xStart: x,
@@ -57,19 +62,50 @@ function createRampMesh(scene: Scene, ramp: RampData, index: number): void {
   // Triangular prism — same topology for both orientations.
   // 0=foot-front  1=foot-back  2=base-front  3=base-back  4=peak-front  5=peak-back
   const positions = [
-    xFoot, 0,      zCenter - d,
-    xFoot, 0,      zCenter + d,
-    xPeak, 0,      zCenter - d,
-    xPeak, 0,      zCenter + d,
-    xPeak, height, zCenter - d,
-    xPeak, height, zCenter + d,
+    xFoot,
+    0,
+    zCenter - d,
+    xFoot,
+    0,
+    zCenter + d,
+    xPeak,
+    0,
+    zCenter - d,
+    xPeak,
+    0,
+    zCenter + d,
+    xPeak,
+    height,
+    zCenter - d,
+    xPeak,
+    height,
+    zCenter + d,
   ];
   const indices = [
-    0, 3, 2,  0, 1, 3, // bottom
-    0, 4, 1,  1, 4, 5, // slope
-    2, 4, 3,  3, 4, 5, // peak wall
-    0, 2, 4,            // front triangle
-    1, 5, 3,            // back triangle
+    0,
+    3,
+    2,
+    0,
+    1,
+    3, // bottom
+    0,
+    4,
+    1,
+    1,
+    4,
+    5, // slope
+    2,
+    4,
+    3,
+    3,
+    4,
+    5, // peak wall
+    0,
+    2,
+    4, // front triangle
+    1,
+    5,
+    3, // back triangle
   ];
   const normals: number[] = [];
   VertexData.ComputeNormals(positions, indices, normals);
