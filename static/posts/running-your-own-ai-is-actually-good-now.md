@@ -4,6 +4,8 @@ published_at: 2026-05-10T12:00:00.000Z
 snippet: "Open WebUI and Qwen changed what local AI actually feels like to use."
 ---
 
+<img alt="Happy Local AI machine" height="782" src="../blog-images/local-ai.webp" width="1563" />
+
 # Running Your Own AI Is Actually Good Now
 
 I've been running a local AI setup on my homelab for a while, and I'll be honest — for the longest time it felt like a fun experiment more than anything actually useful. The models were slow, the interfaces were janky, and half the time I'd just go back to whatever cloud service I was using anyway.
