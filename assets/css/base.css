@@ -406,6 +406,65 @@ b {
 }
 
 
+@media screen and (max-width: 640px) {
+    .nav {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        padding: 0;
+        background: var(--background-color);
+        border-top: 1px solid var(--secondary-color);
+        z-index: 1000;
+        justify-content: stretch;
+    }
+
+    .nav-inner {
+        display: flex;
+        width: 100%;
+        border-radius: 0;
+        padding: var(--sp-2) 0;
+        padding-bottom: calc(var(--sp-2) + env(safe-area-inset-bottom, 0px));
+        background: transparent;
+        gap: 0;
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+
+    .nav-inner > a {
+        flex: 1;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.3rem;
+        padding: var(--sp-1) var(--sp-2);
+        border-radius: 0;
+        gap: 2px;
+        white-space: nowrap;
+    }
+
+    .nav-inner > a > span {
+        font-size: 0.65rem;
+    }
+
+    .nav-inner > a.active {
+        background: transparent;
+        color: var(--accent-color);
+    }
+
+    .nav-inner > a:hover {
+        background: var(--secondary-color);
+        color: var(--background-contrast);
+    }
+
+    .container {
+        padding-top: calc(var(--norm) * 4);
+        padding-bottom: 5rem;
+        width: 95vw;
+    }
+}
+
 @media (prefers-color-scheme: dark) {
 
     :root {
