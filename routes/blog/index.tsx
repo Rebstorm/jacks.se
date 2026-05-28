@@ -1,6 +1,6 @@
 import { FreshContext, PageProps } from "fresh";
 import { getPosts, PaginatedPost, Post } from "../../server/post/post.ts";
-import { H1 } from "../../components/h1.tsx";
+import { H1 } from "@/components/h1.tsx";
 
 export default function BlogList(props: PageProps<PaginatedPost>) {
   return (

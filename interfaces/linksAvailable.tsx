@@ -1,5 +1,5 @@
 import { JSX } from "preact/jsx-runtime";
-import { GithubIcon } from "../components/github-icon.tsx";
+import { GithubIcon } from "@/components/github-icon.tsx";
 
 interface Link {
   path?: string;

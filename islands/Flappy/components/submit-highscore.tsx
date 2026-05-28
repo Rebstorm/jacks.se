@@ -2,7 +2,7 @@ import { FunctionalComponent } from "preact";
 import { FunInput } from "./fun-input.tsx";
 import { useState } from "preact/hooks";
 import { HighscoreUser } from "../../../server/highscore/highscore.ts";
-import { H2 } from "../../../components/h2.tsx";
+import { H2 } from "@/components/h2.tsx";
 
 interface SubmitHighscoreProps {
   score: number;

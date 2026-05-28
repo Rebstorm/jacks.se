@@ -1,5 +1,5 @@
 import { PageProps } from "fresh";
-import { H1 } from "../../components/h1.tsx";
+import { H1 } from "@/components/h1.tsx";
 import { asset } from "fresh/runtime";
 
 export default function CV(props: PageProps) {
@@ -19,6 +19,7 @@ export default function CV(props: PageProps) {
       <div className="cv-quick-links">
         <a href="https://github.com/rebstorm" target="_blank">GitHub</a>
         <a href="https://jacks.se/blog" target="_blank">Blog</a>
+        <a href="/paul-jacks-cv-2026.pdf" target="_blank">Download CV (PDF)</a>
       </div>
 
       <h2>Jump to</h2>

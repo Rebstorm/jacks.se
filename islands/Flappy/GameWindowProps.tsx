@@ -8,7 +8,7 @@ import {
 import { generateObstacles, Obstacle } from "./logic/obstacles.ts";
 import { drawObstacles, drawPlayer } from "./logic/draw.ts";
 import { checkCollisionAndUpdate } from "./logic/collision.ts";
-import { H2 } from "../../components/h2.tsx";
+import { H2 } from "@/components/h2.tsx";
 import { HighscoreUser } from "../../server/highscore/highscore.ts";
 import { SubmitHighscore } from "./components/submit-highscore.tsx";
 import { Instructions } from "./components/instructions.tsx";

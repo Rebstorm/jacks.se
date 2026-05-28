@@ -1,5 +1,5 @@
 import { PageProps } from "fresh";
-import { H1 } from "../../../components/h1.tsx";
+import { H1 } from "@/components/h1.tsx";
 import { asset } from "fresh/runtime";
 
 export default function CV(props: PageProps) {

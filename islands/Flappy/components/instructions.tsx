@@ -1,6 +1,6 @@
-import { H1 } from "../../../components/h1.tsx";
-import { H2 } from "../../../components/h2.tsx";
-import { Paragraph } from "../../../components/paragraph.tsx";
+import { H1 } from "@/components/h1.tsx";
+import { H2 } from "@/components/h2.tsx";
+import { Paragraph } from "@/components/paragraph.tsx";
 import { MouseClickIcon } from "./mouse-click-icon.tsx";
 import { SpaceClickIcon } from "./space-click-icon.tsx";
 

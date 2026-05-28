@@ -1,7 +1,7 @@
 import { PageProps } from "fresh";
-import { H1 } from "../components/h1.tsx";
-import { Paragraph } from "../components/paragraph.tsx";
-import { H2 } from "../components/h2.tsx";
+import { H1 } from "@/components/h1.tsx";
+import { Paragraph } from "@/components/paragraph.tsx";
+import { H2 } from "@/components/h2.tsx";
 
 export default function Info(props: PageProps) {
   return (

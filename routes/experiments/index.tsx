@@ -1,6 +1,6 @@
 import { PageProps } from "fresh";
 import { asset } from "fresh/runtime";
-import { H1 } from "../../components/h1.tsx";
+import { H1 } from "@/components/h1.tsx";
 
 export default function Info(props: PageProps) {
   return (
