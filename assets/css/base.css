@@ -318,6 +318,44 @@ b {
     justify-content: center;
 }
 
+.tagline {
+    margin: calc(var(--norm) * -0.5) 0 var(--sp-4) 0;
+    color: var(--tertiary-text);
+    font-size: var(--fs-small);
+    font-weight: var(--fw-bold);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+.cta-section {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-3);
+    margin: var(--sp-5) 0 var(--sp-6) 0;
+    flex-wrap: wrap;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: var(--sp-3) var(--sp-5);
+    background: var(--accent-color);
+    color: var(--background-color) !important;
+    font-weight: var(--fw-bold);
+    border-radius: var(--radius-lg);
+    transition: opacity 150ms ease, transform 150ms ease;
+}
+
+.cta-button:hover {
+    opacity: 0.85;
+    transform: translateY(-1px);
+}
+
+.cta-secondary {
+    font-weight: var(--fw-bold);
+    color: var(--secondary-text);
+    font-size: 1rem;
+}
+
 .gradient-text {
     font-weight: bold;
     position: relative;

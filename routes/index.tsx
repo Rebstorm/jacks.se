@@ -9,30 +9,25 @@ import { define } from "../utils.ts";
 export default define.page(function Home(props: PageProps<PaginatedPost>) {
   return (
     <>
-      <H1 gradientColor animate>Hello, I'm Paul. I code things.</H1>
+      <H1 gradientColor animate>Hi, I’m Paul Jacks.</H1>
+
+      <p class="tagline">Senior engineer · Team lead · Available for hire</p>
 
       <Paragraph>
-        A software dev with over 10+ years in a wide field of domains. Now
-        available for <a href={"mailto:paul@paul.wiki"}>projects.</a>
+        10+ years building web software across a wide range of domains. I
+        specialize in leading developer teams, architecting maintainable
+        systems, and shipping product that actually lasts.
       </Paragraph>
 
       <ConfettiParapgraph>
-        I’ve spent the last few years leading developer teams, crafting
-        solutions and refactoring complex problems to simple and maintainable
-        standards.
-        <br />
+        Most recently I’ve been heads-down on team leadership: mentoring
+        engineers, driving technical decisions, and making sure complexity
+        doesn’t compound over time.
       </ConfettiParapgraph>
 
-      <Paragraph>
-        I often hang out at the{" "}
-        <a href={"https://developer.mozilla.org/en-US/"}>
-          Mozilla Developer Network Documentation
-        </a>
-        📚, browse through <a href={"https://primer.style/"}>Primer</a>{" "}
-        🎨 for design inspiration, or explore{" "}
-        <a href={"https://fresh.deno.dev/"}>Fresh</a>{" "}
-        🍋 to build modern web apps in my free time.
-      </Paragraph>
+      <div class="cta-section">
+        <a href="mailto:paul@paul.wiki" class="cta-button">Get in touch</a>
+      </div>
 
       <H2>Latest Blog Articles</H2>
       {props.data.posts.map((post: Post) => (
