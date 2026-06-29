@@ -350,6 +350,36 @@ b {
     transform: translateY(-1px);
 }
 
+.cta-button--fun {
+    background: linear-gradient(135deg, #4073fa, #a040f0, #f06, #4073fa);
+    background-size: 300% 300%;
+    animation: ctaShimmer 4s ease infinite, ctaFloat 3s ease-in-out infinite;
+    box-shadow: 0 4px 18px rgba(64, 115, 250, 0.45);
+    transition: transform 150ms ease, box-shadow 150ms ease;
+}
+
+.cta-button--fun:hover {
+    opacity: 1;
+    transform: translateY(-3px) scale(1.06);
+    box-shadow: 0 8px 28px rgba(64, 115, 250, 0.65);
+    animation: ctaShimmer 1.5s ease infinite;
+}
+
+.cta-button--fun:active {
+    transform: scale(0.97);
+}
+
+@keyframes ctaShimmer {
+    0%   { background-position: 0% 50%; }
+    50%  { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes ctaFloat {
+    0%, 100% { transform: translateY(0); }
+    50%       { transform: translateY(-5px); }
+}
+
 .cta-secondary {
     font-weight: var(--fw-bold);
     color: var(--secondary-text);

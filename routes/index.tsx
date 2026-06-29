@@ -4,6 +4,7 @@ import { H1 } from "@/components/h1.tsx";
 import { H2 } from "@/components/h2.tsx";
 import { getPosts, PaginatedPost, Post } from "../server/post/post.ts";
 import ConfettiParapgraph from "@/islands/ConfettiParagraph/index.tsx";
+import CtaButton from "@/islands/CtaButton/index.tsx";
 import { define } from "../utils.ts";
 
 export default define.page(function Home(props: PageProps<PaginatedPost>) {
@@ -26,7 +27,7 @@ export default define.page(function Home(props: PageProps<PaginatedPost>) {
       </ConfettiParapgraph>
 
       <div class="cta-section">
-        <a href="mailto:paul@paul.wiki" class="cta-button">Get in touch</a>
+        <CtaButton />
       </div>
 
       <H2>Latest Blog Articles</H2>
