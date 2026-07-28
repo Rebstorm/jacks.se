@@ -37,7 +37,13 @@ export default define.page(function Home(props: PageProps<PaginatedPost>) {
             {post.title}
           </a>
           <div class="blog-meta">
-            <time>{post.publishedAt.toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}</time>
+            <time>
+              {post.publishedAt.toLocaleDateString("en-US", {
+                year: "numeric",
+                month: "long",
+                day: "numeric",
+              })}
+            </time>
           </div>
           {post.snippet && <p class="blog-snippet">{post.snippet}</p>}
         </div>

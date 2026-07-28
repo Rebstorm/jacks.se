@@ -4,7 +4,9 @@ let confettiMod: any = null;
 
 export default function CtaButton() {
   useEffect(() => {
-    import("canvas-confetti").then((mod) => { confettiMod = mod; });
+    import("canvas-confetti").then((mod) => {
+      confettiMod = mod;
+    });
   }, []);
 
   const handleClick = async () => {
@@ -38,7 +40,11 @@ export default function CtaButton() {
   };
 
   return (
-    <a href="mailto:paul@paul.wiki" class="cta-button cta-button--fun" onClick={handleClick}>
+    <a
+      href="mailto:paul@paul.wiki"
+      class="cta-button cta-button--fun"
+      onClick={handleClick}
+    >
       Get in touch
     </a>
   );
