@@ -63,6 +63,36 @@
 }
 
 
+::view-transition-old(root) {
+    animation: fade-out 0.15s cubic-bezier(0.4, 0, 1, 1) both;
+}
+
+::view-transition-new(root) {
+    animation: fade-in 0.28s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes fade-out {
+    to {
+        opacity: 0;
+        transform: translateY(-8px);
+    }
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    ::view-transition-group(*),
+    ::view-transition-old(*),
+    ::view-transition-new(*) {
+        animation: none !important;
+    }
+}
+
 body, html {
     margin: 0;
     background-color: var(--background-color);

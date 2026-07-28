@@ -52,7 +52,7 @@ export default define.page(
         <body>
           <a href="#main-content" className="skip-link">Jump to content</a>
           <Wave />
-          <div f-client-nav className={"portal"}>
+          <div f-client-nav f-view-transition className={"portal"}>
             <Header route={route} />
             <section id="main-content" className={"container"}>
               <Partial name="main">
