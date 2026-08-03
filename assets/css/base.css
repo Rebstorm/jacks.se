@@ -74,14 +74,12 @@
 @keyframes fade-out {
     to {
         opacity: 0;
-        transform: translateY(-8px);
     }
 }
 
 @keyframes fade-in {
     from {
         opacity: 0;
-        transform: translateY(10px);
     }
 }
 

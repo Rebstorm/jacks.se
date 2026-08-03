@@ -4,6 +4,7 @@ interface RustParagraphProps {
   children?: ComponentChildren;
 }
 
+// deno-lint-ignore no-explicit-any
 let confettiMod: any | null = null;
 
 const ConfettiParagraph: FunctionalComponent<RustParagraphProps> = (props) => {
