@@ -39,7 +39,7 @@
     "npm:@opentelemetry/api@^1.9.0": "1.9.1",
     "npm:@preact/signals@^2.5.1": "2.9.0_preact@10.29.1",
     "npm:@preact/signals@^2.9.0": "2.9.0_preact@10.29.1",
-    "npm:@prefresh/vite@^2.4.8": "2.4.12_preact@10.29.1_vite@8.2.0__esbuild@0.25.12_esbuild@0.25.12",
+    "npm:@prefresh/vite@^2.4.8": "2.4.12_preact@10.29.1_vite@8.2.1__esbuild@0.25.12_esbuild@0.25.12",
     "npm:canvas-confetti@^1.9.4": "1.9.4",
     "npm:esbuild-wasm@~0.25.11": "0.25.12",
     "npm:esbuild@0.25.7": "0.25.7",
@@ -58,7 +58,7 @@
     "npm:prismjs@^1.30.0": "1.30.0",
     "npm:rollup@^4.50.0": "4.60.3",
     "npm:sanitize-html@^2.17.0": "2.17.6",
-    "npm:vite@8.2.0": "8.2.0_esbuild@0.25.12",
+    "npm:vite@8.2.1": "8.2.1_esbuild@0.25.12",
     "npm:vite@^7.1.4": "7.3.6"
   },
   "jsr": {
@@ -889,7 +889,7 @@
     "@prefresh/utils@1.2.1": {
       "integrity": "sha512-vq/sIuN5nYfYzvyayXI4C2QkprfNaHUQ9ZX+3xLD8nL3rWyzpxOm1+K7RtMbhd+66QcaISViK7amjnheQ/4WZw=="
     },
-    "@prefresh/vite@2.4.12_preact@10.29.1_vite@8.2.0__esbuild@0.25.12_esbuild@0.25.12": {
+    "@prefresh/vite@2.4.12_preact@10.29.1_vite@8.2.1__esbuild@0.25.12_esbuild@0.25.12": {
       "integrity": "sha512-FY1fzXpUjiuosznMV0YM7XAOPZjB5FIdWS0W24+XnlxYkt9hNAwwsiKYn+cuTEoMtD/ZVazS5QVssBr9YhpCQA==",
       "dependencies": [
         "@babel/core",
@@ -898,7 +898,7 @@
         "@prefresh/utils",
         "@rollup/pluginutils",
         "preact",
-        "vite@8.2.0_esbuild@0.25.12"
+        "vite@8.2.1_esbuild@0.25.12"
       ]
     },
     "@rolldown/binding-android-arm64@1.2.1": {
@@ -1629,8 +1629,8 @@
       ],
       "bin": true
     },
-    "vite@8.2.0_esbuild@0.25.12": {
-      "integrity": "sha512-pn+CFpM0lwDeKwmOq1ZaBK/9sjorZcgqxki6MbY/jPEVd9vichIlmlD4HmQ5wdP5EgqQCFRaACBxMC7uEGc6lQ==",
+    "vite@8.2.1_esbuild@0.25.12": {
+      "integrity": "sha512-EU/eS7BH3XROHh2YnBefjM6DBKA6ZeMZEYQbj7NLWg5wHYlhB8B/Mayd5XsgWq+NFYccDOTemRpdETWR6Ka/lw==",
       "dependencies": [
         "esbuild@0.25.12",
         "lightningcss",
@@ -1663,7 +1663,7 @@
       "npm:canvas-confetti@^1.9.4",
       "npm:preact@^10.29.1",
       "npm:prismjs@1.30.0",
-      "npm:vite@8.2.0"
+      "npm:vite@8.2.1"
     ]
   }
 }
