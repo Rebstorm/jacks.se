@@ -15,6 +15,14 @@
     --flavor-2: #9f6;
     --flavor-3: #f0a;
 
+    /* Glassmorphism */
+    --glass-bg: rgba(255, 255, 255, 0.7);
+    --glass-bg-strong: rgba(255, 255, 255, 0.62);
+    --glass-border: rgba(255, 255, 255, 0.5);
+    --glass-shadow: rgba(31, 38, 135, 0.12);
+    --glass-blur: blur(20px) saturate(140%);
+    --glass-blur-strong: blur(28px) saturate(150%);
+
     /* Sizing primitives */
     --norm: 1rem;
     --border: 0.2rem;
@@ -94,6 +102,14 @@
 body, html {
     margin: 0;
     background-color: var(--background-color);
+    background-image:
+        radial-gradient(circle at 15% 15%, color-mix(in srgb, var(--flavor-1) 18%, transparent) 0%, transparent 40%),
+        radial-gradient(circle at 85% 10%, color-mix(in srgb, var(--accent-color) 20%, transparent) 0%, transparent 40%),
+        radial-gradient(circle at 20% 85%, color-mix(in srgb, var(--flavor-2) 16%, transparent) 0%, transparent 45%),
+        radial-gradient(circle at 90% 90%, color-mix(in srgb, var(--flavor-3) 16%, transparent) 0%, transparent 40%);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100vw 100vh;
     color: var(--primary-text);
     font-size: var(--fs-base);
     font-weight: 300;
@@ -107,7 +123,11 @@ body, html {
 }
 
 pre {
-    background: var(--secondary-color);
+    background: var(--glass-bg);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    border: 1px solid var(--glass-border);
+    box-shadow: 0 4px 16px var(--glass-shadow);
     border-radius: var(--radius-lg);
     padding: var(--sp-3);
     font-family: var(--font-mono);
@@ -173,7 +193,11 @@ b, strong {
 .nav-inner {
     display: flex;
     gap: var(--sp-1);
-    background: var(--secondary-color);
+    background: var(--glass-bg);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    border: 1px solid var(--glass-border);
+    box-shadow: 0 8px 32px var(--glass-shadow);
     border-radius: var(--radius-lg);
     padding: var(--sp-2);
     overflow-x: auto;
@@ -282,7 +306,11 @@ b {
 
 .pager-link {
     padding: calc(var(--norm) * 0.5) calc(var(--norm) * 1);
-    background-color: var(--secondary-color);
+    background: var(--glass-bg);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    border: 1px solid var(--glass-border);
+    box-shadow: 0 4px 14px var(--glass-shadow);
     border-radius: var(--border);
     color: var(--secondary-text);
     font-weight: 700;
@@ -320,12 +348,24 @@ b {
 
 
 .blog-list-item {
-    padding: var(--sp-4) 0;
-    border-bottom: 1px solid var(--secondary-color);
+    padding: var(--sp-4);
+    margin-bottom: var(--sp-3);
+    background: var(--glass-bg);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    border: 1px solid var(--glass-border);
+    box-shadow: 0 4px 20px var(--glass-shadow);
+    border-radius: var(--radius-md);
+    transition: transform 150ms ease, box-shadow 150ms ease;
+}
+
+.blog-list-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 28px var(--glass-shadow);
 }
 
 .blog-list-item:last-child {
-    border-bottom: none;
+    margin-bottom: 0;
 }
 
 .blog-meta {
@@ -341,9 +381,18 @@ b {
 }
 
 .footer {
-    margin-top: calc(var(--norm) * 2);
-    display: flex;
-    justify-content: center;
+    margin: calc(var(--norm) * 2) auto var(--sp-4) auto;
+    padding: var(--sp-2) var(--sp-5);
+    width: fit-content;
+    text-align: center;
+    background: var(--glass-bg);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    border: 1px solid var(--glass-border);
+    box-shadow: 0 4px 14px var(--glass-shadow);
+    border-radius: var(--radius-lg);
+    color: var(--tertiary-text);
+    font-size: var(--fs-small);
 }
 
 .tagline {
@@ -510,8 +559,11 @@ b {
         right: 0;
         width: 100%;
         padding: 0;
-        background: var(--background-color);
-        border-top: 1px solid var(--secondary-color);
+        background: var(--glass-bg-strong);
+        backdrop-filter: var(--glass-blur-strong);
+        -webkit-backdrop-filter: var(--glass-blur-strong);
+        border-top: 1px solid var(--glass-border);
+        box-shadow: 0 -4px 24px var(--glass-shadow);
         z-index: 1000;
         justify-content: stretch;
     }
@@ -572,11 +624,27 @@ b {
         --primary-text: #c9d1d9;
         --secondary-text: #8b949e;
         --tertiary-text: #6e7681;
+
+        --glass-bg: rgba(24, 32, 44, 0.65);
+        --glass-bg-strong: rgba(24, 32, 44, 0.55);
+        --glass-border: rgba(255, 255, 255, 0.1);
+        --glass-shadow: rgba(0, 0, 0, 0.35);
+    }
+}
+
+@media (prefers-reduced-transparency: reduce) {
+    body, html {
+        background-image: none;
     }
 
+    .nav-inner,
+    pre,
+    .pager-link,
+    .blog-list-item,
+    .footer,
     .nav {
-        box-shadow: none
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+        background: var(--secondary-color);
     }
-
-
 }
