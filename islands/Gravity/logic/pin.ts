@@ -1,6 +1,9 @@
-import { Color3, MeshBuilder, Quaternion, Vector3 } from "@babylonjs/core";
-import type { Mesh, Scene } from "@babylonjs/core";
-import { CellMaterial } from "@babylonjs/materials";
+import { Color3 } from "@babylonjs/core/Maths/math.color";
+import { MeshBuilder } from "@babylonjs/core/Meshes/meshBuilder";
+import { Quaternion, Vector3 } from "@babylonjs/core/Maths/math.vector";
+import type { Mesh } from "@babylonjs/core/Meshes/mesh";
+import type { Scene } from "@babylonjs/core/scene";
+import { CellMaterial } from "@babylonjs/materials/cell/cellMaterial";
 import {
   PIN_GRAVITY,
   PIN_HEIGHT,

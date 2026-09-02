@@ -1,19 +1,16 @@
-import {
-  ArcRotateCamera,
-  Color3,
-  Color4,
-  DirectionalLight,
-  DynamicTexture,
-  Engine,
-  FresnelParameters,
-  HemisphericLight,
-  Mesh,
-  MeshBuilder,
-  Scene,
-  StandardMaterial,
-  Vector3,
-} from "@babylonjs/core";
-import { CellMaterial } from "@babylonjs/materials";
+import { ArcRotateCamera } from "@babylonjs/core/Cameras/arcRotateCamera";
+import { Color3, Color4 } from "@babylonjs/core/Maths/math.color";
+import { DirectionalLight } from "@babylonjs/core/Lights/directionalLight";
+import { DynamicTexture } from "@babylonjs/core/Materials/Textures/dynamicTexture";
+import { Engine } from "@babylonjs/core/Engines/engine";
+import { FresnelParameters } from "@babylonjs/core/Materials/fresnelParameters";
+import { HemisphericLight } from "@babylonjs/core/Lights/hemisphericLight";
+import { Mesh } from "@babylonjs/core/Meshes/mesh";
+import { MeshBuilder } from "@babylonjs/core/Meshes/meshBuilder";
+import { Scene } from "@babylonjs/core/scene";
+import { StandardMaterial } from "@babylonjs/core/Materials/standardMaterial";
+import { Vector3 } from "@babylonjs/core/Maths/math.vector";
+import { CellMaterial } from "@babylonjs/materials/cell/cellMaterial";
 import { BALL_RADIUS, BOUNDS } from "./constants.ts";
 import { BUMPS, PIN_POSITIONS, RAMPS, WALLS } from "./obstacles.ts";
 import { createBumpMeshes } from "./bump.ts";

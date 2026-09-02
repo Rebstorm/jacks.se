@@ -1,4 +1,4 @@
-import type { AbstractMesh } from "@babylonjs/core";
+import type { AbstractMesh } from "@babylonjs/core/Meshes/abstractMesh";
 import { PIN_GRAVITY } from "./constants.ts";
 import type { BallState, PinState } from "./types.ts";
 import { resolveCollision } from "./collision.ts";

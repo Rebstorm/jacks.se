@@ -1,6 +1,8 @@
-import { Color3, Mesh, VertexData } from "@babylonjs/core";
-import type { Scene } from "@babylonjs/core";
-import { CellMaterial } from "@babylonjs/materials";
+import { Color3 } from "@babylonjs/core/Maths/math.color";
+import { Mesh } from "@babylonjs/core/Meshes/mesh";
+import { VertexData } from "@babylonjs/core/Meshes/mesh.vertexData";
+import type { Scene } from "@babylonjs/core/scene";
+import { CellMaterial } from "@babylonjs/materials/cell/cellMaterial";
 
 export interface RampData {
   zCenter: number;

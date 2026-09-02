@@ -1,4 +1,4 @@
-import type { AbstractMesh } from "@babylonjs/core";
+import type { AbstractMesh } from "@babylonjs/core/Meshes/abstractMesh";
 import { BALL_RADIUS, BOUNDS, FRICTION, MAX_SPEED } from "./constants.ts";
 import { getActiveBump, getBumpHeight, getBumpSlope } from "./bump.ts";
 import type { BumpData } from "./bump.ts";

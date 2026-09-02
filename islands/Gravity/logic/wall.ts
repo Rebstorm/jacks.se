@@ -1,9 +1,10 @@
-import { Color3, MeshBuilder } from "@babylonjs/core";
-import type { Scene } from "@babylonjs/core";
-import { CellMaterial } from "@babylonjs/materials";
+import { Color3 } from "@babylonjs/core/Maths/math.color";
+import { MeshBuilder } from "@babylonjs/core/Meshes/meshBuilder";
+import type { Scene } from "@babylonjs/core/scene";
+import { CellMaterial } from "@babylonjs/materials/cell/cellMaterial";
 import { BALL_RADIUS } from "./constants.ts";
 import type { BallState } from "./types.ts";
-import type { AbstractMesh } from "@babylonjs/core";
+import type { AbstractMesh } from "@babylonjs/core/Meshes/abstractMesh";
 
 export interface WallData {
   xMin: number;
