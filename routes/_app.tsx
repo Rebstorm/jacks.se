@@ -56,7 +56,9 @@ export default define.page(
             <Header route={route} />
             <section id="main-content" className={"container"}>
               <Partial name="main">
-                <Component />
+                <div key={route}>
+                  <Component />
+                </div>
               </Partial>
             </section>
           </div>
