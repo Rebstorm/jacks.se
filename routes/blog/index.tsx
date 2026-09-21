@@ -7,7 +7,7 @@ export default function BlogList(props: PageProps<PaginatedPost>) {
     <>
       <H1 gradientColor>Blog</H1>
       {props.data?.posts?.map((availablePosts: Post) => (
-        <div className={"blog-desc-container"}>
+        <div className={"blog-desc-container"} key={availablePosts.slug}>
           <a className={"blog-title"} href={`blog/${availablePosts.slug}`}>
             📄 {availablePosts.title}
           </a>

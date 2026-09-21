@@ -32,7 +32,7 @@ export default define.page(function Home(props: PageProps<PaginatedPost>) {
 
       <H2>Latest Blog Articles</H2>
       {props.data.posts.map((post: Post) => (
-        <div class="blog-list-item">
+        <div class="blog-list-item" key={post.slug}>
           <a class="blog-title" href={`blog/${post.slug}`}>
             {post.title}
           </a>
