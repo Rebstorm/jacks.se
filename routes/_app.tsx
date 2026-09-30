@@ -3,7 +3,7 @@ import { Partial } from "fresh/runtime";
 
 import { META_IMAGE, META_SITE, META_TYPE, TITLE } from "../constants/meta.ts";
 
-import Wave from "@/components/wave.tsx";
+import Wave from "@/islands/Wave/index.tsx";
 import Header from "@/islands/Header.tsx";
 import Footer from "@/islands/Footer.tsx";
 
