@@ -48,3 +48,9 @@
 .grid-item:nth-child(7) { animation-delay: 0.7s; }
 .grid-item:nth-child(8) { animation-delay: 0.8s; }
 .grid-item:nth-child(9) { animation-delay: 0.9s; }
+
+.grid-emoji {
+    font-size: 96px;
+    line-height: 128px;
+    text-decoration: none;
+}

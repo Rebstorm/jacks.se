@@ -22,6 +22,10 @@ export default function Info(props: PageProps) {
           </a>
           <a href="./experiments/gravity">Obstacle</a>
         </div>
+        <div className="grid-item">
+          <a href="./experiments/ascii-wave" class="grid-emoji">🌊</a>
+          <a href="./experiments/ascii-wave">ASCII Wave</a>
+        </div>
         {/*<div className={"grid-item"}>*/}
         {/*    <a href={"./experiments/battery-rush"}>*/}
         {/*        <img width={128} src={asset("./experiments/flappy/drone.png")}/>*/}

@@ -1,0 +1,26 @@
+pre.ascii-wave {
+    width: 100%;
+    margin: 0 0 var(--sp-5) 0;
+    padding: 0;
+    overflow: hidden;
+    font-family: var(--font-mono);
+    font-size: clamp(8px, 1.1vw, 13px);
+    line-height: 1.05;
+    letter-spacing: 0;
+    white-space: pre;
+    user-select: none;
+    cursor: crosshair;
+    /* Override the glass pill every other <pre> gets. */
+    background-color: transparent;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    pre.ascii-wave {
+        animation: none;
+    }
+}
