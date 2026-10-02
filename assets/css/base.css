@@ -572,8 +572,8 @@ b {
         display: flex;
         width: 100%;
         border-radius: 0;
-        padding: var(--sp-2) 0;
-        padding-bottom: calc(var(--sp-2) + env(safe-area-inset-bottom, 0px));
+        padding: var(--sp-1) 0;
+        padding-bottom: calc(var(--sp-1) + env(safe-area-inset-bottom, 0px));
         background: transparent;
         gap: 0;
         max-width: 100%;
